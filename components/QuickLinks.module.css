@@ -1,0 +1,16 @@
+.section {
+  margin-top: 1.5rem;
+}
+
+.heading {
+  font-size: 1rem;
+  font-weight: 800;
+  color: hsl(var(--foreground));
+  margin-bottom: 0.75rem;
+}
+
+.worshipList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}

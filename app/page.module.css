@@ -1,0 +1,16 @@
+.page {
+  min-height: 100vh;
+  background-color: hsl(var(--background));
+  max-width: 28rem;
+  margin: 0 auto;
+  position: relative;
+}
+
+.content {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.content > * {
+  width: 100%;
+}

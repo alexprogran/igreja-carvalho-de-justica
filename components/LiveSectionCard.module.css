@@ -1,0 +1,104 @@
+.card {
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.image {
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    hsl(var(--foreground) / 0.8),
+    hsl(var(--foreground) / 0.2),
+    transparent
+  );
+}
+
+.center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.playButton {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  background-color: hsl(var(--primary) / 0.8);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 150ms ease-in-out;
+}
+
+.playButton:hover {
+  background-color: hsl(var(--primary));
+}
+
+.playIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: hsl(var(--primary-foreground));
+  fill: hsl(var(--primary-foreground));
+  margin-left: 2px;
+}
+
+.content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+}
+
+.title {
+  color: hsl(var(--primary-foreground));
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+.subtitle {
+  color: hsl(var(--primary-foreground) / 0.7);
+  font-size: 0.75rem;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.actionButton {
+  border: none;
+  background: transparent;
+  color: hsl(var(--primary-foreground) / 0.8);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.actionButton:hover {
+  color: hsl(var(--primary-foreground));
+}
+
+.actionIcon {
+  width: 1rem;
+  height: 1rem;
+}
