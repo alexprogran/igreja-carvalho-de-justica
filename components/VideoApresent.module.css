@@ -1,0 +1,58 @@
+.section {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 9999;
+  background: rgba(4, 8, 16, 0.7);
+  backdrop-filter: blur(2px);
+}
+
+.card {
+  width: min(100%, 44rem);
+  border-radius: 1rem;
+  overflow: hidden;
+  background: linear-gradient(140deg, #101524 0%, #0a1f1e 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+}
+
+.header {
+  padding: 1rem 1rem 0.75rem;
+}
+
+.label {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.tema {
+  margin: 0.5rem 0 0.35rem;
+  font-size: 1.2rem;
+  line-height: 1.35;
+  color: #f8fafc;
+}
+
+.dataExib {
+  margin: 0;
+  font-size: 0.86rem;
+  color: rgba(248, 250, 252, 0.78);
+}
+
+.videoWrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
