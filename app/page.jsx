@@ -8,8 +8,9 @@ import styles from "./page.module.css";
 
 export default function Home() {
   const videoApresentData = {
-    tema: "Boas-vindas da Comunidade",
-    data_exib: "27 de abril de 2026",
+    intro: "",
+    tema: "Bem vindo à Carvalho de Justiça",
+    data_exib: "Este vídeo mudará a sua vida para sempre.",
     video: "https://www.w3schools.com/html/mov_bbb.mp4",
     capa: "/assets/devotion-bg.jpg",
   };
