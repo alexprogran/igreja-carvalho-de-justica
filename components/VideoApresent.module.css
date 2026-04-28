@@ -18,7 +18,7 @@
 }
 
 .card {
-  width: min(100%, 44rem);
+  width: min(100%, 24rem);
   border-radius: 1rem;
   overflow: hidden;
   background: linear-gradient(140deg, #101524 0%, #0a1f1e 100%);
@@ -53,8 +53,9 @@
 
 .videoWrapper {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 9 / 16;
   background: #000;
+  position: relative;
 }
 
 .video {
@@ -62,4 +63,93 @@
   height: 100%;
   display: block;
   object-fit: cover;
+}
+
+.topControls {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 3;
+}
+
+.iconButton {
+  width: 2.15rem;
+  height: 2.15rem;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.iconButton svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.actions {
+  position: absolute;
+  right: 0.6rem;
+  bottom: 6.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  z-index: 3;
+}
+
+.actionButton {
+  border: 0;
+  background: transparent;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  cursor: pointer;
+}
+
+.actionIcon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.45);
+  font-size: 1.05rem;
+}
+
+.actionIcon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.actionLabel {
+  font-size: 0.76rem;
+  font-weight: 600;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+.meta {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem 3.75rem 1rem 0.9rem;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.42) 35%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.meta .label,
+.meta .tema,
+.meta .dataExib {
+  color: #fff;
 }
