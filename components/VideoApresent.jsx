@@ -131,6 +131,16 @@ const VideoApresent = ({
     setPausado(false);
   };
 
+  const reproduzirAoClicarNaImagem = () => {
+    const videoEl = videoRef.current;
+
+    if (!videoEl || !videoEl.paused) {
+      return;
+    }
+
+    videoEl.play();
+  };
+
   if (!visivel) {
     return null;
   }
@@ -166,6 +176,7 @@ const VideoApresent = ({
             playsInline
             preload="metadata"
             poster={capaVideo}
+            onClick={reproduzirAoClicarNaImagem}
             onPlay={ativarAudioNoPlay}
             onPause={() => setPausado(true)}
             onEnded={() => {
