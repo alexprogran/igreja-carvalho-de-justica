@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  padding: 0;
   z-index: 9999;
   background: rgba(4, 8, 16, 0.7);
   backdrop-filter: blur(2px);
@@ -18,12 +18,13 @@
 }
 
 .card {
-  width: min(100%, 24rem);
-  border-radius: 1rem;
+  width: 100vw;
+  height: 100vh;
+  border-radius: 0;
   overflow: hidden;
-  background: linear-gradient(140deg, #101524 0%, #0a1f1e 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+  background: #000;
+  border: 0;
+  box-shadow: none;
 }
 
 .header {
@@ -53,7 +54,7 @@
 
 .videoWrapper {
   width: 100%;
-  aspect-ratio: 9 / 16;
+  height: 100%;
   background: #000;
   position: relative;
 }
@@ -65,18 +66,13 @@
   object-fit: cover;
 }
 
-.topControls {
+.playCenter {
   position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  display: flex;
-  gap: 0.5rem;
-  z-index: 3;
-}
-
-.iconButton {
-  width: 2.15rem;
-  height: 2.15rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 4rem;
+  height: 4rem;
   border: 0;
   border-radius: 999px;
   background: rgba(0, 0, 0, 0.55);
@@ -84,21 +80,26 @@
   display: grid;
   place-items: center;
   cursor: pointer;
-  font-size: 0.95rem;
+  z-index: 3;
+  transition: background 0.2s;
 }
 
-.iconButton svg {
-  width: 1.1rem;
-  height: 1.1rem;
+.playCenter:hover {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.playCenter svg {
+  width: 2rem;
+  height: 2rem;
 }
 
 .actions {
   position: absolute;
-  right: 0.6rem;
-  bottom: 6.25rem;
+  right: 0.7rem;
+  bottom: 7.5rem;
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
+  gap: 0.75rem;
   z-index: 3;
 }
 
@@ -114,23 +115,24 @@
 }
 
 .actionIcon {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.8rem;
+  height: 2.8rem;
   border-radius: 999px;
   display: grid;
   place-items: center;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(28, 31, 36, 0.5);
   font-size: 1.05rem;
 }
 
 .actionIcon svg {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 2rem;
+  height: 2rem;
 }
 
 .actionLabel {
-  font-size: 0.76rem;
+  font-size: 0.72rem;
   font-weight: 600;
+  letter-spacing: 0.01em;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
 }
 
