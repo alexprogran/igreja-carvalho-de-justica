@@ -140,10 +140,10 @@
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 0;
+  top: 0;
   padding: 1rem 3.75rem 1rem 0.9rem;
   background: linear-gradient(
-    to top,
+    to bottom,
     rgba(0, 0, 0, 0.7) 0%,
     rgba(0, 0, 0, 0.42) 35%,
     rgba(0, 0, 0, 0) 100%

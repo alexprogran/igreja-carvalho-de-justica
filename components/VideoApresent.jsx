@@ -3,6 +3,12 @@
 import { useRef, useState } from "react";
 import styles from "./VideoApresent.module.css";
 
+const PlayIcon = () => (
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M8 5v14l11-7z" fill="currentColor" />
+  </svg>
+);
+
 const PauseIcon = () => (
   <svg viewBox="0 0 24 24" aria-hidden="true">
     <path d="M7 5h3v14H7zM14 5h3v14h-3z" fill="currentColor" />
@@ -89,6 +95,7 @@ const VideoApresent = ({
   const [visivel, setVisivel] = useState(true);
   const [saindo, setSaindo] = useState(false);
   const [pausado, setPausado] = useState(true);
+  const [pausadoPeloUsuario, setPausadoPeloUsuario] = useState(false);
   const videoRef = useRef(null);
   const capaVideo = capa || poster || DEFAULT_VIDEO_APRESENT.capa;
 
@@ -102,9 +109,11 @@ const VideoApresent = ({
     if (videoEl.paused) {
       videoEl.play();
       setPausado(false);
+      setPausadoPeloUsuario(false);
       return;
     }
 
+    setPausadoPeloUsuario(true);
     videoEl.pause();
     setPausado(true);
   };
@@ -120,6 +129,7 @@ const VideoApresent = ({
     videoEl.defaultMuted = false;
     videoEl.volume = 1;
     setPausado(false);
+    setPausadoPeloUsuario(false);
   };
 
   const pausarAoClicarNaTela = () => {
@@ -129,6 +139,7 @@ const VideoApresent = ({
       return;
     }
 
+    setPausadoPeloUsuario(true);
     videoEl.pause();
   };
 
@@ -140,7 +151,18 @@ const VideoApresent = ({
     <section className={`${styles.section} ${saindo ? styles.saindo : ""}`}>
       <div className={styles.card}>
         <div className={styles.videoWrapper}>
-          {pausado && (
+          {pausado && !pausadoPeloUsuario && (
+            <button
+              type="button"
+              className={styles.playCenter}
+              onClick={alternarPausa}
+              aria-label="Reproduzir vídeo"
+            >
+              <PlayIcon />
+            </button>
+          )}
+
+          {pausado && pausadoPeloUsuario && (
             <button
               type="button"
               className={styles.playCenter}
@@ -160,7 +182,9 @@ const VideoApresent = ({
             poster={capaVideo}
             onClick={pausarAoClicarNaTela}
             onPlay={ativarAudioNoPlay}
-            onPause={() => setPausado(true)}
+            onPause={() => {
+              setPausado(true);
+            }}
             onEnded={() => {
               setSaindo(true);
               setTimeout(() => setVisivel(false), 700);
