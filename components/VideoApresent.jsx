@@ -18,14 +18,12 @@ const PauseIcon = () => (
 const LikeIcon = () => (
   <svg viewBox="0 0 24 24" aria-hidden="true">
     <path
-      d="M9 11V6.7c0-.86.3-1.7.86-2.36L10.5 3l.94.94c.36.36.56.84.56 1.35V11h5.77c.8 0 1.48.6 1.58 1.4.04.27.01.54-.07.79l-1.33 4.66a2 2 0 0 1-1.92 1.45H9"
+      d="M16.792 3.904A4.989 4.989 0 0 1 21.5 9.122c0 3.517-3.31 6.47-8.14 11.19-.8.77-2.02.77-2.82 0C5.81 15.592 2.5 12.64 2.5 9.122a4.989 4.989 0 0 1 4.708-5.218 4.21 4.21 0 0 1 3.536 1.072L12 6.01l1.256-1.034a4.21 4.21 0 0 1 3.536-1.072z"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.8"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
-    <path d="M4 11h3v8H4z" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
   </svg>
 );
 
@@ -35,10 +33,9 @@ const CommentIcon = () => (
       d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7A2.5 2.5 0 0 1 17.5 16H11l-4.5 4v-4H6.5A2.5 2.5 0 0 1 4 13.5z"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.8"
       strokeLinejoin="round"
     />
-    <path d="M8 8.5h8M8 11.5h5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+    <path d="M8 8.5h8M8 11.5h5" stroke="currentColor" strokeLinecap="round" />
   </svg>
 );
 
@@ -48,7 +45,6 @@ const ShareIcon = () => (
       d="M9 7.5v-2A1.5 1.5 0 0 1 10.5 4h9A1.5 1.5 0 0 1 21 5.5v9a1.5 1.5 0 0 1-1.5 1.5h-2"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.8"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
@@ -56,7 +52,6 @@ const ShareIcon = () => (
       d="M14 10 3 21m0 0h6.5M3 21v-6.5"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.8"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
@@ -69,10 +64,9 @@ const ViewIcon = () => (
       d="M12 5c-5 0-9.5 4.5-10.5 7 1 2.5 5.5 7 10.5 7s9.5-4.5 10.5-7C21.5 9.5 17 5 12 5z"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.8"
       strokeLinejoin="round"
     />
-    <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" strokeWidth="1.8" />
+    <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" />
   </svg>
 );
 
@@ -213,9 +207,9 @@ const VideoApresent = ({
             Seu navegador não suporta a reprodução de vídeos.
           </video>
 
-          <aside className={styles.actions} aria-label="Ações do vídeo">
+          <aside className={styles.actions}  aria-label="Ações do vídeo">
             <button type="button" className={styles.actionButton} aria-label="Curtir">
-              <span className={styles.actionIcon}>
+              <span className={styles.actionIcon}> 
                 <LikeIcon />
               </span>
               <span className={styles.actionLabel}>17K</span>
