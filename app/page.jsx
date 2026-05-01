@@ -9,7 +9,7 @@ import styles from "./page.module.css";
 export default function Home() {
   const videoApresentData = {
     intro: "",
-    tema: "Bem vindo à Carvalho de Justiça",
+    tema: "Igreja Carvalho de Justiça",
     data_exib: "Este vídeo mudará a sua vida para sempre.",
     video: "/video.mp4",
     capa: "/assets/devotion-bg.jpg",
