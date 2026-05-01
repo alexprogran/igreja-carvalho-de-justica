@@ -11,7 +11,7 @@ export default function Home() {
     intro: "",
     tema: "Bem vindo à Carvalho de Justiça",
     data_exib: "Este vídeo mudará a sua vida para sempre.",
-    video: "https://www.w3schools.com/html/mov_bbb.mp4",
+    video: "/video.mp4",
     capa: "/assets/devotion-bg.jpg",
   };
 

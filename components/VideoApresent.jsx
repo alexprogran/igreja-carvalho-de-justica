@@ -74,7 +74,7 @@ const DEFAULT_VIDEO_APRESENT = {
   intro: "",
   tema: "Apresentacao da Semana",
   data_exib: "27 de abril de 2026",
-  video: "https://www.w3schools.com/html/mov_bbb.mp4",
+  video: "/video.mp4",
   capa: "/assets/hero-service.jpg",
 };
 
