@@ -61,12 +61,12 @@ const ShareIcon = () => (
 const ViewIcon = () => (
   <svg viewBox="0 0 24 24" aria-hidden="true">
     <path
-      d="M12 5c-5 0-9.5 4.5-10.5 7 1 2.5 5.5 7 10.5 7s9.5-4.5 10.5-7C21.5 9.5 17 5 12 5z"
+      d="M4.5 6.5h15a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-15a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2z"
       fill="none"
       stroke="currentColor"
       strokeLinejoin="round"
     />
-    <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" />
+    <path d="M10 9.6v4.8l4-2.4z" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 
@@ -229,11 +229,11 @@ const VideoApresent = ({
               <span className={styles.actionLabel}>Compartilhar</span>
             </button>
 
-            <button type="button" className={styles.actionButton} aria-label="Visualizações">
+            <button type="button" className={styles.actionButton} aria-label="Visualizações">              
               <span className={styles.actionIcon}>
                 <ViewIcon />
               </span>
-              <span className={styles.actionLabel}>2M</span>
+              <span className={styles.actionLabel}>2000mil</span>              
             </button>
           </aside>
 

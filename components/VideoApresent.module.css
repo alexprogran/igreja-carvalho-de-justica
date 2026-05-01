@@ -49,12 +49,12 @@
   left: 50%;
   transform: translate(-50%, -50%);
   
-  width: clamp(3rem, 10vw, 4.5rem);
-  height: clamp(3rem, 10vw, 4.5rem);
+  width: clamp(4rem, 10vw, 5rem);
+  height: clamp(4rem, 10vw, 5rem);
 
   border: 0;
   border-radius: 999px;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.4);
   color: #fff;
   display: grid;
   place-items: center;
@@ -68,8 +68,8 @@
 }
 
 .playCenter svg {
-  width: clamp(1.5rem, 5vw, 2.2rem);
-  height: clamp(1.5rem, 5vw, 2.2rem);
+  width: clamp(1.5rem, 10vw, 2.2rem);
+  height: clamp(1.5rem, 10vw, 2.2rem);
 }
 
 .playCenterSuave {
@@ -138,8 +138,8 @@
 .actionIcon svg {
   /* width: clamp(1.4rem, 4vw, 2rem);
   height: clamp(1.4rem, 4vw, 2rem); */
-  width: clamp(1.3rem, 10vw, 1.95rem);
-  height: clamp(1.3rem, 10vw, 1.95rem);
+  width: clamp(1.3rem, 10vw, 2rem);
+  height: clamp(1.3rem, 10vw, 2rem);
 
 }
 
@@ -148,7 +148,7 @@
 }
 
 .actionLabel {
-  font-size: clamp(0.65rem, 2vw, 0.8rem);
+  font-size: clamp(0.8rem, 2vw, 0.8rem);
   font-weight: 600;
   letter-spacing: 0.01em;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
