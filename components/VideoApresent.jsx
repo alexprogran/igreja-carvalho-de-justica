@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./VideoApresent.module.css";
 
 const PlayIcon = () => (
@@ -95,9 +95,31 @@ const VideoApresent = ({
   const [visivel, setVisivel] = useState(true);
   const [saindo, setSaindo] = useState(false);
   const [pausado, setPausado] = useState(true);
-  const [pausadoPeloUsuario, setPausadoPeloUsuario] = useState(false);
+  const [videoIniciado, setVideoIniciado] = useState(false);
+  const [mostrarBotaoSuave, setMostrarBotaoSuave] = useState(false);
   const videoRef = useRef(null);
+  const timeoutBotaoSuaveRef = useRef(null);
   const capaVideo = capa || poster || DEFAULT_VIDEO_APRESENT.capa;
+
+  useEffect(() => {
+    return () => {
+      if (timeoutBotaoSuaveRef.current) {
+        clearTimeout(timeoutBotaoSuaveRef.current);
+      }
+    };
+  }, []);
+
+  const mostrarBotaoComSuavidade = () => {
+    if (timeoutBotaoSuaveRef.current) {
+      clearTimeout(timeoutBotaoSuaveRef.current);
+    }
+
+    setMostrarBotaoSuave(true);
+
+    timeoutBotaoSuaveRef.current = setTimeout(() => {
+      setMostrarBotaoSuave(false);
+    }, 760);
+  };
 
   const alternarPausa = () => {
     const videoEl = videoRef.current;
@@ -107,15 +129,22 @@ const VideoApresent = ({
     }
 
     if (videoEl.paused) {
+      const jaIniciado = videoIniciado;
+
       videoEl.play();
       setPausado(false);
-      setPausadoPeloUsuario(false);
+      setVideoIniciado(true);
+
+      if (jaIniciado) {
+        mostrarBotaoComSuavidade();
+      }
+
       return;
     }
 
-    setPausadoPeloUsuario(true);
     videoEl.pause();
     setPausado(true);
+    setVideoIniciado(true);
   };
 
   const ativarAudioNoPlay = () => {
@@ -129,7 +158,7 @@ const VideoApresent = ({
     videoEl.defaultMuted = false;
     videoEl.volume = 1;
     setPausado(false);
-    setPausadoPeloUsuario(false);
+    setVideoIniciado(true);
   };
 
   const pausarAoClicarNaTela = () => {
@@ -139,8 +168,8 @@ const VideoApresent = ({
       return;
     }
 
-    setPausadoPeloUsuario(true);
     videoEl.pause();
+    setVideoIniciado(true);
   };
 
   if (!visivel) {
@@ -151,25 +180,14 @@ const VideoApresent = ({
     <section className={`${styles.section} ${saindo ? styles.saindo : ""}`}>
       <div className={styles.card}>
         <div className={styles.videoWrapper}>
-          {pausado && !pausadoPeloUsuario && (
+          {(!videoIniciado || pausado || mostrarBotaoSuave) && (
             <button
               type="button"
-              className={styles.playCenter}
+              className={`${styles.playCenter} ${mostrarBotaoSuave && !pausado ? styles.playCenterSuave : ""}`}
               onClick={alternarPausa}
-              aria-label="Reproduzir vídeo"
+              aria-label={!videoIniciado ? "Reproduzir vídeo" : pausado ? "Retomar vídeo" : "Pausar vídeo"}
             >
-              <PlayIcon />
-            </button>
-          )}
-
-          {pausado && pausadoPeloUsuario && (
-            <button
-              type="button"
-              className={styles.playCenter}
-              onClick={alternarPausa}
-              aria-label="Retomar vídeo"
-            >
-              <PauseIcon />
+              {!videoIniciado || mostrarBotaoSuave ? <PlayIcon /> : <PauseIcon />}
             </button>
           )}
 
@@ -184,6 +202,7 @@ const VideoApresent = ({
             onPlay={ativarAudioNoPlay}
             onPause={() => {
               setPausado(true);
+              setVideoIniciado(true);
             }}
             onEnded={() => {
               setSaindo(true);

@@ -72,6 +72,33 @@
   height: clamp(1.5rem, 5vw, 2.2rem);
 }
 
+.playCenterSuave {
+  pointer-events: none;
+  animation: playCenterSuaveFade 0.76s ease-out forwards;
+}
+
+@keyframes playCenterSuaveFade {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+
+  20% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.02);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
 /* 🔥 ações laterais responsivas */
 .actions {
   position: absolute;
@@ -140,20 +167,22 @@
 .label {
   margin: 0;
   font-size: clamp(0.65rem, 2vw, 0.8rem);
+  /* font-size: clamp(0.8rem, 2vw, 2rem); */
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.74);
 }
 
 .tema {
-  margin: 0.5rem 0 0.35rem;
-  font-size: clamp(1rem, 4vw, 1.4rem);
+  margin: 0.5rem 0 0.35rem;  
+   font-size: clamp(1.19rem, 4vw, 1.4rem);
   line-height: 1.35;
   color: #f8fafc;
 }
 
 .dataExib {
   margin: 0;
-  font-size: clamp(0.75rem, 2.5vw, 0.9rem);
-  color: rgba(248, 250, 252, 0.78);
+  font-size: clamp(1rem, 2.5vw, 1rem);
+  /* color: rgba(248, 250, 252, 0.78); */
+  color: #ffffff;
 }
