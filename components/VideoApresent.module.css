@@ -17,39 +17,15 @@
   pointer-events: none;
 }
 
+/* 🔥 troca 100vh por 100dvh */
 .card {
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   border-radius: 0;
   overflow: hidden;
   background: #000;
   border: 0;
   box-shadow: none;
-}
-
-.header {
-  padding: 1rem 1rem 0.75rem;
-}
-
-.label {
-  margin: 0;
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.74);
-}
-
-.tema {
-  margin: 0.5rem 0 0.35rem;
-  font-size: 1.2rem;
-  line-height: 1.35;
-  color: #f8fafc;
-}
-
-.dataExib {
-  margin: 0;
-  font-size: 0.86rem;
-  color: rgba(248, 250, 252, 0.78);
 }
 
 .videoWrapper {
@@ -66,13 +42,16 @@
   object-fit: cover;
 }
 
+/* 🔥 botão central responsivo */
 .playCenter {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 4rem;
-  height: 4rem;
+  
+  width: clamp(3rem, 10vw, 4.5rem);
+  height: clamp(3rem, 10vw, 4.5rem);
+
   border: 0;
   border-radius: 999px;
   background: rgba(0, 0, 0, 0.55);
@@ -89,17 +68,19 @@
 }
 
 .playCenter svg {
-  width: 2rem;
-  height: 2rem;
+  width: clamp(1.5rem, 5vw, 2.2rem);
+  height: clamp(1.5rem, 5vw, 2.2rem);
 }
 
+/* 🔥 ações laterais responsivas */
 .actions {
   position: absolute;
-  right: 0.7rem;
-  bottom: 7.5rem;
+  right: clamp(0.5rem, 2vw, 1rem);
+  bottom: clamp(5rem, 15vh, 8rem);
+
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: clamp(0.5rem, 2vw, 1rem);
   z-index: 3;
 }
 
@@ -114,44 +95,65 @@
   cursor: pointer;
 }
 
+/* 🔥 ícones escaláveis */
 .actionIcon {
-  width: 2.8rem;
-  height: 2.8rem;
+  width: clamp(2.2rem, 6vw, 3rem);
+  height: clamp(2.2rem, 6vw, 3rem);
+
   border-radius: 999px;
   display: grid;
   place-items: center;
   background: rgba(28, 31, 36, 0.5);
-  font-size: 1.05rem;
 }
 
 .actionIcon svg {
-  width: 2rem;
-  height: 2rem;
+  width: clamp(1.4rem, 4vw, 2rem);
+  height: clamp(1.4rem, 4vw, 2rem);
 }
 
 .actionLabel {
-  font-size: 0.72rem;
+  font-size: clamp(0.65rem, 2vw, 0.8rem);
   font-weight: 600;
   letter-spacing: 0.01em;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
 }
 
+/* 🔥 topo responsivo + notch fix */
 .meta {
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  padding: 1rem 3.75rem 1rem 0.9rem;
+  inset: 0 0 auto 0;
+
+  padding:
+    calc(env(safe-area-inset-top) + 0.5rem)
+    clamp(2.5rem, 8vw, 4rem)
+    clamp(0.6rem, 2vw, 1.2rem)
+    clamp(0.8rem, 3vw, 1.2rem);
+
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.7) 0%,
-    rgba(0, 0, 0, 0.42) 35%,
-    rgba(0, 0, 0, 0) 100%
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.4),
+    transparent
   );
 }
 
-.meta .label,
-.meta .tema,
-.meta .dataExib {
-  color: #fff;
+.label {
+  margin: 0;
+  font-size: clamp(0.65rem, 2vw, 0.8rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.tema {
+  margin: 0.5rem 0 0.35rem;
+  font-size: clamp(1rem, 4vw, 1.4rem);
+  line-height: 1.35;
+  color: #f8fafc;
+}
+
+.dataExib {
+  margin: 0;
+  font-size: clamp(0.75rem, 2.5vw, 0.9rem);
+  color: rgba(248, 250, 252, 0.78);
 }
