@@ -1,5 +1,5 @@
 import { Play, Share2, Heart, MessageCircle } from "lucide-react";
-import styles from "./LiveSectionCard.module.css";
+import styles from "./LiveServiceCard.module.css";
 
 const LiveServiceCard = ({
   title = "THE YEAR OF THE CHURCH",

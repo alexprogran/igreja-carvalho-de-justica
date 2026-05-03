@@ -1,0 +1,134 @@
+.section {
+  margin-top: clamp(1rem, 3vw, 1.5rem);
+  margin-bottom: clamp(1rem, 3vw, 1.5rem);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: clamp(0.5rem, 2vw, 0.75rem);
+  gap: 0.75rem;
+}
+
+.title {
+  font-size: clamp(0.95rem, 2.5vw, 1rem);
+  font-weight: 800;
+  color: hsl(var(--foreground));
+}
+
+.viewMore {
+  font-size: clamp(0.68rem, 1.8vw, 0.75rem);
+  font-weight: 600;
+  color: hsl(var(--primary));
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.card {
+  border-radius: clamp(0.75rem, 2vw, 1rem);
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  min-height: clamp(12.5rem, 105vw, 20rem);
+
+
+}
+
+.image {
+  width: 100%;
+  height: clamp(12.5rem, 105vw, 40rem);
+  object-fit: cover;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    hsl(var(--foreground) / 0.8),
+    hsl(var(--foreground) / 0.3),
+    transparent
+  );
+}
+
+.content {
+  position: absolute;
+  inset: 0 0 auto 0;
+  padding: clamp(0.75rem, 3vw, 1rem)
+    clamp(0.75rem, 3vw, 1rem)
+    clamp(0.75rem, 3vw, 1rem);
+ margin-bottom: clamp(1rem, 6vw, 1.5rem);
+}
+
+.devotionTitle {
+  color: hsl(var(--primary-foreground)/ 1);
+  font-weight: 600;
+  font-size: clamp(0.89rem, 5vw, 1rem);
+  line-height: 1.25;
+  margin: 0;
+  padding-top: clamp(0.2rem, 1.2vw, 0.45rem);
+  padding-bottom: clamp(0.3rem, 6vw, 1.5rem);
+}
+
+.devotionText {
+  color: hsl(var(--primary-foreground) / 1);
+  font-size: clamp(0.89rem, 6vw, 1.2rem);
+  margin-top: clamp(0.2rem, 1vw, 0.35rem);
+  line-height: 1.375;
+}
+
+.devotionDate {
+  color: hsl(var(--primary-foreground) / 0.5);
+  font-size: clamp(0.62rem, 1.7vw, 0.7rem);
+  margin-top: clamp(0.2rem, 1vw, 0.35rem);
+  font-weight: 600;
+}
+
+.actions {
+  position: absolute;
+  inset: auto 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(0.5rem, 10vw, 2.5rem);
+  padding: clamp(0.5rem, 2vw, 0.75rem) clamp(0.65rem, 2.5vw, 0.9rem);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.45),
+    transparent
+  );
+}
+
+.actionButton {
+  border: 0;
+  background: transparent;
+  color: hsl(var(--primary-foreground));
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.08rem, 0.5vw, 0.16rem);
+  min-width: 0;
+  cursor: pointer;
+}
+
+.actionIcon {
+  width: clamp(1rem, 6vw, 2rem);
+  height: clamp(1rem, 6vw, 2rem);
+  stroke-width: 1.8;
+}
+
+.actionLabel {
+  display: block;
+  text-align: center;
+  line-height: 1;
+  font-size: clamp(0.68rem, 1.9vw, 0.75rem);
+  font-weight: 600;
+  color: hsl(var(--primary-foreground) / 0.95);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}

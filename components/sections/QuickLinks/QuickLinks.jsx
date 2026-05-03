@@ -1,4 +1,4 @@
-import Worship from "./Worship";
+import Worship from "../Worship/Worship";
 import styles from "./QuickLinks.module.css";
 
 const QuickLinks = () => (
