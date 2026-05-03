@@ -69,8 +69,7 @@ const DailyDevotion = ({
   return (
     <section className={styles.section}>
       <div className={styles.header}>
-        <h3 className={styles.title}>{titleSection}</h3>
-        <button className={styles.viewMore}>View more</button>
+        <h3 className={styles.title}>{titleSection}</h3>        
       </div>
       <div className={styles.card}>
         <Image
