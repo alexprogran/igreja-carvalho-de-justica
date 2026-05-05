@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import styles from "./VideoApresent.module.css";
+import HeaderSection from "../HeaderSection";
+import Ingaje from "../Ingaje/Ingaje";
 
 const PlayIcon = () => (
   <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -15,67 +17,12 @@ const PauseIcon = () => (
   </svg>
 );
 
-const LikeIcon = () => (
-  <svg viewBox="0 0 24 24" aria-hidden="true">
-    <path
-      d="M16.792 3.904A4.989 4.989 0 0 1 21.5 9.122c0 3.517-3.31 6.47-8.14 11.19-.8.77-2.02.77-2.82 0C5.81 15.592 2.5 12.64 2.5 9.122a4.989 4.989 0 0 1 4.708-5.218 4.21 4.21 0 0 1 3.536 1.072L12 6.01l1.256-1.034a4.21 4.21 0 0 1 3.536-1.072z"
-      fill="none"
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
-
-const CommentIcon = () => (
-  <svg viewBox="0 0 24 24" aria-hidden="true">
-    <path
-      d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7A2.5 2.5 0 0 1 17.5 16H11l-4.5 4v-4H6.5A2.5 2.5 0 0 1 4 13.5z"
-      fill="none"
-      stroke="currentColor"
-      strokeLinejoin="round"
-    />
-    <path d="M8 8.5h8M8 11.5h5" stroke="currentColor" strokeLinecap="round" />
-  </svg>
-);
-
-const ShareIcon = () => (
-  <svg viewBox="0 0 24 24" aria-hidden="true">
-    <path
-      d="M9 7.5v-2A1.5 1.5 0 0 1 10.5 4h9A1.5 1.5 0 0 1 21 5.5v9a1.5 1.5 0 0 1-1.5 1.5h-2"
-      fill="none"
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M14 10 3 21m0 0h6.5M3 21v-6.5"
-      fill="none"
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
-
-const ViewIcon = () => (
-  <svg viewBox="0 0 24 24" aria-hidden="true">
-    <path
-      d="M4.5 6.5h15a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-15a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2z"
-      fill="none"
-      stroke="currentColor"
-      strokeLinejoin="round"
-    />
-    <path d="M10 9.6v4.8l4-2.4z" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
-
 const DEFAULT_VIDEO_APRESENT = {
   intro: "",
-  tema: "Apresentacao da Semana",
-  data_exib: "27 de abril de 2026",
-  video: "/video.mp4",
-  capa: "/assets/hero-service.jpg",
+  tema: "",
+  data_exib: "",
+  video: "",
+  capa: "",
 };
 
 const VideoApresent = ({
@@ -85,15 +32,32 @@ const VideoApresent = ({
   video = DEFAULT_VIDEO_APRESENT.video,
   capa = DEFAULT_VIDEO_APRESENT.capa,
   poster,
+  ingaje = true,
+  autoplay = false,
+  onFim,
+  playback = false,
 }) => {
   const [visivel, setVisivel] = useState(true);
   const [saindo, setSaindo] = useState(false);
-  const [pausado, setPausado] = useState(true);
+  const [pausado, setPausado] = useState(!autoplay);
   const [videoIniciado, setVideoIniciado] = useState(false);
   const [mostrarBotaoSuave, setMostrarBotaoSuave] = useState(false);
+  const [progresso, setProgresso] = useState(0);
+  const [duracao, setDuracao] = useState(0);
   const videoRef = useRef(null);
   const timeoutBotaoSuaveRef = useRef(null);
   const capaVideo = capa || poster || DEFAULT_VIDEO_APRESENT.capa;
+  const introTexto = (intro || "").trim();
+  const temaTexto = (tema || "").trim();
+  const dataExibTexto = (data_exib || "").trim();
+  const exibirMeta = Boolean(introTexto || temaTexto || dataExibTexto);
+
+  useEffect(() => {
+    if (autoplay && videoRef.current) {
+      videoRef.current.play().catch(() => {});
+      setVideoIniciado(true);
+    }
+  }, [autoplay]);
 
   useEffect(() => {
     return () => {
@@ -166,6 +130,21 @@ const VideoApresent = ({
     setVideoIniciado(true);
   };
 
+  const formatarTempo = (segundos) => {
+    if (!segundos || isNaN(segundos)) return "0:00";
+    const m = Math.floor(segundos / 60);
+    const s = Math.floor(segundos % 60).toString().padStart(2, "0");
+    return `${m}:${s}`;
+  };
+
+  const aoSeek = (e) => {
+    const videoEl = videoRef.current;
+    if (!videoEl || !duracao) return;
+    const novoTempo = (Number(e.target.value) / 100) * duracao;
+    videoEl.currentTime = novoTempo;
+    setProgresso(Number(e.target.value));
+  };
+
   if (!visivel) {
     return null;
   }
@@ -174,7 +153,7 @@ const VideoApresent = ({
     <section className={`${styles.section} ${saindo ? styles.saindo : ""}`}>
       <div className={styles.card}>
         <div className={styles.videoWrapper}>
-          {(!videoIniciado || pausado || mostrarBotaoSuave) && (
+          {(!playback && (!videoIniciado || pausado || mostrarBotaoSuave)) && (
             <button
               type="button"
               className={`${styles.playCenter} ${mostrarBotaoSuave && !pausado ? styles.playCenterSuave : ""}`}
@@ -198,50 +177,66 @@ const VideoApresent = ({
               setPausado(true);
               setVideoIniciado(true);
             }}
+            onLoadedMetadata={(e) => setDuracao(e.target.duration)}
+            onTimeUpdate={(e) => {
+              const videoEl = e.target;
+              if (videoEl.duration) {
+                setProgresso((videoEl.currentTime / videoEl.duration) * 100);
+              }
+            }}
             onEnded={() => {
               setSaindo(true);
-              setTimeout(() => setVisivel(false), 700);
+              setTimeout(() => {
+                setVisivel(false);
+                onFim?.();
+              }, 700);
             }}
           >
             <source src={video} type="video/mp4" />
             Seu navegador não suporta a reprodução de vídeos.
           </video>
 
-          <aside className={styles.actions}  aria-label="Ações do vídeo">
-            <button type="button" className={styles.actionButton} aria-label="Curtir">
-              <span className={styles.actionIcon}> 
-                <LikeIcon />
-              </span>
-              <span className={styles.actionLabel}>17K</span>
-            </button>
+          {ingaje ? <Ingaje /> : null}
 
-            <button type="button" className={styles.actionButton} aria-label="Comentários">
-              <span className={styles.actionIcon}>
-                <CommentIcon />
-              </span>
-              <span className={styles.actionLabel}>865</span>
-            </button>
+          {exibirMeta ? (
+            <footer className={styles.meta}>
+              {introTexto ? <p className={styles.label}>{introTexto}</p> : null}
+              {temaTexto ? <h2 className={styles.tema}>{temaTexto}</h2> : null}
+              {dataExibTexto ? <p className={styles.dataExib}>{dataExibTexto}</p> : null}
+            </footer>
+          ) : null}
 
-            <button type="button" className={styles.actionButton} aria-label="Compartilhar">
-              <span className={styles.actionIcon}>
-                <ShareIcon />
-              </span>
-              <span className={styles.actionLabel}>Compartilhar</span>
-            </button>
-
-            <button type="button" className={styles.actionButton} aria-label="Visualizações">              
-              <span className={styles.actionIcon}>
-                <ViewIcon />
-              </span>
-              <span className={styles.actionLabel}>2000mil</span>              
-            </button>
-          </aside>
-
-          <footer className={styles.meta}>
-            {intro ? <p className={styles.label}>{intro}</p> : null}
-            <h2 className={styles.tema}>{tema}</h2>
-            <p className={styles.dataExib}>{data_exib}</p>
-          </footer>
+          <div className={styles.headerBottom}>
+            <HeaderSection />
+            {playback && (
+              <div className={styles.playbackBar}>
+                <button
+                  type="button"
+                  className={styles.playbackPlayBtn}
+                  onClick={alternarPausa}
+                  aria-label={pausado ? "Reproduzir" : "Pausar"}
+                >
+                  {pausado ? <PlayIcon /> : <PauseIcon />}
+                </button>
+                <span className={styles.playbackTempo}>
+                  {formatarTempo((progresso / 100) * duracao)}
+                </span>
+                <input
+                  type="range"
+                  min={0}
+                  max={100}
+                  step={0.1}
+                  value={progresso}
+                  onChange={aoSeek}
+                  className={styles.playbackRange}
+                  aria-label="Progresso do vídeo"
+                />
+                <span className={styles.playbackTempo}>
+                  {formatarTempo(duracao)}
+                </span>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </section>

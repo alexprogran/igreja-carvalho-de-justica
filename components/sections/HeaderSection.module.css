@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:
+    clamp(1rem, 3vh, 1.5rem)
+    clamp(0.75rem, 4vw, 1.25rem)
+    clamp(0.5rem, 2vh, 0.75rem);
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 2vw, 0.75rem);
+}
+
+.avatar {
+  width: clamp(3rem, 8vw, 4rem);
+  height: clamp(3rem, 8vw, 4rem);
+  border-radius: 9999px;
+  object-fit: cover;
+  border: 2px solid var(--primary);
+  flex-shrink: 0;
+}
+
+.welcome {
+  font-size: clamp(0.85rem, 2vw, 0.93rem);
+  color: #ffffff;
+
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.name {
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  font-weight: 800;
+  color: #f8fafc;
+  line-height: 1.2;
+}

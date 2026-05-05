@@ -11,12 +11,14 @@ export default function Home() {
     tema: "Igreja Carvalho de Justiça",
     data_exib: "Este vídeo mudará a sua vida para sempre.",
     video: "/video.mp4",
+  
     capa: "/assets/devotion-bg.jpg",
   };
  
   return (
     <div className={styles.page}>
       <div className={styles.content}>
+       
         <VideoApresent {...videoApresentData} />
         <DailyDevotion />        
         <QuickLinks />     
