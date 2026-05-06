@@ -78,7 +78,7 @@ const DailyDevotion = ({
           className={styles.image}
           width={800}
           height={512}
-        />
+        /> 
         <div className={styles.overlay} />
         <div className={styles.content}>
           <h4 className={styles.devotionTitle}>{title}</h4>

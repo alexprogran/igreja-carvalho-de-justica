@@ -38,7 +38,7 @@
 
 .image {
   width: 100%;
-  height: clamp(12.5rem, 105vw, 40rem);
+  height: clamp(12.5rem, 109vw, 40rem);
   object-fit: cover;
   display: block;
 }
@@ -78,8 +78,7 @@
   color: hsl(var(--primary-foreground) / 1);
   font-size: clamp(0.89rem, 6vw, 1.2rem);
   margin-top: clamp(0.2rem, 1vw, 0.35rem);
-  /* margin-bottom: clamp(2rem, 3vw, 2.5rem); */
-  /* margin-bottom: clamp(2rem, 20vw, 2.5rem); */
+  margin-bottom: clamp(2rem, 3vw, 2.5rem); 
   line-height: 1.375;
 }
 
@@ -98,6 +97,7 @@
   align-items: center;
   gap: clamp(0.5rem, 10vw, 2.5rem);
   padding: clamp(0.5rem, 2vw, 0.75rem) clamp(0.65rem, 2.5vw, 0.9rem);
+  margin-top: clamp(2rem, 3vw, 2.5rem);
   background: linear-gradient(
     to top,
     rgba(0, 0, 0, 0.7),
