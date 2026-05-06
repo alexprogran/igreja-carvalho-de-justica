@@ -1,18 +1,18 @@
 import styles from "./HeaderSection.module.css";
 
 const DEFAULT_HEADER_SECTION = {
-  versiculo: "Lucas 10:27",
+  descricao: "Pastor Igreja Carvalho de Justiça",
   pregador: "Alex Neves Da Silva",
   foto: "/assets/avatar.jpg",
 };
 
 const HeaderSection = ({
-  versiculo = DEFAULT_HEADER_SECTION.versiculo,
+  descricao = DEFAULT_HEADER_SECTION.descricao,
   pregador = DEFAULT_HEADER_SECTION.pregador,
   foto = DEFAULT_HEADER_SECTION.foto,
   data,
 }) => {
-  const versiculoAtual = data?.versiculo ?? versiculo;
+  const descricaoAtual = data?.descricao ?? descricao;
   const pregadorAtual = data?.pregador ?? pregador;
   const fotoAtual = data?.foto ?? foto;
 
@@ -28,7 +28,7 @@ const HeaderSection = ({
         />
         <div>
           <h1 className={styles.name}>{pregadorAtual}</h1>
-          <p className={styles.welcome}>{versiculoAtual}</p>
+          <p className={styles.welcome}>{descricaoAtual}</p>
           
         </div>
       </div>

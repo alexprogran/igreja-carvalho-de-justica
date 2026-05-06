@@ -198,7 +198,7 @@ const VideoApresent = ({
 
           {ingaje ? <Ingaje /> : null}
 
-          {exibirMeta ? (
+          {exibirMeta && !videoIniciado ? (
             <footer className={styles.meta}>
               {introTexto ? <p className={styles.label}>{introTexto}</p> : null}
               {temaTexto ? <h2 className={styles.tema}>{temaTexto}</h2> : null}
@@ -207,7 +207,7 @@ const VideoApresent = ({
           ) : null}
 
           <div className={styles.headerBottom}>
-            <HeaderSection />
+            {videoIniciado ? <HeaderSection /> : null}
             {playback && (
               <div className={styles.playbackBar}>
                 <button
