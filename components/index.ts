@@ -11,6 +11,7 @@ export { LiveServiceCard } from "./sections/LiveService";
 export { QuickLinks } from "./sections/QuickLinks";
 export { Worship } from "./sections/Worship";
 export { Map } from "./sections/Map";
+export { Panfelto } from "./sections/Panfleto";
 
 // Additional sections
 export { default as ChurchMeeting } from "./sections/ChurchMeeting";

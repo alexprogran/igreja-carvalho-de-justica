@@ -3,7 +3,7 @@ import styles from "./HeaderSection.module.css";
 const DEFAULT_HEADER_SECTION = {
   descricao: "Pastor Igreja Carvalho de Justiça",
   pregador: "Alex Neves Da Silva",
-  foto: "/assets/avatar.jpg",
+  foto: "/assets/foto_pregador.png",
 };
 
 const HeaderSection = ({

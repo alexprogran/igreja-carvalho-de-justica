@@ -155,6 +155,24 @@
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
+.headerSectionSuave {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: headerSectionFadeIn 0.7s ease-out forwards;
+}
+
+@keyframes headerSectionFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .playbackBar {
   display: flex;
   align-items: center;

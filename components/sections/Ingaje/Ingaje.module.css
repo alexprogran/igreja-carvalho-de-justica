@@ -1,14 +1,28 @@
 .actions {
+  --actions-right: clamp(0.5rem, 2vw, 1rem);
+  --actions-bottom: clamp(5rem, 15vh, 8rem);
   position: absolute;
-  right: clamp(0.5rem, 2vw, 1rem);
-  bottom: clamp(5rem, 15vh, 8rem);
+  right: var(--actions-right);
+  bottom: var(--actions-bottom);
   display: flex;
   flex-direction: column;
   gap: clamp(0.5rem, 2vw, 1rem);
   z-index: 3;
 }
 
+.horizontal {
+  --actions-right: clamp(0.8rem, 3vw, 1.5rem);
+  --actions-bottom: clamp(1rem, 4vh, 2rem);
+  flex-direction: row;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
 .actionButton {
+  --action-icon-size: clamp(2.2rem, 6vw, 3rem);
+  --action-svg-size: clamp(1.5rem, 3vw, 1.75rem);
+  --action-label-size: clamp(0.8rem, 2vw, 0.8rem);
+  --action-label-weight: 600;
   border: 0;
   background: transparent;
   color: #fff;
@@ -19,27 +33,43 @@
   cursor: pointer;
 }
 
+.horizontalActionButton {
+  
+  --action-icon-size: clamp(2rem, 4vw, 2.2rem);
+  --action-svg-size: clamp(1.25rem, 2.6vw, 1.3rem);
+  --action-label-size: clamp(0.72rem, 1.5vw, 0.82rem);
+  
+  min-width: clamp(4.2rem, 10vw, 5.5rem);
+  justify-content: center;
+}
+
 .actionIcon {
-  --action-icon-stroke-width: 1.5;
-  width: clamp(2.2rem, 6vw, 3rem);
-  height: clamp(2.2rem, 6vw, 3rem);
+  width: var(--action-icon-size);
+  height: var(--action-icon-size);
   border-radius: 999px;
   display: grid;
   place-items: center;
 }
 
 .actionIcon svg {
-  width: clamp(1.3rem, 10vw, 2rem);
-  height: clamp(1.3rem, 10vw, 2rem);
+  width: var(--action-svg-size);
+  height: var(--action-svg-size);
 }
 
 .actionIcon svg [stroke] {
-  stroke-width: var(--action-icon-stroke-width);
+  stroke-width: var(--action-icon-stroke-width, 1.75);
 }
 
 .actionLabel {
-  font-size: clamp(0.8rem, 2vw, 0.8rem);
-  font-weight: 600;
+  font-size: var(--action-label-size);
+  font-weight: var(--action-label-weight);
   letter-spacing: 0.01em;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+}
+ 
+@media (max-width: 720px) {
+  .horizontalActionButton {
+    --action-label-weight: 600;
+    --action-icon-stroke-width: 2;
+  }
 }

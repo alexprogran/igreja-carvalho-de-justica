@@ -2,6 +2,7 @@ import DailyDevotion from "@/components/sections/DailyDevotion/DailyDevotion";
 import QuickLinks from "@/components/sections/QuickLinks/QuickLinks";
 import BottomNav from "@/components/layout/BottomNav";
 import Map from "@/components/sections/Map/Map";
+import Panfelto from "@/components/sections/Panfleto/Panfleto";
 import VideoApresent from "@/components/sections/VideoPresentation/VideoApresent";
 import styles from "./page.module.css";
 
@@ -18,11 +19,12 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <div className={styles.content}>
-       
+         <Panfelto />
         <VideoApresent {...videoApresentData} />
         <DailyDevotion />        
         <QuickLinks />     
-        <Map />       
+        <Map />  
+             
       </div>
       <BottomNav />
     </div>

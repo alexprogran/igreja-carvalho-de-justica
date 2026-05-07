@@ -7,7 +7,7 @@ import styles from "./VideoDevotion.module.css";
 import VideoApresent from "../VideoPresentation/VideoApresent";
 
 const DEFAULT_VIDEO_DEVOTION = {
-  photo: "/assets/avatar.jpg",  
+  photo: "/assets/foto_pregador.png",  
   title: "O Amor de Deus é Incondicional",
   subtitle: "",
    video: "/video.mp4",

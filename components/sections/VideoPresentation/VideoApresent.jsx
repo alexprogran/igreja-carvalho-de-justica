@@ -25,6 +25,8 @@ const DEFAULT_VIDEO_APRESENT = {
   capa: "",
 };
 
+const HEADER_APPEAR_DELAY_MS = 800;
+
 const VideoApresent = ({
   intro = DEFAULT_VIDEO_APRESENT.intro,
   tema = DEFAULT_VIDEO_APRESENT.tema,
@@ -41,11 +43,13 @@ const VideoApresent = ({
   const [saindo, setSaindo] = useState(false);
   const [pausado, setPausado] = useState(!autoplay);
   const [videoIniciado, setVideoIniciado] = useState(false);
+  const [mostrarHeaderSection, setMostrarHeaderSection] = useState(false);
   const [mostrarBotaoSuave, setMostrarBotaoSuave] = useState(false);
   const [progresso, setProgresso] = useState(0);
   const [duracao, setDuracao] = useState(0);
   const videoRef = useRef(null);
   const timeoutBotaoSuaveRef = useRef(null);
+  const timeoutHeaderRef = useRef(null);
   const capaVideo = capa || poster || DEFAULT_VIDEO_APRESENT.capa;
   const introTexto = (intro || "").trim();
   const temaTexto = (tema || "").trim();
@@ -64,8 +68,32 @@ const VideoApresent = ({
       if (timeoutBotaoSuaveRef.current) {
         clearTimeout(timeoutBotaoSuaveRef.current);
       }
+
+      if (timeoutHeaderRef.current) {
+        clearTimeout(timeoutHeaderRef.current);
+      }
     };
   }, []);
+
+  useEffect(() => {
+    if (!videoIniciado) {
+      return;
+    }
+
+    if (timeoutHeaderRef.current) {
+      clearTimeout(timeoutHeaderRef.current);
+    }
+
+    timeoutHeaderRef.current = setTimeout(() => {
+      setMostrarHeaderSection(true);
+    }, HEADER_APPEAR_DELAY_MS);
+
+    return () => {
+      if (timeoutHeaderRef.current) {
+        clearTimeout(timeoutHeaderRef.current);
+      }
+    };
+  }, [videoIniciado]);
 
   const mostrarBotaoComSuavidade = () => {
     if (timeoutBotaoSuaveRef.current) {
@@ -207,7 +235,11 @@ const VideoApresent = ({
           ) : null}
 
           <div className={styles.headerBottom}>
-            {videoIniciado ? <HeaderSection /> : null}
+            {mostrarHeaderSection ? (
+              <div className={styles.headerSectionSuave}>
+                <HeaderSection />
+              </div>
+            ) : null}
             {playback && (
               <div className={styles.playbackBar}>
                 <button
