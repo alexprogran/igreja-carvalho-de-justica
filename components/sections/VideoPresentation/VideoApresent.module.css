@@ -136,8 +136,7 @@
 
 .dataExib {
   margin: 0;
-  font-size: clamp(1rem, 2.5vw, 1rem);
-  /* color: rgba(248, 250, 252, 0.78); */
+  font-size: clamp(1rem, 2.5vw, 1rem);  
   color: #ffffff;
 }
 

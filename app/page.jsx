@@ -20,13 +20,13 @@ export default function Home() {
     <div className={styles.page}>
       <div className={styles.content}>
          <Panfelto />
-        <VideoApresent {...videoApresentData} />
+        {/* <VideoApresent {...videoApresentData} />
         <DailyDevotion />        
         <QuickLinks />     
-        <Map />  
+        <Map />   */}
              
       </div>
-      <BottomNav />
+      {/* <BottomNav /> */}
     </div>
   );
 }

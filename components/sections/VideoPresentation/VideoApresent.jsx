@@ -224,7 +224,7 @@ const VideoApresent = ({
             Seu navegador não suporta a reprodução de vídeos.
           </video>
 
-          {ingaje ? <Ingaje /> : null}
+          {ingaje && videoIniciado ? <Ingaje /> : null}
 
           {exibirMeta && !videoIniciado ? (
             <footer className={styles.meta}>

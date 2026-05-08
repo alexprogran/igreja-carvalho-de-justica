@@ -1,15 +1,14 @@
-.section {
+.section.section {
   position: relative;
-  width: 100%;
+  width: 100vw;
   min-height: min(80dvh, 59rem);
-  margin: 1rem 0;
-  border-radius: clamp(1rem, 3vw, 1.5rem);
+  margin: 0 calc(50% - 50vw);
+  border-radius: 0;
   overflow: hidden;
   background-size: cover;
   background-position: center;
   isolation: isolate;
-  display: grid;
-  place-items: center;
+  display: block;
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
@@ -29,9 +28,9 @@
 
 .card {
   position: relative;
-  width: calc(100% - clamp(2.2rem, 6vw, 4rem));
+  width: 100%;
   min-height: min(74dvh, 50rem);
-  border-radius: clamp(1rem, 3vw, 1.35rem);
+  border-radius: 0;
   overflow: hidden;
   background-size: cover;
   background-position: center;
@@ -86,10 +85,6 @@
 }
 
 @media (max-width: 720px) {
-  .card {
-    width: calc(100% - 1.5rem);
-  }
-
   .ctaButton {
     bottom: clamp(9rem, 17vh, 9.8rem);
   }
