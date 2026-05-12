@@ -1,0 +1,160 @@
+.wrapper {
+  width: 100%;
+  height: 100dvh;
+  margin: 0;
+  background: #e9eaec;
+  display: grid;
+  justify-items: center;
+  align-items: stretch;
+  padding: 0;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background: #ffffff;
+  border-radius: 0;
+  border: none;
+  padding: clamp(1.25rem, 5vw, 2rem) clamp(1rem, 4vw, 1.5rem);
+  box-shadow: none;
+}
+
+.logoWrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: clamp(1rem, 5vw, 1.5rem);
+}
+
+.logo {
+  width: clamp(8.5rem, 36vw, 10.5rem);
+  height: auto;
+}
+
+.form {
+  display: grid;
+  gap: clamp(0.65rem, 2.5vw, 0.9rem);
+}
+
+.field {
+  display: grid;
+  gap: clamp(0.3rem, 1.2vw, 0.45rem);
+}
+
+.field span {
+  font-size: clamp(0.95rem, 2.8vw, 1.1rem);
+  line-height: 1.2;
+  color: #2f3442;
+  font-weight: 600;
+}
+
+.field input {
+  height: clamp(2.15rem, 8.5vw, 2.6rem);
+  border: 1px solid #cfd4de;
+  border-radius: clamp(0.3rem, 1vw, 0.45rem);
+  padding-inline: clamp(0.7rem, 2.2vw, 0.9rem);
+  font-size: clamp(0.92rem, 2.5vw, 1rem);
+  color: #1f2937;
+  outline: none;
+}
+
+.field input:focus {
+  border-color: #2d61d6;
+  box-shadow: 0 0 0 2px rgba(45, 97, 214, 0.16);
+}
+
+.primaryButton,
+.oauthButton,
+.loginButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: clamp(2.15rem, 8.5vw, 2.6rem);
+  border-radius: clamp(0.3rem, 1vw, 0.45rem);
+  font-size: clamp(0.92rem, 2.5vw, 1rem);
+  font-weight: 700;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+}
+
+.primaryButton {
+  margin-top: clamp(0.45rem, 1.7vw, 0.65rem);
+  border: 0;
+  background: #2d61d6;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.primaryButton:hover,
+.oauthButton:hover,
+.loginButton:hover {
+  filter: brightness(0.98);
+}
+
+.divider {
+  margin: clamp(0.75rem, 3vw, 1rem) 0;
+  text-align: center;
+  color: #6b7280;
+  font-size: clamp(0.95rem, 2.5vw, 1rem);
+  line-height: 1;
+}
+
+.oauthButton {
+  border: 1px solid #cfd4de;
+  background: #ffffff;
+  color: #2f3442;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.55rem, 2vw, 0.7rem);
+}
+
+.oauthButton + .oauthButton {
+  margin-top: clamp(0.55rem, 2vw, 0.75rem);
+}
+
+.googleIcon {
+  width: clamp(1.25rem, 4.6vw, 1.55rem);
+  height: clamp(1.25rem, 4.6vw, 1.55rem);
+  border-radius: 999px;
+  border: 1px solid #dadce0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: clamp(0.9rem, 2.8vw, 1rem);
+  background: conic-gradient(
+    from 0deg,
+    #4285f4 0deg 90deg,
+    #34a853 90deg 180deg,
+    #fbbc05 180deg 270deg,
+    #ea4335 270deg 360deg
+  );
+  color: #ffffff;
+}
+
+.microsoftIcon {
+  width: clamp(1.2rem, 4.3vw, 1.45rem);
+  height: clamp(1.2rem, 4.3vw, 1.45rem);
+  background:
+    linear-gradient(#f25022 0 0) 0 0 / 47% 47% no-repeat,
+    linear-gradient(#7fba00 0 0) 100% 0 / 47% 47% no-repeat,
+    linear-gradient(#00a4ef 0 0) 0 100% / 47% 47% no-repeat,
+    linear-gradient(#ffb900 0 0) 100% 100% / 47% 47% no-repeat;
+  border: 1px solid #d1d5db;
+}
+
+.signinText {
+  text-align: center;
+  margin: clamp(0.95rem, 3.2vw, 1.2rem) 0 clamp(0.45rem, 1.6vw, 0.6rem);
+  color: #525a69;
+  font-size: clamp(0.95rem, 2.4vw, 1rem);
+  font-weight: 600;
+}
+
+.loginButton {
+  border: 1px solid #91ace8;
+  background: #f7faff;
+  color: #2d61d6;
+}

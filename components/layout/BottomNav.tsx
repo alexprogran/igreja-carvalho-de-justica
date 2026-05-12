@@ -1,6 +1,7 @@
 "use client";
 
 import { Home, Calendar, MessageCircle, BookOpen, Settings } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const navItems = [
@@ -13,6 +14,15 @@ const navItems = [
 
 const BottomNav = () => {
   const [active, setActive] = useState(0);
+  const router = useRouter();
+
+  const handleNavClick = (index: number) => {
+    setActive(index);
+
+    if (index === 0) {
+      router.push("/login");
+    }
+  };
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 bg-card border-t border-border z-50 max-w-md mx-auto">
@@ -20,7 +30,7 @@ const BottomNav = () => {
         {navItems.map((item, i) => (
           <button
             key={item.label}
-            onClick={() => setActive(i)}
+            onClick={() => handleNavClick(i)}
             className={`flex flex-col items-center gap-0.5 px-3 py-1 rounded-lg transition-colors ${
               active === i
                 ? "text-primary"

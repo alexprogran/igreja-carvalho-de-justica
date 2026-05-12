@@ -12,6 +12,8 @@ export { QuickLinks } from "./sections/QuickLinks";
 export { Worship } from "./sections/Worship";
 export { Map } from "./sections/Map";
 export { Panfelto } from "./sections/Panfleto";
+export { Cadastro } from "./sections/Cadastro";
+export { CommentsSheet } from "./sections/CommentsSheet";
 
 // Additional sections
 export { default as ChurchMeeting } from "./sections/ChurchMeeting";

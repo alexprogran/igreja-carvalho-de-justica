@@ -1,4 +1,8 @@
+"use client";
+
+import { useState } from "react";
 import { Heart, MessageCircle, Play, Share2 } from "lucide-react";
+import CommentsSheet from "@/components/sections/CommentsSheet/CommentsSheet";
 import styles from "./Ingaje.module.css";
 
 const Ingaje = ({
@@ -8,11 +12,13 @@ const Ingaje = ({
   shareIcon = true,
   viewIcon = true,
 }) => {
+  const [isCommentsOpen, setIsCommentsOpen] = useState(false);
   const actionsClassName = vertical ? styles.actions : `${styles.actions} ${styles.horizontal}`;
   const actionButtonClassName = vertical ? styles.actionButton : `${styles.actionButton} ${styles.horizontalActionButton}`;
 
   return (
-    <aside className={actionsClassName} aria-label="Ações do vídeo">
+    <>
+      <aside className={actionsClassName} aria-label="Ações do vídeo">
       {likeIcon ? (
         <button type="button" className={actionButtonClassName} aria-label="Curtir">
           <span className={styles.actionIcon}>
@@ -23,7 +29,12 @@ const Ingaje = ({
       ) : null}
 
       {commentIcon ? (
-        <button type="button" className={actionButtonClassName} aria-label="Comentários">
+        <button
+          type="button"
+          className={actionButtonClassName}
+          aria-label="Comentários"
+          onClick={() => setIsCommentsOpen(true)}
+        >
           <span className={styles.actionIcon}>
             <MessageCircle aria-hidden="true" />
           </span>
@@ -49,6 +60,8 @@ const Ingaje = ({
         </button>
       ) : null}
     </aside>
+    <CommentsSheet isOpen={isCommentsOpen} onClose={() => setIsCommentsOpen(false)} />
+    </>
   );
 };
 
