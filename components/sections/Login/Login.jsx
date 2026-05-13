@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
+import { FaFacebookF, FaTwitter } from "react-icons/fa";
 import styles from "./Login.module.css";
 
 export default function Login() {
@@ -9,52 +10,62 @@ export default function Login() {
       <div className={styles.card}>
         <div className={styles.logoWrap}>
           <Image
-            src="/logo.png"
-            alt="Fiscal.io"
-            width={180}
-            height={58}
+            src="/logo2.png"
+            alt="Logo da plataforma"
+            width={56}
+            height={56}
             className={styles.logo}
             priority
           />
         </div>
 
+        <h1 className={styles.title}>Realize o login na sua conta</h1>
+       
+
         <form className={styles.form}>
-          <label className={styles.field}>
-            <span>Informe seu e-mail</span>
-            <input type="email" name="email" autoComplete="email" />
-          </label>
+          <input
+            className={styles.input}
+            type="email"
+            name="email"
+            autoComplete="email"
+            placeholder="Email"
+            aria-label="Email"
+          />
 
-          <label className={styles.field}>
-            <span>Digite uma senha</span>
-            <input type="password" name="password" autoComplete="new-password" />
-          </label>
+          <input
+            className={styles.input}
+            type="password"
+            name="password"
+            autoComplete="current-password"
+            placeholder="Password"
+            aria-label="Password"
+          />
 
-          <label className={styles.field}>
-            <span>Confirme sua senha</span>
-            <input
-              type="password"
-              name="confirmPassword"
-              autoComplete="new-password"
-            />
-          </label>
-
-          <Link href="/cadastro" className={styles.primaryButton}>
-            Cadastrar
-          </Link>
+          <button type="submit" className={styles.primaryButton}>
+            Sign in
+          </button>
         </form>
 
-        <p className={styles.divider}>ou</p>
+        <p className={styles.divider}>- Or sign in with -</p>
 
-        <button type="button" className={styles.oauthButton}>
-          <FcGoogle size={24} aria-hidden="true" />
-          Continuar com Google
-        </button>       
+        <div className={styles.socialRow}>
+          <button type="button" className={styles.socialButton} aria-label="Sign in with Google">
+            <FcGoogle size={24} aria-hidden="true" />
+          </button>
+          <button type="button" className={styles.socialButton} aria-label="Sign in with Facebook">
+            <FaFacebookF size={20} aria-hidden="true" className={styles.facebookIcon} />
+          </button>
+          <button type="button" className={styles.socialButton} aria-label="Sign in with Twitter">
+            <FaTwitter size={20} aria-hidden="true" className={styles.twitterIcon} />
+          </button>
+        </div>
 
-        <p className={styles.signinText}>Já tem uma conta?</p>
-
-        <button type="button" className={styles.loginButton}>
-          Efetuar Login
-        </button>
+        <p className={styles.signupText}>
+          Don&apos;t have an account?{" "}
+          <Link href="/cadastro" className={styles.signupLink}>
+            Sign up
+          </Link>
+        </p>
       </div>
     </section>
   );

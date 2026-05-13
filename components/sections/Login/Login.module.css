@@ -1,160 +1,177 @@
-.wrapper {
+
+
+  .wrapper {
+  min-height: 100dvh;
   width: 100%;
-  height: 100dvh;
-  margin: 0;
-  background: #e9eaec;
-  display: grid;
-  justify-items: center;
-  align-items: stretch;
-  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding: clamp(0.5rem, 2.5vw, 1rem); */
+  background: linear-gradient(180deg, #eef1f6 0%, #e6ebf2 100%);
 }
 
 .card {
+  /* width: min(80%, 340px); */
+  min-height: 100dvh;
   width: 100%;
-  height: 100%;
-  overflow-y: auto;
   background: #ffffff;
-  border-radius: 0;
-  border: none;
-  padding: clamp(1.25rem, 5vw, 2rem) clamp(1rem, 4vw, 1.5rem);
-  box-shadow: none;
+  /* border-radius: clamp(12px, 4vw, 18px); */
+  /* padding: clamp(1rem, 4.5vw, 1.5rem); */
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(25, 35, 56, 0.12);
 }
+
+/* 
+ .card {
+    border-radius: 0;
+    min-height: 100dvh;
+    width: 100%;
+    padding: 1rem;
+  } */
 
 .logoWrap {
   display: flex;
   justify-content: center;
-  margin-bottom: clamp(1rem, 5vw, 1.5rem);
+  margin-bottom: clamp(5rem, 3vw, 5.5rem);
 }
 
 .logo {
-  width: clamp(8.5rem, 36vw, 10.5rem);
-  height: auto;
+  width: clamp(8rem, 13vw, 20rem);
+  height: clamp(8rem, 13vw, 20rem);
+  object-fit: contain;
+}
+
+.title {
+  margin: 0 0 clamp(0.9rem, 3.2vw, 1.25rem); 
+  font-size: clamp(1rem, 5.6vw, 1.1rem);
+  font-weight: 700;
+  text-align: left;
+  line-height: 1.2;
 }
 
 .form {
   display: grid;
-  gap: clamp(0.65rem, 2.5vw, 0.9rem);
+  gap: clamp(0.65rem, 2.6vw, 0.9rem);
 }
 
-.field {
-  display: grid;
-  gap: clamp(0.3rem, 1.2vw, 0.45rem);
-}
-
-.field span {
-  font-size: clamp(0.95rem, 2.8vw, 1.1rem);
-  line-height: 1.2;
+.input {
+  height: clamp(42px, 12vw, 48px);
+  border: 1px solid #eceff5;
+  border-radius: clamp(8px, 2.5vw, 10px);
+  padding: 0 clamp(0.75rem, 3.2vw, 1rem);
+  background: #f8f9fc;
   color: #2f3442;
-  font-weight: 600;
-}
-
-.field input {
-  height: clamp(2.15rem, 8.5vw, 2.6rem);
-  border: 1px solid #cfd4de;
-  border-radius: clamp(0.3rem, 1vw, 0.45rem);
-  padding-inline: clamp(0.7rem, 2.2vw, 0.9rem);
-  font-size: clamp(0.92rem, 2.5vw, 1rem);
-  color: #1f2937;
+  font-size: clamp(0.88rem, 3.2vw, 0.95rem);
   outline: none;
 }
 
-.field input:focus {
-  border-color: #2d61d6;
-  box-shadow: 0 0 0 2px rgba(45, 97, 214, 0.16);
+.input::placeholder {
+  color: #9ba2af;
 }
 
-.primaryButton,
-.oauthButton,
-.loginButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  min-height: clamp(2.15rem, 8.5vw, 2.6rem);
-  border-radius: clamp(0.3rem, 1vw, 0.45rem);
-  font-size: clamp(0.92rem, 2.5vw, 1rem);
-  font-weight: 700;
-  cursor: pointer;
-  transition: filter 0.2s ease;
+.input:focus {
+  border-color: #2d61d6;
+  box-shadow: 0 0 0 2px rgba(45, 97, 214, 0.12);
+  background: #ffffff;
 }
 
 .primaryButton {
-  margin-top: clamp(0.45rem, 1.7vw, 0.65rem);
-  border: 0;
+  margin-top: clamp(0.2rem, 1.3vw, 0.35rem);
+  height: clamp(44px, 12.5vw, 50px);
+  width: 100%;
+  border: none;
+  border-radius: clamp(8px, 2.5vw, 10px);
   background: #2d61d6;
   color: #ffffff;
-  text-decoration: none;
-}
-
-.primaryButton:hover,
-.oauthButton:hover,
-.loginButton:hover {
-  filter: brightness(0.98);
+  font-size: clamp(0.94rem, 3.4vw, 1.05rem);
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(45, 62, 168, 0.22);
 }
 
 .divider {
-  margin: clamp(0.75rem, 3vw, 1rem) 0;
+  margin: clamp(1.15rem, 5.5vw, 1.7rem) 0 clamp(0.85rem, 3vw, 1rem);
   text-align: center;
-  color: #6b7280;
-  font-size: clamp(0.95rem, 2.5vw, 1rem);
-  line-height: 1;
+  color: #9aa1ad;
+  font-size: clamp(0.86rem, 3vw, 1rem);
+  font-weight: 500;
 }
 
-.oauthButton {
-  border: 1px solid #cfd4de;
-  background: #ffffff;
-  color: #2f3442;
+.socialRow {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(0.55rem, 2vw, 0.7rem);
+  gap: clamp(0.45rem, 2vw, 0.55rem);
 }
 
-.oauthButton + .oauthButton {
-  margin-top: clamp(0.55rem, 2vw, 0.75rem);
-}
-
-.googleIcon {
-  width: clamp(1.25rem, 4.6vw, 1.55rem);
-  height: clamp(1.25rem, 4.6vw, 1.55rem);
-  border-radius: 999px;
-  border: 1px solid #dadce0;
+.socialButton {
+  flex: 1;
+  height: clamp(44px, 12.5vw, 50px);
+  border-radius: clamp(8px, 2.5vw, 10px);
+  border: 1px solid #f0f2f7;
+  background: #ffffff;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-weight: 800;
-  font-size: clamp(0.9rem, 2.8vw, 1rem);
-  background: conic-gradient(
-    from 0deg,
-    #4285f4 0deg 90deg,
-    #34a853 90deg 180deg,
-    #fbbc05 180deg 270deg,
-    #ea4335 270deg 360deg
-  );
-  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(26, 35, 50, 0.05);
 }
 
-.microsoftIcon {
-  width: clamp(1.2rem, 4.3vw, 1.45rem);
-  height: clamp(1.2rem, 4.3vw, 1.45rem);
-  background:
-    linear-gradient(#f25022 0 0) 0 0 / 47% 47% no-repeat,
-    linear-gradient(#7fba00 0 0) 100% 0 / 47% 47% no-repeat,
-    linear-gradient(#00a4ef 0 0) 0 100% / 47% 47% no-repeat,
-    linear-gradient(#ffb900 0 0) 100% 100% / 47% 47% no-repeat;
-  border: 1px solid #d1d5db;
+.facebookIcon {
+  color: #4267b2;
 }
 
-.signinText {
+.twitterIcon {
+  color: #1da1f2;
+}
+
+.signupText {
   text-align: center;
-  margin: clamp(0.95rem, 3.2vw, 1.2rem) 0 clamp(0.45rem, 1.6vw, 0.6rem);
-  color: #525a69;
-  font-size: clamp(0.95rem, 2.4vw, 1rem);
-  font-weight: 600;
+  margin: clamp(1.3rem, 6vw, 1.9rem) 0 0;
+  color: #8f96a2;
+  font-size: clamp(0.86rem, 3vw, 1rem);
 }
 
-.loginButton {
-  border: 1px solid #91ace8;
-  background: #f7faff;
-  color: #2d61d6;
+.signupLink {
+  color: #4f5ec9;
+  font-weight: 600;
+  text-decoration: none;
 }
+
+.signupLink:hover {
+  text-decoration: underline;
+}
+
+/* @media (max-width: 450px) {
+  .card {
+    border-radius: 0;
+    min-height: 100dvh;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .wrapper {
+    padding: 0;
+  }
+
+  .title {
+    font-size: clamp(1.25rem, 6vw, 1.55rem);
+  }
+}
+
+@media (max-width: 360px) {
+  .wrapper {
+    padding: 0;
+  }
+
+  .card {
+    padding: 0.85rem;
+  }
+
+  .form {
+    gap: 0.55rem;
+  }
+
+  .divider {
+    margin-top: 0.95rem;
+  }
+} */
+ 

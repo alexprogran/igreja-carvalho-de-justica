@@ -54,10 +54,10 @@ const Panfelto = ({
           {/* <button type="button" className={styles.ctaButton}>
             {dados.ctaTexto}
           </button> */}
-          
-          <Ingaje 
-          vertical={false}            
-           />
+
+          <div className={styles.ingajeWrap}>
+            <Ingaje vertical={false} />
+          </div>
         </div>
       </article>
     </section>

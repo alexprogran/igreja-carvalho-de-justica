@@ -13,16 +13,24 @@ const Ingaje = ({
   viewIcon = true,
 }) => {
   const [isCommentsOpen, setIsCommentsOpen] = useState(false);
+  const [isLiked, setIsLiked] = useState(false);
   const actionsClassName = vertical ? styles.actions : `${styles.actions} ${styles.horizontal}`;
   const actionButtonClassName = vertical ? styles.actionButton : `${styles.actionButton} ${styles.horizontalActionButton}`;
+  const likeButtonClassName = `${actionButtonClassName} ${isLiked ? styles.likeButtonActive : styles.likeButtonInactive}`;
 
   return (
     <>
       <aside className={actionsClassName} aria-label="Ações do vídeo">
       {likeIcon ? (
-        <button type="button" className={actionButtonClassName} aria-label="Curtir">
+        <button
+          type="button"
+          className={likeButtonClassName}
+          aria-label={isLiked ? "Descurtir" : "Curtir"}
+          aria-pressed={isLiked}
+          onClick={() => setIsLiked((current) => !current)}
+        >
           <span className={styles.actionIcon}>
-            <Heart aria-hidden="true" />
+            <Heart fill={isLiked ? "currentColor" : "transparent"} aria-hidden="true" />
           </span>
           <span className={styles.actionLabel}>17K</span>
         </button>

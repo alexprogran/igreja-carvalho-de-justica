@@ -15,11 +15,13 @@
   --actions-bottom: clamp(1rem, 4vh, 2rem);
   flex-direction: row;
   align-items: flex-end;
-  flex-wrap: wrap;
+  gap: clamp(0.7rem, 2.8vw, 1.15rem);
+  flex-wrap: nowrap;
+  overflow-x: auto;
 }
 
 .actionButton {
-  --action-icon-size: clamp(2.2rem, 6vw, 3rem);
+  --action-icon-size: clamp(2.3rem, 6vw, 3rem);
   --action-svg-size: clamp(1.5rem, 3vw, 1.75rem);
   --action-label-size: clamp(0.8rem, 2vw, 0.8rem);
   --action-label-weight: 600;
@@ -31,16 +33,17 @@
   align-items: center;
   gap: 0.2rem;
   cursor: pointer;
+  transition: transform 0.16s ease;
 }
 
 .horizontalActionButton {
-  
-  --action-icon-size: clamp(2rem, 4vw, 2.2rem);
-  --action-svg-size: clamp(1.25rem, 2.6vw, 1.3rem);
-  --action-label-size: clamp(0.72rem, 1.5vw, 0.82rem);
-  
-  min-width: clamp(4.2rem, 10vw, 5.5rem);
+  --action-icon-size: clamp(1.8rem, 3.8vw, 2.1rem);
+  --action-svg-size: clamp(1.35rem, 2.2vw, 1.4rem);
+  --action-label-size: clamp(0.72rem, 1.4vw, 0.78rem);
+  min-width: clamp(3.4rem, 8.8vw, 4.8rem);
+  flex: 0 0 auto;
   justify-content: center;
+  gap: 0.3rem;
 }
 
 .actionIcon {
@@ -65,6 +68,47 @@
   font-weight: var(--action-label-weight);
   letter-spacing: 0.01em;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+.likeButtonActive {
+  animation: likeNudgeIn 0.18s ease;
+}
+
+.likeButtonInactive {
+  animation: likeNudgeOut 0.18s ease;
+}
+
+.likeButtonActive .actionIcon svg,
+.likeButtonInactive .actionIcon svg {
+  transition: fill 0.16s ease, transform 0.16s ease;
+}
+
+@keyframes likeNudgeIn {
+  0% {
+    transform: translateY(0);
+  }
+
+  45% {
+    transform: translateY(-3px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes likeNudgeOut {
+  0% {
+    transform: translateY(0);
+  }
+
+  45% {
+    transform: translateY(-3px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
 }
  
 @media (max-width: 720px) {

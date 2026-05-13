@@ -18,9 +18,8 @@ export default function Home() {
  
   return (
     <div className={styles.page}>
-      <div className={styles.content}>
-         <Panfelto />
-        <VideoApresent {...videoApresentData} />
+      <div className={styles.content}>        
+        {/* <VideoApresent {...videoApresentData} /> */}
         <DailyDevotion />        
         <QuickLinks />     
         <Map />                

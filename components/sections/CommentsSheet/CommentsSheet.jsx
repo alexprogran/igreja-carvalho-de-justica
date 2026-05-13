@@ -2,30 +2,32 @@
 
 import { useState } from "react";
 import { X } from "lucide-react";
-import * as Drawer from "vaul";
+import { Drawer as DrawerPrimitive } from "vaul";
+import { Drawer, DrawerPortal, DrawerTitle } from "@/components/ui/drawer";
+import Reage from "@/components/sections/Reag/Reage";
 import styles from "./CommentsSheet.module.css";
 
 const MOCK_COMMENTS = [
   {
     id: 1,
-    author: "Giggles Squrl",
+    author: "Maria Santos",
     time: "1:53 · 4h",
-    text: "What a great track! Its got house, dubstep, breakbeats! You could use a mix to switch genres!",
-    avatar: "GS",
+    text: "Amém! Mutuito edificante! Deus é fiel!",
+    avatar: "MS",
   },
   {
     id: 2,
-    author: "MC McDrill",
+    author: "Marcos Lima",
     time: "2:27 · 4h",
-    text: "holy fuck",
-    avatar: "MM",
+    text: "Amém! Deus é fiel!",
+    avatar: "ML",
   },
   {
     id: 3,
-    author: "RiXTiC",
+    author: "Patrícia Oliveira",
     time: "0:14 · 3h",
-    text: "Check out my remix to this song! Just posted on my page!",
-    avatar: "RX",
+    text: "Amém! Deus é bom!",
+    avatar: "PO",
   },
 ];
 
@@ -38,10 +40,10 @@ export default function CommentsSheet({ isOpen, onClose }) {
   };
 
   return (
-    <Drawer.Root open={isOpen} onOpenChange={onClose}>
-      <Drawer.Portal>
-        <Drawer.Overlay className={styles.overlay} />
-        <Drawer.Content className={styles.sheet}>
+    <Drawer open={isOpen} onOpenChange={onClose}>
+      <DrawerPortal>
+        <DrawerPrimitive.Content className={styles.sheet}>
+          <DrawerTitle className={styles.srOnly}>Comentários</DrawerTitle>
           <div className={styles.handle} />
           
           <div className={styles.header}>
@@ -78,6 +80,10 @@ export default function CommentsSheet({ isOpen, onClose }) {
             ))}
           </div>
 
+          <div className={styles.reageWrap}>
+            <Reage />
+          </div>
+
           <form className={styles.inputForm} onSubmit={handleSubmit}>
             <div className={styles.inputWrapper}>
               <input
@@ -98,8 +104,8 @@ export default function CommentsSheet({ isOpen, onClose }) {
               </button>
             </div>
           </form>
-        </Drawer.Content>
-      </Drawer.Portal>
-    </Drawer.Root>
+        </DrawerPrimitive.Content>
+      </DrawerPortal>
+    </Drawer>
   );
 }

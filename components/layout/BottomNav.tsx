@@ -8,7 +8,7 @@ const navItems = [
   { icon: Home, label: "Home" },
   { icon: Calendar, label: "Events" },
   { icon: MessageCircle, label: "Messages" },
-  { icon: BookOpen, label: "Sermons" },
+  { icon: BookOpen, label: "Panfleto" },
   { icon: Settings, label: "Settings" },
 ];
 
@@ -21,6 +21,11 @@ const BottomNav = () => {
 
     if (index === 0) {
       router.push("/login");
+      return;
+    }
+
+    if (index === 3) {
+      router.push("/panfleto");
     }
   };
 

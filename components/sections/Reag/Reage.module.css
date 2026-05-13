@@ -1,0 +1,26 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: clamp(0.35rem, 1.8vw, 0.65rem);
+}
+
+.reactionButton {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  font-size: clamp(1.4rem, 4.5vw, 1.75rem);
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+  display: inline-grid;
+  place-items: center;
+}
+
+.reactionButton:hover {
+  transform: scale(1.2);
+}
+
+.reactionButton:active {
+  transform: scale(0.9);
+}
