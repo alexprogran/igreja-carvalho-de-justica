@@ -61,7 +61,7 @@
 .titulo {
   margin: clamp(0.25rem, 1vw, 0.5rem) 0 clamp(1rem, 2.8vw, 1.4rem) 0;
   flex: 1;
-  color: #f8f6f1;
+  color: hsl(var(--primary-foreground));
   font-size: clamp(1.3rem, 7vw, 1.9rem);
   font-weight: 700;
   line-height: 1.2;
@@ -79,9 +79,9 @@
 .texto {
   margin: 0;
   white-space: pre-wrap;
-  color: #f8f6f1;
-  /* font-size: clamp(0.9rem, 1.9vw, 1.05rem); */
-  font-size: clamp(0.89rem, 6vw, 1.2rem);
+  color: hsl(var(--primary-foreground) / 0.95);
+  font-size: clamp(1.25rem, 1.9vw, 1.3rem);
+  /* font-size: clamp(0.89rem, 6vw, 1.2rem); */
   line-height: 1.55;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
 }
@@ -95,9 +95,9 @@
  
 .ingajeWrap { 
   position: absolute;
-  right: clamp(5rem, 3vw, 5.5rem);
-  top: clamp(15.5rem, 4vh, 1.4rem);
+  inset: 0;
   z-index: 4;
+  pointer-events: none;
 }
 
 .ctaButton {

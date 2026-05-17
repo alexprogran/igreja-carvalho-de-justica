@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Heart, MessageCircle, Play, Share2 } from "lucide-react";
+import { Heart, MessageCircle, Share2 } from "lucide-react";
 import CommentsSheet from "@/components/sections/CommentsSheet/CommentsSheet";
 import styles from "./Ingaje.module.css";
 
@@ -14,11 +14,20 @@ const Ingaje = ({
 }) => {
   const [isCommentsOpen, setIsCommentsOpen] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
+  const [likeBurstKey, setLikeBurstKey] = useState(0);
   const actionsClassName = vertical ? styles.actions : `${styles.actions} ${styles.horizontal}`;
   const actionButtonClassName = vertical ? styles.actionButton : `${styles.actionButton} ${styles.horizontalActionButton}`;
   const likeButtonClassName = `${actionButtonClassName} ${isLiked ? styles.likeButtonActive : styles.likeButtonInactive}`;
 
-  return (
+  const handleLikeClick = () => {
+    if (!isLiked) {
+      setLikeBurstKey((current) => current + 1);
+    }
+
+    setIsLiked((current) => !current);
+  };
+
+  return ( 
     <>
       <aside className={actionsClassName} aria-label="Ações do vídeo">
       {likeIcon ? (
@@ -27,10 +36,17 @@ const Ingaje = ({
           className={likeButtonClassName}
           aria-label={isLiked ? "Descurtir" : "Curtir"}
           aria-pressed={isLiked}
-          onClick={() => setIsLiked((current) => !current)}
+          onClick={handleLikeClick}
         >
           <span className={styles.actionIcon}>
             <Heart fill={isLiked ? "currentColor" : "transparent"} aria-hidden="true" />
+            {isLiked ? (
+              <span key={likeBurstKey} className={styles.likeBurst} aria-hidden="true">
+                <Heart className={`${styles.burstHeart} ${styles.burstHeartLeft}`} fill="currentColor" />
+                <Heart className={`${styles.burstHeart} ${styles.burstHeartCenter}`} fill="currentColor" />
+                <Heart className={`${styles.burstHeart} ${styles.burstHeartRight}`} fill="currentColor" />
+              </span>
+            ) : null}
           </span>
           <span className={styles.actionLabel}>17K</span>
         </button>
@@ -61,10 +77,8 @@ const Ingaje = ({
 
       {viewIcon ? (
         <button type="button" className={actionButtonClassName} aria-label="Visualizações">
-          <span className={styles.actionIcon}>
-            <Play aria-hidden="true" />
-          </span>
-          <span className={styles.actionLabel}>2000mil</span>
+          <span className={styles.viewHeading}>View</span>
+          <span className={styles.actionLabel}>2.000</span>
         </button>
       ) : null}
     </aside>

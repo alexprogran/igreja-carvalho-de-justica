@@ -8,14 +8,20 @@
   flex-direction: column;
   gap: clamp(0.5rem, 2vw, 1rem);
   z-index: 3;
+  pointer-events: auto;
 }
 
 .horizontal {
-  --actions-right: clamp(0.8rem, 3vw, 1.5rem);
-  --actions-bottom: clamp(1rem, 4vh, 2rem);
+  --actions-top: clamp(11.5rem, 14vh, 7.2rem);
+  right: auto;
+  left: 50%;
+  top: var(--actions-top);
+  bottom: auto;
+  transform: translateX(-50%);
   flex-direction: row;
+  justify-content: center;
   align-items: flex-end;
-  gap: clamp(0.7rem, 2.8vw, 1.15rem);
+  gap: clamp(1rem, 2.8vw, 1.15rem);
   flex-wrap: nowrap;
   overflow-x: auto;
 }
@@ -52,6 +58,50 @@
   border-radius: 999px;
   display: grid;
   place-items: center;
+  position: relative;
+  overflow: visible;
+}
+
+.likeBurst {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.burstHeart {
+  --burst-x: 0;
+  --burst-y: -1rem;
+  --burst-rotate: 0deg;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: clamp(0.72rem, 1.8vw, 0.92rem);
+  height: clamp(0.72rem, 1.8vw, 0.92rem);
+  color: #fff;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.35);
+  animation: likeBurstPop 0.52s ease-out forwards;
+}
+
+.burstHeartLeft {
+  --burst-x: -0.95rem;
+  --burst-y: -0.85rem;
+  --burst-rotate: -22deg;
+  animation-delay: 0.01s;
+}
+
+.burstHeartCenter {
+  --burst-x: 0;
+  --burst-y: -1.2rem;
+  --burst-rotate: 0deg;
+  animation-delay: 0.04s;
+}
+
+.burstHeartRight {
+  --burst-x: 0.95rem;
+  --burst-y: -0.85rem;
+  --burst-rotate: 22deg;
+  animation-delay: 0.07s;
 }
 
 .actionIcon svg {
@@ -67,6 +117,17 @@
   font-size: var(--action-label-size);
   font-weight: var(--action-label-weight);
   letter-spacing: 0.01em;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+.viewHeading {
+  min-height: var(--action-icon-size);
+  display: grid;
+  place-items: center;
+  font-size: clamp(1rem, 1.6vw, 1.1rem);
+  font-weight: 700;
+  line-height: 1.05;
+  text-align: center;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
 }
 
@@ -108,6 +169,23 @@
 
   100% {
     transform: translateY(0);
+  }
+}
+
+@keyframes likeBurstPop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.35) rotate(0deg);
+  }
+
+  24% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--burst-x)), calc(-50% + var(--burst-y))) scale(1.05)
+      rotate(var(--burst-rotate));
   }
 }
  

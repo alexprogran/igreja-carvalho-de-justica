@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import styles from "./Panfleto.module.css";
 import Ingaje from "../Ingaje/Ingaje";
 import VideoPanfleto from "./VideoPanfleto";
@@ -48,13 +47,6 @@ const Panfelto = ({
         <div className={styles.content}>
           <div className={styles.titleRow}>
             {dados.title && <h2 className={styles.titulo}>{dados.title}</h2>}
-            <Image
-              src="/logo2.png"
-              alt="Logo da igreja"
-              width={72}
-              height={72}
-              className={styles.logo}
-            />
           </div>
           <p className={styles.texto}>{dados.texto}</p>
         </div>
@@ -62,7 +54,7 @@ const Panfelto = ({
         <div className={styles.bottomArea}>
           <VideoPanfleto
             title="Deus é fiel o tempo todo"
-            subtitle="Temos algo de Deus para você!"
+            subtitle="Ainda tem mais de Deus para você!"
           />
 
           {/* <button type="button" className={styles.ctaButton}>
