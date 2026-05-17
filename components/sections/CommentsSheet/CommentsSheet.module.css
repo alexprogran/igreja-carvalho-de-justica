@@ -10,12 +10,16 @@
   border: 0;
 }
 
+:root {
+  --avatar-bg: linear-gradient(135deg, #6f7f4a 0%, #7fb336 100%);
+}
+
 .sheet {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  max-height: clamp(40vh, 65vh, 70vh);
+  max-height: clamp(45vh, 72vh, 82vh);
   background: #ffffff;
   border-radius: clamp(0.75rem, 2vw, 1.25rem) clamp(0.75rem, 2vw, 1.25rem) 0 0;
   z-index: 50;
@@ -44,8 +48,10 @@
 }
 
 .title {
-  font-size: clamp(1rem, 3vw, 1.25rem);
-  font-weight: 800;
+  flex: 1;
+  text-align: center;
+  font-size: clamp(1.1rem, 3vw, 1.25rem);
+  font-weight: 600;
   color: #1f2937;
   margin: 0;
   line-height: 1.2;
@@ -86,7 +92,8 @@
   width: clamp(2.25rem, 8vw, 2.75rem);
   height: clamp(2.25rem, 8vw, 2.75rem);
   border-radius: 50%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+  background: var(--avatar-bg);
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -132,21 +139,88 @@
 .replyButton {
   background: none;
   border: none;
-  color: #6b7280;
+  color: #111827;
   font-size: clamp(0.85rem, 2.2vw, 0.95rem);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
   cursor: pointer;
   font-weight: 600;
   padding: 0;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .replyButton:hover {
-  color: #2d61d6;
+  transform: translateY(-1px);
+}
+
+.replyButtonLiked {
+  color: #111827;
+  
+}
+
+.replyHeartWrap {
+  position: relative;
+  width: 1rem;
+  height: 1rem;
+  display: inline-grid;
+  place-items: center;
+  color: #ffffff;
+  filter: drop-shadow(0 0 1px rgba(17, 24, 39, 0.75));
+}
+
+.replyBurst {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.burstHeart {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.4);
+  opacity: 0;
+  font-size: 0.58rem;
+  color: #ffffff;
+  text-shadow: 0 0 1px rgba(17, 24, 39, 0.75);
+  animation: heartBurst 0.65s ease-out forwards;
+}
+
+.burstHeart:nth-child(1) {
+  --tx: -0.78rem;
+  --ty: -0.85rem;
+}
+
+.burstHeart:nth-child(2) {
+  --tx: 0;
+  --ty: -1rem;
+}
+
+.burstHeart:nth-child(3) {
+  --tx: 0.78rem;
+  --ty: -0.85rem;
+}
+
+@keyframes heartBurst {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.3);
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1);
+  }
 }
 
 .reageWrap {
-  margin-top: clamp(0.35rem, 1.2vw, 0.55rem);
-  padding: 0 clamp(0.75rem, 3vw, 1rem) clamp(0.45rem, 1.5vw, 0.7rem);
+  padding: 0 0 clamp(0.55rem, 1.8vw, 0.8rem);
+  min-height: clamp(2rem, 8vw, 2.5rem);
+  display: flex;
+  align-items: center;
 }
 
 .inputForm {
@@ -158,42 +232,101 @@
 
 .inputWrapper {
   display: flex;
-  gap: clamp(0.5rem, 1.5vw, 0.75rem);
+  gap: clamp(0.65rem, 2vw, 0.95rem);
+  align-items: flex-end;
+}
+
+.commentInputWrap {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  /* controla o tamanho do texto e dos emojis digitados no input */
+  --input-content-size: clamp(1.19rem, 2.8vw, 1.1rem);
+}
+
+.customPlaceholder {
+  position: absolute;
+  top: 50%;
+  left: clamp(0.8rem, 2.5vw, 1rem);
+  transform: translateY(-50%);
+  display: inline-flex;
   align-items: center;
+  gap: 0.8rem; 
+  /* color: #838890; */
+  color: #5f6266;
+  font-size: clamp(1.1rem, 2.8vw, 1.12rem);  
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.placeholderIconButton {
+  width: 1.4em;
+  height: 1.4em;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: auto;
+  flex-shrink: 0;
+}
+
+.placeholderIcon {
+  width: 100%;
+  height: 100%; 
+  color: currentcolor;
+  flex-shrink: 0;
 }
 
 .commentInput {
-  flex: 1;
-  height: clamp(2.25rem, 8vw, 2.75rem);
+  width: 100%;
+  display: block;
+  min-height: clamp(2.8rem, 9vw, 3rem);
+  max-height: clamp(5.8rem, 20vw, 7.2rem);
   border: 1px solid #d1d5db;
   border-radius: clamp(1rem, 3vw, 1.5rem);
-  padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(0.8rem, 2.5vw, 1rem);
-  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  padding-top: clamp(0.5rem, 1.5vw, 0.75rem);
+  padding-bottom: clamp(0.5rem, 1.5vw, 0.75rem);
+  padding-right: clamp(0.8rem, 2.5vw, 1rem);
+  /* cursor inicia rente ao texto do placeholder: left-offset + largura do ícone (1.4em) + gap (0.8rem) */
+  padding-left: calc(clamp(0.8rem, 2.5vw, 1rem) + 1.4em + 0.8rem);
+  font-size: var(--input-content-size);
   color: #1f2937;
   outline: none;
   background: #f9fafb;
+  line-height: 1.4;
+  resize: none;
+  overflow-y: auto;
   transition: border-color 0.2s ease;
 }
 
 .commentInput:focus {
-  border-color: #2d61d6;
   background: #ffffff;
-  box-shadow: 0 0 0 2px rgba(45, 97, 214, 0.1);
 }
 
 .commentInput::placeholder {
-  color: #9ca3af;
+  color: transparent;
 }
 
 .sendButton {
-  height: clamp(2.25rem, 8vw, 2.75rem);
-  padding: 0 clamp(0.75rem, 2.5vw, 1rem);
-  background: #2d61d6;
+  /* tamanho: mínimo 2.5rem, ideal 9vw, máximo 3rem — aumente/diminua aqui */
+  width: clamp(2.5rem, 9vw, 3rem);
+  height: clamp(2.5rem, 9vw, 3rem);
+  padding: 0;
+  background: var(--avatar-bg);
   color: #ffffff;
   border: none;
-  border-radius: clamp(0.5rem, 1.5vw, 0.75rem);
-  font-size: clamp(0.85rem, 2.2vw, 0.95rem);
-  font-weight: 700;
+  border-radius: 50%;
+  /* ícone: mínimo 1.2rem, ideal 3vw, máximo 1.35rem — aumente/diminua aqui */
+  font-size: clamp(1.2rem, 3vw, 1.35rem);
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   transition: filter 0.2s ease;
   flex-shrink: 0;

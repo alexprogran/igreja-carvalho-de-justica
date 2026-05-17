@@ -11,7 +11,7 @@
   background: transparent;
   min-height: clamp(10rem, 16vw, 18rem);
 }
-
+ 
 .playButton {
   margin-top: clamp(0.5rem, 1vw, 1rem);
   margin-bottom: clamp(1rem, 1vw, 1rem);
@@ -23,7 +23,8 @@
   border-radius: clamp(1rem, 4vw, 1.5rem);
   border: none;
   cursor: pointer;
-  background: hsl(var(--primary) / 0.88);
+  /* background: hsl(var(--primary) / 0.88); */
+  background: var(--avatar-bg);
   backdrop-filter: blur(2px);
   transition: background 0.18s, transform 0.18s;
 }
