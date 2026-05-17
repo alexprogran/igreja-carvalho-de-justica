@@ -36,7 +36,7 @@ const normalizeDevotionFromApi = (apiData = {}) => {
 };
 
 const DailyDevotion = ({
-  titleSection = "Reflexao do dia",
+  titleSection = "Olá Alex",
   devotion = DEFAULT_DEVOTION,
   apiData,
 }) => {
@@ -70,6 +70,14 @@ const DailyDevotion = ({
     <section className={styles.section}>
       <div className={styles.header}>
         <h3 className={styles.title}>{titleSection}</h3>        
+        <Image
+          src="/logo2.png"
+          alt="Logo da igreja"
+          className={styles.headerLogo}
+          width={56}
+          height={56}
+          priority
+        />
       </div>
       <div className={styles.card}>
         <Image
