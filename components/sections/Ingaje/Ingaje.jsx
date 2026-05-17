@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Heart, MessageCircle, Share2 } from "lucide-react";
 import CommentsSheet from "@/components/sections/CommentsSheet/CommentsSheet";
+import Share from "@/components/sections/Share/Share";
 import styles from "./Ingaje.module.css";
 
 const Ingaje = ({
@@ -13,6 +14,7 @@ const Ingaje = ({
   viewIcon = true,
 }) => {
   const [isCommentsOpen, setIsCommentsOpen] = useState(false);
+  const [isShareOpen, setIsShareOpen] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
   const [likeBurstKey, setLikeBurstKey] = useState(0);
   const actionsClassName = vertical ? styles.actions : `${styles.actions} ${styles.horizontal}`;
@@ -27,25 +29,8 @@ const Ingaje = ({
     setIsLiked((current) => !current);
   };
 
-  const handleShareClick = async () => {
-    const shareData = {
-      title: "Igreja Carvalho de Justiça",
-      text: "Confira este conteúdo da Igreja Carvalho de Justiça.",
-      url: typeof window !== "undefined" ? window.location.href : "/",
-    };
-
-    if (navigator.share) {
-      try {
-        await navigator.share(shareData);
-      } catch {
-        // Usuário pode cancelar o compartilhamento.
-      }
-      return;
-    }
-
-    if (navigator.clipboard?.writeText) {
-      await navigator.clipboard.writeText(shareData.url);
-    }
+  const handleShareClick = () => {
+    setIsShareOpen(true);
   };
 
   return ( 
@@ -109,6 +94,7 @@ const Ingaje = ({
       ) : null}
     </aside>
     <CommentsSheet isOpen={isCommentsOpen} onClose={() => setIsCommentsOpen(false)} />
+    <Share isOpen={isShareOpen} onClose={() => setIsShareOpen(false)} />
     </>
   );
 };

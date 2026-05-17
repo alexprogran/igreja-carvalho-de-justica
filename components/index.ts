@@ -14,6 +14,7 @@ export { Map } from "./sections/Map";
 export { Panfelto } from "./sections/Panfleto";
 export { Cadastro } from "./sections/Cadastro";
 export { CommentsSheet } from "./sections/CommentsSheet";
+export { Share } from "./sections/Share";
 
 // Additional sections
 export { default as ChurchMeeting } from "./sections/ChurchMeeting";
