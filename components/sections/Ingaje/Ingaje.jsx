@@ -27,6 +27,27 @@ const Ingaje = ({
     setIsLiked((current) => !current);
   };
 
+  const handleShareClick = async () => {
+    const shareData = {
+      title: "Igreja Carvalho de Justiça",
+      text: "Confira este conteúdo da Igreja Carvalho de Justiça.",
+      url: typeof window !== "undefined" ? window.location.href : "/",
+    };
+
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+      } catch {
+        // Usuário pode cancelar o compartilhamento.
+      }
+      return;
+    }
+
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(shareData.url);
+    }
+  };
+
   return ( 
     <>
       <aside className={actionsClassName} aria-label="Ações do vídeo">
@@ -67,7 +88,12 @@ const Ingaje = ({
       ) : null}
 
       {shareIcon ? (
-        <button type="button" className={actionButtonClassName} aria-label="Compartilhar">
+        <button
+          type="button"
+          className={actionButtonClassName}
+          aria-label="Compartilhar"
+          onClick={handleShareClick}
+        >
           <span className={styles.actionIcon}>
             <Share2 aria-hidden="true" />
           </span>

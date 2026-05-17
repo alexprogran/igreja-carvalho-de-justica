@@ -56,6 +56,7 @@ const VideoPanfleto = ({
           ingaje={false}
           autoplay={true}
           playback={true}
+          home={true}
           onFim={() => setAssistindo(false)}
         />
       )}

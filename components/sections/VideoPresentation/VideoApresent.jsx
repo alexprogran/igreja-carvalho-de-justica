@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import styles from "./VideoApresent.module.css";
 import HeaderSection from "../HeaderSection";
 import Ingaje from "../Ingaje/Ingaje";
@@ -38,6 +39,7 @@ const VideoApresent = ({
   autoplay = false,
   onFim,
   playback = false,
+  home = false,
 }) => {
   const [visivel, setVisivel] = useState(true);
   const [saindo, setSaindo] = useState(false);
@@ -50,6 +52,7 @@ const VideoApresent = ({
   const videoRef = useRef(null);
   const timeoutBotaoSuaveRef = useRef(null);
   const timeoutHeaderRef = useRef(null);
+  const router = useRouter();
   const capaVideo = capa || poster || DEFAULT_VIDEO_APRESENT.capa;
   const introTexto = (intro || "").trim();
   const temaTexto = (tema || "").trim();
@@ -215,6 +218,11 @@ const VideoApresent = ({
             onEnded={() => {
               setSaindo(true);
               setTimeout(() => {
+                if (home) {
+                  router.push("/");
+                  return;
+                }
+
                 setVisivel(false);
                 onFim?.();
               }, 700);
