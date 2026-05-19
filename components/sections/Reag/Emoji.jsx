@@ -23,7 +23,7 @@ const getTwemojiUrl = (emoji) => {
   return `${TWEMOJI_SVG_BASE_URL}/${codePoint}.svg`;
 };
 
-export default function Emoji({ onSelectEmoji }) {
+export default function Emoji({ onSelectEmoji, onBeforeSelect }) {
   return (
     <div className={styles.wrapper}>
       {REACTIONS.map((emoji, index) => (
@@ -32,6 +32,8 @@ export default function Emoji({ onSelectEmoji }) {
           type="button"
           className={styles.reactionButton}
           aria-label={emoji}
+          onPointerDown={onBeforeSelect}
+          onMouseDown={onBeforeSelect}
           onClick={() => onSelectEmoji?.(emoji)}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}

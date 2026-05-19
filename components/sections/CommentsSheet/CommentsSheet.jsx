@@ -95,10 +95,27 @@ export default function CommentsSheet({ isOpen, onClose }) {
       }
 
       adjustInputHeight(inputRef.current);
-      inputRef.current.focus();
-      inputRef.current.setSelectionRange(nextCursorPosition, nextCursorPosition);
+      if (document.activeElement === inputRef.current) {
+        inputRef.current.setSelectionRange(nextCursorPosition, nextCursorPosition);
+      }
+
       setSelection({ start: nextCursorPosition, end: nextCursorPosition });
     });
+  };
+
+  const keepInputFocus = (event) => {
+    event.preventDefault();
+  };
+
+  const handleClose = () => {
+    setShowEmojiPicker(false);
+    onClose?.(false);
+  };
+
+  const handleDrawerOpenChange = (nextOpen) => {
+    if (!nextOpen) {
+      handleClose();
+    }
   };
 
   const toggleEmojiPicker = () => {
@@ -161,7 +178,7 @@ export default function CommentsSheet({ isOpen, onClose }) {
   };
 
   return (
-    <Drawer open={isOpen} onOpenChange={onClose}>
+    <Drawer open={isOpen} onOpenChange={handleDrawerOpenChange}>
       <DrawerPortal>
         <DrawerPrimitive.Content className={styles.sheet}>
           <DrawerTitle className={styles.srOnly}>Comentários</DrawerTitle>
@@ -172,7 +189,7 @@ export default function CommentsSheet({ isOpen, onClose }) {
             <button
               type="button"
               className={styles.closeButton}
-              onClick={onClose}
+              onClick={handleClose}
               aria-label="Fechar comentários"
             >
               <X size={24} aria-hidden="true" />
@@ -220,7 +237,7 @@ export default function CommentsSheet({ isOpen, onClose }) {
           <form className={styles.inputForm} onSubmit={handleSubmit}>
             {showEmojiPicker && (
               <div className={styles.reageWrap}>
-                <Emoji onSelectEmoji={handleEmojiSelect} />
+                <Emoji onSelectEmoji={handleEmojiSelect} onBeforeSelect={keepInputFocus} />
               </div>
             )}
             
@@ -230,6 +247,8 @@ export default function CommentsSheet({ isOpen, onClose }) {
                   <button
                     type="button"
                     className={styles.placeholderIconButton}
+                    onPointerDown={keepInputFocus}
+                    onMouseDown={keepInputFocus}
                     onClick={toggleEmojiPicker}
                     aria-label={showEmojiPicker ? "Fechar emojis" : "Abrir emojis"}
                   >
