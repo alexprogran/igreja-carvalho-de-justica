@@ -4,15 +4,15 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     id: "/",
     name: "Igreja Carvalho de Justica",
-    short_name: "Igreja Carvalho",
+    short_name: "Carvalho de Justica",
     description: "Aplicativo oficial da Igreja Carvalho de Justica.",
     lang: "pt-BR",
     start_url: "/",
     scope: "/",
     display: "standalone",
     orientation: "portrait",
-    background_color: "#0b1320",
-    theme_color: "#0b1320",
+    background_color: "#ffffff",
+    theme_color: "#ffffff",
     icons: [
       {
         src: "/icons/icon-192.png",
