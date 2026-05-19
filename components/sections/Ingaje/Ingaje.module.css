@@ -26,6 +26,22 @@
   overflow-x: auto;
 }
 
+.inline {
+  position: static;
+  right: auto;
+  bottom: auto;
+  margin-top: clamp(0.6rem, 2vw, 0.9rem);
+}
+
+.inline.horizontal {
+  left: auto;
+  top: auto;
+  transform: none;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-x: visible;
+}
+
 .actionButton {
   --action-icon-size: clamp(2.3rem, 6vw, 3rem);
   --action-svg-size: clamp(1.5rem, 3vw, 1.75rem);

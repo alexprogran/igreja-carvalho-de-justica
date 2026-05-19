@@ -8,6 +8,7 @@ import styles from "./Ingaje.module.css";
 
 const Ingaje = ({
   vertical = true,
+  inline = false,
   likeIcon = true,
   commentIcon = true,
   shareIcon = true,
@@ -17,7 +18,13 @@ const Ingaje = ({
   const [isShareOpen, setIsShareOpen] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
   const [likeBurstKey, setLikeBurstKey] = useState(0);
-  const actionsClassName = vertical ? styles.actions : `${styles.actions} ${styles.horizontal}`;
+  const actionsClassName = [
+    styles.actions,
+    vertical ? "" : styles.horizontal,
+    inline ? styles.inline : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
   const actionButtonClassName = vertical ? styles.actionButton : `${styles.actionButton} ${styles.horizontalActionButton}`;
   const likeButtonClassName = `${actionButtonClassName} ${isLiked ? styles.likeButtonActive : styles.likeButtonInactive}`;
 

@@ -39,8 +39,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    /* --background: 210 20% 98%; */
+    --background: 0 0% 100%;   
     --foreground: 220 20% 10%;
 
     --card: 0 0% 100%;
@@ -69,6 +68,8 @@
     --ring: 217 91% 50%;
 
     --radius: 0.75rem;
+
+    --avatar-bg: linear-gradient(135deg, #6f7f4a 0%, #7fb336 100%);
 
     --church-blue: 217 91% 50%;
     --church-blue-dark: 217 91% 40%;

@@ -17,5 +17,4 @@ export { CommentsSheet } from "./sections/CommentsSheet";
 export { Share } from "./sections/Share";
 
 // Additional sections
-export { default as ChurchMeeting } from "./sections/ChurchMeeting";
 export { default as OngoingEvent } from "./sections/OngoingEvent";

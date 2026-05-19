@@ -3,7 +3,6 @@ import DailyDevotion from "@/components/sections/DailyDevotion/DailyDevotion";
 import QuickLinks from "@/components/sections/QuickLinks/QuickLinks";
 import BottomNav from "@/components/layout/BottomNav";
 import Map from "@/components/sections/Map/Map";
-
 import styles from "./page.module.css";
 
 export default function Home() { 
@@ -12,9 +11,9 @@ export default function Home() {
     <div className={styles.page}>
       <div className={styles.content}>  
         {/* <HeaderSection /> */}
-        <DailyDevotion />        
-        <QuickLinks />     
-        <Map />                
+        <DailyDevotion />
+        <QuickLinks />
+        <Map />
       </div>
       <BottomNav />
     </div>

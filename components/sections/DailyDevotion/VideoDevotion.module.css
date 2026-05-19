@@ -38,7 +38,7 @@
   border-radius: clamp(1rem, 4vw, 1.5rem);
   border: none;
   cursor: pointer;
-  background: hsl(var(--primary) / 0.88);
+  background: var(--avatar-bg);
   backdrop-filter: blur(2px);
   transition: background 0.18s, transform 0.18s;
 }
