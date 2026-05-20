@@ -23,13 +23,13 @@ const Map = () => {
               <circle cx="12" cy="10" r="3" />
             </svg>
             <span className={styles.addressText}>
-              R. Evilásio Moreira, 380{"\n"}
-              Stella Maris, Salvador – BA{"\n"}
-              CEP: 41600-465
+              R. Antônio Félix, 895{"\n"}
+              Parque Verde, Camaçari - BA{"\n"}
+              CEP: 42800-970
             </span>
           </div>
 
-          <div className={styles.addressRow}>
+          {/* <div className={styles.addressRow}>
             <svg
               className={styles.addressIcon}
               xmlns="http://www.w3.org/2000/svg"
@@ -43,9 +43,9 @@ const Map = () => {
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 11.9 19.79 19.79 0 0 1 1.61 3.27 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6.29 6.29l.75-.75a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92Z" />
             </svg>
             <span className={styles.addressText}>(71) 9 9999-9999</span>
-          </div>
+          </div> */}
 
-          <div className={styles.addressRow}>
+          {/* <div className={styles.addressRow}>
             <svg
               className={styles.addressIcon}
               xmlns="http://www.w3.org/2000/svg"
@@ -60,18 +60,22 @@ const Map = () => {
               <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
             </svg>
             <span className={styles.addressText}>contato@carvalhojustica.com</span>
-          </div>
+          </div> */}
         </div>
 
         <div className={styles.mapSide}>
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d189405.92692439037!2d-38.3270524!3d-12.7197762!3m2!1i1024!2i768!4f13.1!2m1!1sIgreja%20Carvalho%20de%20Justi%C3%A7a!5e1!3m2!1sen!2sbr!4v1777178026864!5m2!1sen!2sbr"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3891.902608035419!2d-38.3270524!3d-12.7197762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x716691a493fea6f%3A0x99b6b75f67efb0ab!2sIgreja%20Evang%C3%A9lica%20Carvalhos%20de%20justi%C3%A7a!5e0!3m2!1sen!2sbr!4v1779241419331!5m2!1sen!2sbr"
             className={styles.mapFrame}
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             title="Localização Igreja Carvalho de Justiça"
           />
+
+
+
+
         </div>
       </div>
     </section>

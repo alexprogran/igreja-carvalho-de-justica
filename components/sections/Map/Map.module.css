@@ -52,7 +52,7 @@
 }
 
 .addressText {
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   color: hsl(var(--primary-foreground) / 0.85);
   line-height: 1.5;
 }
