@@ -1,7 +1,6 @@
-import HeaderSection from "@/components/sections/HeaderSection";
 import DailyDevotion from "@/components/sections/DailyDevotion/DailyDevotion";
 import QuickLinks from "@/components/sections/QuickLinks/QuickLinks";
-import BottomNav from "@/components/layout/BottomNav";
+import BootmNav from "@/components/layout/BootmNav";
 import Map from "@/components/sections/Map/Map";
 import styles from "./page.module.css";
 
@@ -15,7 +14,7 @@ export default function Home() {
         <QuickLinks />
         <Map />
       </div>
-      <BottomNav />
+      <BootmNav />
     </div>
   );
 }

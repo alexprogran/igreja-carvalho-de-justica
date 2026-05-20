@@ -1,6 +1,6 @@
 .section {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 2.5rem;
 }
 
 .title {
@@ -52,7 +52,7 @@
 }
 
 .addressText {
-  font-size: 0.9rem;
+  font-size: 0.73rem;
   color: hsl(var(--primary-foreground) / 0.85);
   line-height: 1.5;
 }

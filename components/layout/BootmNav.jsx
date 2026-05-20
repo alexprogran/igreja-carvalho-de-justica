@@ -3,6 +3,7 @@
 import { Home, Calendar, MessageCircle, BookOpen, Settings } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import styles from "./BootmNav.module.css";
 
 const navItems = [
   { icon: Home, label: "Home" },
@@ -12,11 +13,11 @@ const navItems = [
   { icon: Settings, label: "Settings" },
 ];
 
-const BottomNav = () => {
+const BootmNav = () => {
   const [active, setActive] = useState(0);
   const router = useRouter();
 
-  const handleNavClick = (index: number) => {
+  const handleNavClick = (index) => {
     setActive(index);
 
     if (index === 0) {
@@ -30,20 +31,16 @@ const BottomNav = () => {
   };
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-card border-t border-border z-50 max-w-md mx-auto">
-      <div className="flex justify-around items-center py-2 px-1">
+    <nav className={styles.nav}>
+      <div className={styles.inner}>
         {navItems.map((item, i) => (
           <button
             key={item.label}
             onClick={() => handleNavClick(i)}
-            className={`flex flex-col items-center gap-0.5 px-3 py-1 rounded-lg transition-colors ${
-              active === i
-                ? "text-primary"
-                : "text-muted-foreground hover:text-foreground"
-            }`}
+            className={`${styles.navButton} ${active === i ? styles.active : ""}`.trim()}
           >
-            <item.icon className="w-5 h-5" />
-            <span className="text-[10px] font-semibold">{item.label}</span>
+            <item.icon className={styles.icon} />
+            <span className={styles.label}>{item.label}</span>
           </button>
         ))}
       </div>
@@ -51,4 +48,4 @@ const BottomNav = () => {
   );
 };
 
-export default BottomNav;
+export default BootmNav;
