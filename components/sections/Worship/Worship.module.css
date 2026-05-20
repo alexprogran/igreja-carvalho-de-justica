@@ -8,6 +8,7 @@
   rgba(111, 127, 74, 0.8) 0%,
   rgba(155, 204, 85, 0.8) 100%
 );
+
   border-radius: 0.75rem;
   padding: 0.875rem 1rem;
   transition: box-shadow 150ms ease-in-out;

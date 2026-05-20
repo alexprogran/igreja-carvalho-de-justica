@@ -19,7 +19,7 @@ export default function Login() {
           />
         </div>
 
-        <h1 className={styles.title}>Realize o login na sua conta</h1>
+        <h1 className={styles.title}>Login</h1>
        
 
         <form className={styles.form}>
@@ -37,33 +37,33 @@ export default function Login() {
             type="password"
             name="password"
             autoComplete="current-password"
-            placeholder="Password"
-            aria-label="Password"
+            placeholder="Senha"
+            aria-label="Senha"
           />
 
           <button type="submit" className={styles.primaryButton}>
-            Sign in
-          </button>
+            Entrar
+          </button> 
         </form>
 
-        <p className={styles.divider}>- Or sign in with -</p>
+        <p className={styles.divider}>- Ou entre com -</p>
 
         <div className={styles.socialRow}>
-          <button type="button" className={styles.socialButton} aria-label="Sign in with Google">
+          <button type="button" className={styles.socialButton} aria-label="Entrar com Google">
             <FcGoogle size={24} aria-hidden="true" />
           </button>
-          <button type="button" className={styles.socialButton} aria-label="Sign in with Facebook">
+          <button type="button" className={styles.socialButton} aria-label="Entrar com Facebook">
             <FaFacebookF size={20} aria-hidden="true" className={styles.facebookIcon} />
           </button>
-          <button type="button" className={styles.socialButton} aria-label="Sign in with Twitter">
+          <button type="button" className={styles.socialButton} aria-label="Entrar com Twitter">
             <FaTwitter size={20} aria-hidden="true" className={styles.twitterIcon} />
           </button>
         </div>
 
         <p className={styles.signupText}>
-          Don&apos;t have an account?{" "}
+          Não tem uma conta?{" "}
           <Link href="/cadastro" className={styles.signupLink}>
-            Sign up
+            Cadastre-se
           </Link>
         </p>
       </div>

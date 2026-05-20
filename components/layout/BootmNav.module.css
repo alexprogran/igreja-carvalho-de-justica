@@ -9,7 +9,7 @@
   border-top: 1px solid hsl(var(--border));
   background: hsl(var(--card));
 }
-
+ 
 .inner {
   display: flex;
   align-items: center;
@@ -22,6 +22,8 @@
   flex-direction: column;
   align-items: center;
   gap: 0.125rem;
+  appearance: none;
+  -webkit-appearance: none;
   border: none;
   border-radius: 0.5rem;
   background: transparent;
@@ -29,22 +31,31 @@
   color: hsl(var(--muted-foreground));
   transition: color 150ms ease-in-out;
   cursor: pointer;
+  outline: none;
+  box-shadow: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .navButton:hover {
-  color: hsl(var(--foreground));
+  color: #434141;
+   font-weight: 900;
 }
 
-.active {
-  color: hsl(var(--primary));
+.navButton:focus,
+.navButton:active {
+  outline: none;
+  box-shadow: none;
 }
+
+/* .active {
+  font-weight: 900;
+} */
 
 .icon {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1.4rem;
+  height: 1.4rem;
 }
 
 .label {
-  font-size: 10px;
-  font-weight: 600;
+  font-size: 0.8rem;
 }

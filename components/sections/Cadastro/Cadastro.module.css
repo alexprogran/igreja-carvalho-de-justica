@@ -23,7 +23,7 @@
 .backButton {
   border: 0;
   background: transparent;
-  color: #3f53b8;
+  color: #7fb336;
   width: 2rem;
   height: 2rem;
   display: inline-grid;
@@ -83,12 +83,12 @@
   margin-top: 0.5rem;
   border: 0;
   border-radius: 0.5rem;
-  background: #2737a3;
+  background: linear-gradient(135deg, #41633a 0%, #7fb336 100%);
   color: #ffffff;
   font-size: 1.06rem;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 5px 10px rgba(39, 55, 163, 0.26);
+  box-shadow: 0 6px 14px rgba(127, 179, 54, 0.22);
   transition: filter 0.2s ease;
 }
 

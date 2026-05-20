@@ -6,11 +6,11 @@ import { useState } from "react";
 import styles from "./BootmNav.module.css";
 
 const navItems = [
-  { icon: Home, label: "Home" },
-  { icon: Calendar, label: "Events" },
-  { icon: MessageCircle, label: "Messages" },
+  { icon: Home, label: "Início" },
+  { icon: Calendar, label: "Eventos" },
+  { icon: MessageCircle, label: "Mensagens" },
   { icon: BookOpen, label: "Panfleto" },
-  { icon: Settings, label: "Settings" },
+  { icon: Settings, label: "Config." },
 ];
 
 const BootmNav = () => {
@@ -38,7 +38,7 @@ const BootmNav = () => {
             key={item.label}
             onClick={() => handleNavClick(i)}
             className={`${styles.navButton} ${active === i ? styles.active : ""}`.trim()}
-          >
+          > 
             <item.icon className={styles.icon} />
             <span className={styles.label}>{item.label}</span>
           </button>

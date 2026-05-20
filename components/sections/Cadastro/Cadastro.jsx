@@ -24,7 +24,7 @@ export default function Cadastro() {
           />
         </div>
 
-        <h1 className={styles.title}>Create your Account</h1>
+        <h1 className={styles.title}>Crie sua conta</h1>
 
         <form className={styles.form}>
           <input
@@ -38,23 +38,23 @@ export default function Cadastro() {
             className={styles.input}
             type="password"
             name="password"
-            placeholder="Password"
+            placeholder="Senha"
             autoComplete="new-password"
           />
           <input
             className={styles.input}
             type="password"
             name="confirm-password"
-            placeholder="Confirm Password"
+            placeholder="Confirmar senha"
             autoComplete="new-password"
           />
 
           <button type="submit" className={styles.primaryButton}>
-            Sign up
+            Cadastrar
           </button>
         </form>
 
-        <p className={styles.socialTitle}>- Or sign up with -</p>
+        <p className={styles.socialTitle}>- Ou cadastre-se com -</p>
 
         <div className={styles.socialGrid}>
           <button type="button" className={styles.socialButton} aria-label="Google">
