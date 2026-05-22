@@ -144,8 +144,10 @@ const DailyDevotion = ({
               {mensagem}
             </p>
           ) : null}
-          <VideoDevotion />
-          <div className={styles.ingajePosition}>
+          <div className={styles.videoDevotionSpacing}>
+            <VideoDevotion />
+          </div>
+          <div className={`${styles.ingajePosition} ${styles.ingajeSpacing}`}>
             <Ingaje vertical={false} inline={true} />
           </div>
         </div>
