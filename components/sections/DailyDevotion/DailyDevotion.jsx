@@ -145,11 +145,9 @@ const DailyDevotion = ({
             </p>
           ) : null}
           <VideoDevotion />
-          {!isExpanded && (
-            <div className={styles.ingajePosition}>
-              <Ingaje vertical={false} inline={true} />
-            </div>
-          )}
+          <div className={styles.ingajePosition}>
+            <Ingaje vertical={false} inline={true} />
+          </div>
         </div>
       </div>
     </section>
