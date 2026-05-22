@@ -49,7 +49,7 @@ const Ingaje = ({
           className={likeButtonClassName}
           aria-label={isLiked ? "Descurtir" : "Curtir"}
           aria-pressed={isLiked}
-          onClick={handleLikeClick}
+          onClick={e => { e.stopPropagation(); handleLikeClick(); }}
         >
           <span className={styles.actionIcon}>
             <Heart fill={isLiked ? "currentColor" : "transparent"} aria-hidden="true" />
@@ -70,7 +70,7 @@ const Ingaje = ({
           type="button"
           className={actionButtonClassName}
           aria-label="Comentários"
-          onClick={() => setIsCommentsOpen(true)}
+          onClick={e => { e.stopPropagation(); setIsCommentsOpen(true); }}
         >
           <span className={styles.actionIcon}>
             <MessageCircle aria-hidden="true" />
@@ -84,7 +84,7 @@ const Ingaje = ({
           type="button"
           className={actionButtonClassName}
           aria-label="Compartilhar"
-          onClick={handleShareClick}
+          onClick={e => { e.stopPropagation(); handleShareClick(); }}
         >
           <span className={styles.actionIcon}>
             <Share2 aria-hidden="true" />
@@ -94,7 +94,7 @@ const Ingaje = ({
       ) : null}
 
       {viewIcon ? (
-        <button type="button" className={actionButtonClassName} aria-label="Visualizações">
+        <button type="button" className={actionButtonClassName} aria-label="Visualizações" onClick={e => e.stopPropagation()}>
           <span className={styles.viewHeading}>View</span>
           <span className={styles.actionLabel}>2.000</span>
         </button>

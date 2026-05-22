@@ -126,8 +126,16 @@ const DailyDevotion = ({
         />
         <div className={styles.overlay} />
         <div className={styles.content}>
+          
+          <p className={styles.wordOfDay}>Palavra do dia</p>
           <h4 className={styles.devotionTitle}>{versiculo}</h4>
-          <p className={styles.devotionText}>{passagem}</p>
+          <div
+            className={
+              `${styles.devotionText} ${!isExpanded ? styles.passageClamp : ''}`
+            }
+          >
+            {passagem}
+          </div>
           {hasMensagem && isExpanded ? (
             <p className={`${styles.devotionText} ${styles.message} ${styles.messageExpanded}`}>
               {mensagem}

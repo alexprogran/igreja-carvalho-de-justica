@@ -11,6 +11,22 @@
   pointer-events: auto;
 }
 
+.actions::before {
+  content: "";
+  position: absolute;
+  inset: -0.7rem;
+  border-radius: 1.2rem;
+  background: linear-gradient(120deg, rgba(0,0,0,0.18) 60%, rgba(0,0,0,0.28) 100%);
+  z-index: 0;
+  pointer-events: none;
+  transition: background 0.3s;
+}
+
+.actions > * {
+  position: relative;
+  z-index: 1;
+}
+
 .horizontal {
   --actions-top: clamp(11.5rem, 14vh, 7.2rem);
   right: auto;

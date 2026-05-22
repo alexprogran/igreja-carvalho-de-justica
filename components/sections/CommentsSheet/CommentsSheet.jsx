@@ -180,7 +180,7 @@ export default function CommentsSheet({ isOpen, onClose }) {
   return (
     <Drawer open={isOpen} onOpenChange={handleDrawerOpenChange}>
       <DrawerPortal>
-        <DrawerPrimitive.Content className={styles.sheet}>
+        <DrawerPrimitive.Content className={styles.sheet} onClick={e => e.stopPropagation()}>
           <DrawerTitle className={styles.srOnly}>Comentários</DrawerTitle>
           <div className={styles.handle} />
           

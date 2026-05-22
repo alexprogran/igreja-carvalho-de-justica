@@ -85,7 +85,7 @@ export default function Share({ isOpen, onClose, title = "Igreja Carvalho de Jus
   return (
     <Drawer open={isOpen} onOpenChange={onClose}>
       <DrawerPortal>
-        <DrawerPrimitive.Content className={styles.sheet}>
+        <DrawerPrimitive.Content className={styles.sheet} onClick={e => e.stopPropagation()}>
           <DrawerTitle className={styles.srOnly}>Compartilhar</DrawerTitle>
           <div className={styles.handle} />
 
