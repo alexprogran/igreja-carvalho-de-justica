@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useVideoOverlay } from "@/components/layout/VideoOverlayContext";
 import Image from "next/image";
 // import { Heart, MessageCircle, Share2 } from "lucide-react";
 import Ingaje from "@/components/sections/Ingaje/Ingaje";
@@ -47,6 +48,7 @@ const DailyDevotion = ({
   apiData,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const { setVideoOverlay } = useVideoOverlay();
 
   const mergedDevotion = {
     ...DEFAULT_DEVOTION,
@@ -77,16 +79,17 @@ const DailyDevotion = ({
   const hasMensagem = Boolean(mensagem && mensagem.trim());
 
   useEffect(() => {
+    setVideoOverlay(isExpanded);
     if (!isExpanded) {
       document.body.style.overflow = "";
       return;
     }
-
     document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = "";
+      setVideoOverlay(false);
     };
-  }, [isExpanded]);
+  }, [isExpanded, setVideoOverlay]);
 
   return (
     <section className={`${styles.section} ${isExpanded ? styles.sectionExpanded : ""}`}>
