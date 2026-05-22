@@ -1,8 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useContext } from "react";
-import { VideoOverlayContext } from "@/components/layout/VideoOverlayContext";
+// import { useContext } from "react";
 import { useVideoOverlay } from "@/components/layout/VideoOverlayContext";
 import Image from "next/image";
 import { Play } from "lucide-react";
@@ -23,7 +22,7 @@ const VideoDevotion = ({
   video = DEFAULT_VIDEO_DEVOTION.video,
 }) => {
   const [assistindo, setAssistindo] = useState(false);
-  const { setVideoOverlay, videoOverlay } = useContext(VideoOverlayContext);
+  const { setVideoOverlay, videoOverlay } = useVideoOverlay();
 
   return (
     <>
