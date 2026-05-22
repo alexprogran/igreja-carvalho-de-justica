@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useVideoOverlay } from "@/components/layout/VideoOverlayContext";
 import Image from "next/image";
 import { Play } from "lucide-react";
 import styles from "./VideoDevotion.module.css";
@@ -20,6 +21,7 @@ const VideoDevotion = ({
   video = DEFAULT_VIDEO_DEVOTION.video,
 }) => {
   const [assistindo, setAssistindo] = useState(false);
+  const { setVideoOverlay } = useVideoOverlay();
 
   return (
     <>
@@ -31,7 +33,10 @@ const VideoDevotion = ({
             <button
               className={styles.playButton}
               aria-label="Reproduzir vídeo"
-              onClick={() => setAssistindo(true)}
+              onClick={() => {
+                setAssistindo(true);
+                setVideoOverlay(true);
+              }}
             >
               <Play className={styles.playIcon} />
               <span className={styles.playLabel}>Assistir</span>
@@ -51,12 +56,17 @@ const VideoDevotion = ({
       </section>
 
       {assistindo && (
-        <VideoApresent         
+        <VideoApresent
           video={video}
           ingaje={false}
           autoplay={true}
           playback={true}
-          onFim={() => setAssistindo(false)}        />
+          button={true}
+          onFim={() => {
+            setAssistindo(false);
+            setVideoOverlay(false);
+          }}
+        />
       )}
     </>
   );

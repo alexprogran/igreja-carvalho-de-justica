@@ -47,6 +47,11 @@
   padding-bottom: clamp(0.3rem, 6vw, 0.45rem);
 }
 
+.cardExpanded .devotionTitle {
+  font-size: clamp(1.2rem, 6vw, 2.1rem);
+}
+
+
 .devotionText {
   color: hsl(var(--primary-foreground) / 1);
   font-size: clamp(0.89rem, 6vw, 1.2rem);
@@ -54,6 +59,11 @@
   margin-bottom: clamp(2rem, 3vw, 2.5rem);
   line-height: 1.375;
 }
+
+.cardExpanded .devotionText {
+  font-size: clamp(1.1rem, 7vw, 1.45rem);
+}
+
 
 .devotionDate {
   color: hsl(var(--primary-foreground) / 0.5);
@@ -77,16 +87,16 @@
 
 .closeButton {
   position: absolute;
-  top: clamp(0.8rem, 3.5vw, 1.2rem);
-  right: clamp(0.8rem, 3.5vw, 1.2rem);
+  top: clamp(1.2rem, 3.5vw, 1.2rem);
+  right: clamp(1.5rem, 3.5vw, 1.53rem);
   z-index: 8;
-  width: clamp(2rem, 7vw, 2.6rem);
-  height: clamp(2rem, 7vw, 2.6rem);
+  width: clamp(2.5rem, 7vw, 2.6rem);
+  height: clamp(2.5rem, 7vw, 2.6rem);
   border: 0;
   border-radius: 999px;
-  background: rgb(0 0 0 / 0.5);
+  background: rgb(0 0 0 / 0.25);
   color: hsl(var(--primary-foreground));
-  font-size: clamp(1rem, 4vw, 1.3rem);
+  font-size: clamp(1.5rem, 4vw, 1.6rem);
   font-weight: 700;
   cursor: pointer;
   transition:
@@ -211,6 +221,8 @@
   max-height: 100dvh;
   overflow-y: auto;
   padding-top: clamp(3rem, 10vw, 4rem);
+  padding: 2rem ;
+  padding-bottom: clamp(5rem, 10vw, 4rem);
 }
 
 /* =========================
@@ -221,6 +233,11 @@
   cursor: pointer;
   transition: opacity 0.25s ease;
 }
+
+.cardExpanded .message {
+  font-size: clamp(1.05rem, 7vw, 1.35rem);
+}
+
 
 .message:hover {
   opacity: 0.88;

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useVideoOverlay } from "@/components/layout/VideoOverlayContext";
 import Image from "next/image";
 import { Play } from "lucide-react";
 import styles from "./VideoPanfleto.module.css";
@@ -19,6 +20,7 @@ const VideoPanfleto = ({
   image = DEFAULT_VIDEO_PANFLETO.image,
 }) => {
   const [assistindo, setAssistindo] = useState(false);
+  const { setVideoOverlay } = useVideoOverlay();
 
   return (
     <>
@@ -41,7 +43,10 @@ const VideoPanfleto = ({
             <button
               className={styles.playButton}
               aria-label="Reproduzir video"
-              onClick={() => setAssistindo(true)}
+              onClick={() => {
+                setAssistindo(true);
+                setVideoOverlay(true);
+              }}
             > 
               <Play className={styles.playIcon} />
               <span className={styles.playLabel}>Assista o vídeo</span>
@@ -57,7 +62,10 @@ const VideoPanfleto = ({
           autoplay={true}
           playback={true}
           home={true}
-          onFim={() => setAssistindo(false)}
+          onFim={() => {
+            setAssistindo(false);
+            setVideoOverlay(false);
+          }}
         />
       )}
     </>

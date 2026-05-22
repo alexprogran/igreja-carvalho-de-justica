@@ -13,7 +13,7 @@ const DEFAULT_DEVOTION = {
   imageAlt: "Daily Devotion",
   versiculo: "João 3:16",
   passagem: "Porque Deus amou o mundo de tal maneira que deu o seu Filho unigênito, para que todo aquele que nele crê não pereça, mas tenha a vida eterna.",
-  mensagem: "O deserto, na caminhada espiritual, não é apenas um tempo de dificuldade, mas um período de profunda transformação. É nesse ambiente, muitas vezes marcado pela solidão, silêncio e desafios, que somos levados a depender mais de Deus e a ouvir a Sua voz com maior clareza.\n\nNa Palavra de Deus, vemos que o deserto não é um fim, mas um processo. O povo de Israel passou pelo deserto para aprender a confiar no Senhor:\n*\"Recorde-se de como o Senhor, o seu Deus, o conduziu por todo o caminho no deserto... para humilhá-lo e pô-lo à prova, a fim de conhecer suas intenções\"* — Deuteronômio 8:2.\n\nAssim também acontece conosco. As experiências difíceis nos moldam, quebram o orgulho e fortalecem nossa fé. Em meio à escassez, aprendemos que Deus é suficiente:\n*\"Ele o humilhou, deixando-o passar fome, mas depois o sustentou com o maná... para mostrar-lhe que nem só de pão viverá o homem, mas de toda palavra que procede da boca do Senhor\"* — Deuteronômio 8:3.\n\nO deserto também é lugar de encontro. Deus nos atrai para falar ao nosso coração:\n*\"Portanto, eu a atrairei e a levarei para o deserto, e lhe falarei ao coração\"* — Oséias 2:14.\n\nMesmo quando tudo parece difícil, Deus está presente. Ele sustenta, guia e fortalece:\n*\"Os que esperam no Senhor renovam as suas forças... caminham e não se cansam\"* — Isaías 40:31.\n\nSe você está vivendo um “deserto”, lembre-se: não é abandono, é preparação. Deus está trabalhando em você, formando caráter, fortalecendo sua fé e te conduzindo para algo maior.\n\n**O deserto não é o seu destino final — é o caminho onde Deus se revela.**",
+  mensagem: "O amor de Deus não foi demonstrado apenas por palavras, mas por entrega. João 3:16 revela a maior prova de amor já oferecida à humanidade: Deus entregou Seu próprio Filho para nos dar vida eterna. Essa passagem nos lembra que, mesmo em meio às falhas, medos e dificuldades, existe um amor que permanece constante. Um amor que alcança todos aqueles que decidem crer.Crer em Jesus não significa apenas reconhecer Sua existência, mas confiar n’Ele diariamente, entregar o coração e permitir que Sua presença transforme nossa caminhada.Hoje, lembre-se: você é profundamente amado por Deus. E esse amor continua disponível, trazendo esperança, perdão e uma nova oportunidade de recomeçar.",
   date: "February 5, 2025",
   engagement: {
     likes: "17K",
@@ -104,19 +104,6 @@ const DailyDevotion = ({
         aria-label={hasMensagem && !isExpanded ? "Expandir para ver mensagem" : undefined}
         role={hasMensagem && !isExpanded ? "button" : undefined}
       >
-        {isExpanded ? (
-          <button
-            type="button"
-            className={styles.closeButton}
-            aria-label="Fechar mensagem"
-            onClick={(e) => {
-              e.stopPropagation();
-              setIsExpanded(false);
-            }}
-          >
-            x
-          </button>
-        ) : null}
         <Image
           src={backgroundSrc}
           alt={imageAlt}
@@ -126,6 +113,19 @@ const DailyDevotion = ({
         />
         <div className={styles.overlay} />
         <div className={styles.content}>
+          {isExpanded ? (
+            <button
+              type="button"
+              className={styles.closeButton}
+              aria-label="Fechar mensagem"
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsExpanded(false);
+              }}
+            >
+              x
+            </button>
+          ) : null}
           
           <p className={styles.wordOfDay}>Palavra do dia</p>
           <h4 className={styles.devotionTitle}>{versiculo}</h4>
@@ -142,9 +142,11 @@ const DailyDevotion = ({
             </p>
           ) : null}
           <VideoDevotion />
-          <div className={styles.ingajePosition}>
-            <Ingaje vertical={false} inline={true} />
-          </div>
+          {!isExpanded && (
+            <div className={styles.ingajePosition}>
+              <Ingaje vertical={false} inline={true} />
+            </div>
+          )}
         </div>
       </div>
     </section>

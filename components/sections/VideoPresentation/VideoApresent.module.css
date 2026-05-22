@@ -1,3 +1,30 @@
+.closeButton {
+  position: absolute;
+  top: clamp(1.2rem, 3.5vw, 1.2rem);
+  right: clamp(1.5rem, 3.5vw, 1.53rem);
+  z-index: 10;
+  width: clamp(2.5rem, 7vw, 2.6rem);
+  height: clamp(2.5rem, 7vw, 2.6rem);
+  border: 0;
+  border-radius: 999px;
+  background: rgb(0 0 0 / 0.1);
+  color: #fff;
+  font-size: clamp(1.5rem, 4vw, 1.6rem);  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0;
+}
+
+.closeButton:hover {
+  background: rgb(0 0 0 / 0.7);
+  transform: scale(1.05);
+}
 .section {
   position: fixed;
   inset: 0;

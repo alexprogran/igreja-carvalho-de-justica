@@ -22,7 +22,7 @@ const DEFAULT_VIDEO_APRESENT = {
   intro: "",
   tema: "",
   data_exib: "",
-  video: "",
+  video: "", 
   capa: "",
 };
 
@@ -40,6 +40,7 @@ const VideoApresent = ({
   onFim,
   playback = false,
   home = false,
+  button = false,
 }) => {
   const [visivel, setVisivel] = useState(true);
   const [saindo, setSaindo] = useState(false);
@@ -183,6 +184,23 @@ const VideoApresent = ({
   return (
     <section className={`${styles.section} ${saindo ? styles.saindo : ""}`}>
       <div className={styles.card}>
+        {button && (
+          <button
+            type="button"
+            className={styles.closeButton}
+            aria-label="Fechar vídeo"
+            onClick={e => {
+              e.stopPropagation();
+              setSaindo(true);
+              setTimeout(() => {
+                setVisivel(false);
+                onFim?.();
+              }, 700);
+            }}
+          >
+            x
+          </button>
+        )}
         <div className={styles.videoWrapper}>
           {(!playback && (!videoIniciado || pausado || mostrarBotaoSuave)) && (
             <button
