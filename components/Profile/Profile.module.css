@@ -34,46 +34,20 @@
   pointer-events: none;
 }
 
-.headerContent {
-  position: relative;
-  width: 100vw;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-  z-index: 2;
-  padding: 0 18px;
-  margin-top: 18px;
-}
+
 
 .header {
   width: 100vw;
   min-width: 320px;
   height: 170px;
-  background: linear-gradient(180deg, #4a90e2 0%, #5bb6f9 100%);
+  /* background: linear-gradient(180deg, #4a90e2 0%, #5bb6f9 100%); */
+  /* background: #f7fafd; */
   position: relative;
   border-bottom-left-radius: 80% 40px;
   border-bottom-right-radius: 80% 40px;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-}
-
-.menuIcon {
-  font-size: 1.5rem;
-  color: #fff;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.editBtn {
-  color: #fff;
-  background: none;
-  border: none;
-  font-weight: 500;
-  font-size: 1.08rem;
-  cursor: pointer;
 }
 
 .avatarWrapper {
@@ -92,7 +66,12 @@
   width: 110px;
   height: 110px;
   border-radius: 50%;
-  background: hsl(var(--church-green));
+  /* background: hsl(var(--church-green)); */
+  background: linear-gradient(
+  135deg,
+  rgba(111, 127, 74, 0.8) 0%,
+  rgba(155, 204, 85, 0.8) 100%
+);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -106,17 +85,17 @@
 .verified {
   position: absolute;
   bottom: 8px;
-  right: 8px;
-  background: #4cd964;
+  right: -0.5rem;
+  background: rgba(30, 30, 30, 0.25);
   border-radius: 50%;
-  width: 22px;
-  height: 22px;
+  width: 1.5rem;
+  height: 1.5rem;
   display: flex;
   align-items: center;
-  justify-content: center;
-  border: 2px solid #fff;
+  justify-content: center;  
   box-shadow: 0 2px 6px rgba(0,0,0,0.10);
 }
+
 
 .verifiedIcon {
   color: #fff;
@@ -148,7 +127,8 @@
 }
 
 .menuItem {
-  background: #f7fafd;
+  /* background: #f7fafd; */
+  border:1px solid #eaecee;
   border-radius: 14px;
   display: flex;
   align-items: center;
@@ -161,13 +141,16 @@
   position: relative;
   box-shadow: none;
 }
-.menuItem:hover {
+/* .menuItem:hover {
   background: #eaf4fb;
-}
+} */
 .menuIconLeft {
   margin-right: 16px;
-  font-size: 1.22rem;
+  font-size: 1.35rem;
   color: hsl(var(--church-green));
+  color: #3b3a3a;
+ 
+  
 }
 
 .iconChurchGreen {
@@ -176,10 +159,10 @@
 .menuArrow {
   margin-left: auto;
   font-size: 1.05rem;
-  color: #b0b0b0;
+  /* color: #b0b0b0; */
 }
 
-.badge {
+/* .badge {
   background: #4cd964;
   color: #fff;
   font-size: 0.85rem;
@@ -193,7 +176,7 @@
   margin-right: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.10);
   position: static;
-}
+} */
 
 .logout {
   margin-top: auto;
