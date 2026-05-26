@@ -3,11 +3,7 @@
   align-items: center;
   justify-content: space-between;
   /* background: linear-gradient(135deg, #6f7f4a 0%, #9bcc55 0%);  */
-  background: linear-gradient(
-  135deg,
-  rgba(111, 127, 74, 0.8) 0%,
-  rgba(155, 204, 85, 0.8) 100%
-);
+ background: #181818;
 
   border-radius: 0.75rem;
   padding: 0.875rem 1rem;

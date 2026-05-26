@@ -36,9 +36,9 @@
   gap: clamp(0.3rem, 1.2vw, 0.5rem);
   padding: clamp(0.3rem, 1.2vw, 0.45rem) clamp(0.6rem, 2.5vw, 0.9rem);
   border-radius: clamp(1rem, 4vw, 1.5rem);
-  border: none;
+  border: 1px solid #fff;
   cursor: pointer;
-  background: var(--avatar-bg);
+  /* background: var(--avatar-bg); */
   backdrop-filter: blur(2px);
   transition: background 0.18s, transform 0.18s;
 }
@@ -51,8 +51,8 @@
 .playIcon {
   width: clamp(0.75rem, 3vw, 1rem);
   height: clamp(0.75rem, 3vw, 1rem);
-  color: hsl(var(--primary-foreground));
-  fill: hsl(var(--primary-foreground));
+  color: hsl(var(--primary-foreground) / 0.7);;
+  fill: hsl(var(--primary-foreground) / 0.7);
   stroke: none;
   translate: 5%;
 }
@@ -60,7 +60,7 @@
 .playLabel {
   font-size: clamp(0.7rem, 4vw, 1rem);
   font-weight: 600;
-  color: hsl(var(--primary-foreground));
+   color: hsl(var(--primary-foreground) / 0.7);
   white-space: nowrap;
 }
 
@@ -75,7 +75,7 @@
 
 .title {
   margin: 0;
-  color: hsl(var(--primary-foreground));
+  color: hsl(var(--primary-foreground) / 0.7);
   font-size: clamp(1rem, 4.6vw, 1.35rem);
   font-weight: 700;
   line-height: 1.2;
