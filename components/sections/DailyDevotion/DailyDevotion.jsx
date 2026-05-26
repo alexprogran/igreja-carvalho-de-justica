@@ -44,7 +44,6 @@ const normalizeDevotionFromApi = (apiData = {}) => {
 };
 
 const DailyDevotion = ({
-  titleSection = "",
   devotion = DEFAULT_DEVOTION,
   apiData,
 }) => {
@@ -94,11 +93,8 @@ const DailyDevotion = ({
 
   return (
     <section className={`${styles.section} ${isExpanded ? styles.sectionExpanded : ""}`}>
-      <div className={`${styles.header} ${isExpanded ? styles.headerHidden : ""}`}>
-        <h3 className={styles.title}>{titleSection}</h3>        
-      </div>
       <div
-        className={`${styles.card} ${isExpanded ? styles.cardExpanded : ""} ${hasMensagem && !isExpanded ? styles.cardHover : ""}`}
+        className={`${styles.card} ${isExpanded ? styles.cardExpanded : ""}`}
         onClick={hasMensagem && !isExpanded ? () => setIsExpanded(true) : undefined}
         style={hasMensagem && !isExpanded ? { cursor: "pointer" } : {}}
         tabIndex={hasMensagem && !isExpanded ? 0 : undefined}
