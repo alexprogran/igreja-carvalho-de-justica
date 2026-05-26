@@ -216,6 +216,21 @@
   height: 100dvh;
 }
 
+.imagePlaceholder {
+  width: 100%;
+  height: clamp(22rem, 60vw, 23rem);
+  display: block;
+  background: linear-gradient(
+    135deg,
+    hsl(var(--foreground) / 0.55),
+    hsl(var(--foreground) / 0.25)
+  );
+}
+
+.cardExpanded .imagePlaceholder {
+  height: 100dvh;
+}
+
 /* =========================
    OVERLAY & CONTENT
 ========================= */

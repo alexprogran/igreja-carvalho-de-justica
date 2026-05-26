@@ -75,7 +75,8 @@ const DailyDevotion = ({
     // engagement,
   } = finalDevotion;
 
-  const backgroundSrc = background || imageSrc;
+  const backgroundSrc = (background || imageSrc || "").trim();
+  const hasBackground = backgroundSrc.length > 0;
   const hasMensagem = Boolean(mensagem && mensagem.trim());
 
   useEffect(() => {
@@ -104,13 +105,17 @@ const DailyDevotion = ({
         aria-label={hasMensagem && !isExpanded ? "Expandir para ver mensagem" : undefined}
         role={hasMensagem && !isExpanded ? "button" : undefined}
       >
-        <Image
-          src={backgroundSrc}
-          alt={imageAlt}
-          className={styles.image}
-          width={800}
-          height={512}
-        />
+        {hasBackground ? (
+          <Image
+            src={backgroundSrc}
+            alt={imageAlt}
+            className={styles.image}
+            width={800}
+            height={512}
+          />
+        ) : (
+          <div className={styles.imagePlaceholder} aria-hidden="true" />
+        )}
         <div className={styles.overlay} />
         <div className={styles.content}>
           {isExpanded ? (
