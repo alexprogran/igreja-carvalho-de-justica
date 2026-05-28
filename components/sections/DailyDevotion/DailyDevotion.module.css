@@ -137,6 +137,7 @@
 .card {
   position: relative;
   overflow: hidden;
+<<<<<<< HEAD
   background: #181818;
   width: 100%;
   /* max-width: 100%; */
@@ -148,6 +149,20 @@
   border-top-right-radius: 0;
   margin: 0;
   padding: 0 0 clamp(1.2rem, 6vw, 2.2rem) 0;
+=======
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: clamp(1rem, 4vw, 2rem);
+  border-bottom-right-radius: clamp(1rem, 4vw, 2rem);
+  min-height: clamp(20rem, 40vw, 40rem);
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
+
+>>>>>>> c82a5cd (Implementando auth google)
   transition:
     border-radius 0.7s cubic-bezier(0.4, 0, 0.2, 1),
     min-height 0.7s cubic-bezier(0.4, 0, 0.2, 1),
@@ -155,6 +170,11 @@
   box-sizing: border-box;
   top: 0;
 }
+
+
+
+
+
 
 .cardExpanded {
   width: 100%;
@@ -173,6 +193,7 @@
   position: relative;
   width: 100%;
   overflow: hidden;
+  max-width: 100%;
   margin-top: 0;
   margin-bottom: clamp(1rem, 3vw, 1.5rem);
   transition:

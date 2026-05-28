@@ -1,4 +1,4 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookF, FaTwitter } from "react-icons/fa";
@@ -19,8 +19,26 @@ export default function Login() {
           />
         </div>
 
-        <h1 className={styles.title}>Login</h1>
-       
+        {/* <h1 className={styles.title}>Login</h1> */}
+
+        <p className={styles.accountInfo}>Entre ou crie uma conta</p>
+
+        <div className={styles.socialRow}>
+          <button type="button" className={`${styles.socialButton} ${styles.socialButtonGoogle}`} aria-label="Entrar com Google">
+            <FcGoogle size={24} className={styles.googleIcon} aria-hidden="true" />
+            <span className={styles.socialButtonLabel}>Continuar com o Google</span>
+          </button>
+          <button type="button" className={styles.socialButton} aria-label="Entrar com Facebook">
+            <FaFacebookF size={20} aria-hidden="true" className={styles.facebookIcon} />
+            <span className={styles.socialButtonLabel}>Continuar com o Facebook</span>
+          </button>
+          <button type="button" className={styles.socialButton} aria-label="Entrar com Twitter">
+            <FaTwitter size={20} aria-hidden="true" className={styles.twitterIcon} />
+            <span className={styles.socialButtonLabel}>Continuar com o Twitter</span>
+          </button>
+        </div>
+
+        <p className={styles.divider}>- Ou entre com -</p>
 
         <form className={styles.form}>
           <input
@@ -41,27 +59,13 @@ export default function Login() {
             aria-label="Senha"
           />
 
-          <button type="submit" className={styles.primaryButton}>
+          {/* <button type="submit" className={styles.primaryButton}>
             Entrar
-          </button> 
+          </button> */}
         </form>
 
-        <p className={styles.divider}>- Ou entre com -</p>
-
-        <div className={styles.socialRow}>
-          <button type="button" className={styles.socialButton} aria-label="Entrar com Google">
-            <FcGoogle size={24} aria-hidden="true" />
-          </button>
-          <button type="button" className={styles.socialButton} aria-label="Entrar com Facebook">
-            <FaFacebookF size={20} aria-hidden="true" className={styles.facebookIcon} />
-          </button>
-          <button type="button" className={styles.socialButton} aria-label="Entrar com Twitter">
-            <FaTwitter size={20} aria-hidden="true" className={styles.twitterIcon} />
-          </button>
-        </div>
-
         <p className={styles.signupText}>
-          Não tem uma conta?{" "}
+          NÃ£o tem uma conta?{" "}
           <Link href="/cadastro" className={styles.signupLink}>
             Cadastre-se
           </Link>
