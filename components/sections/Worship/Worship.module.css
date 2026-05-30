@@ -3,8 +3,8 @@
   align-items: center;
   justify-content: space-between;
   /* background: linear-gradient(135deg, #6f7f4a 0%, #9bcc55 0%);  */
- background: #181818;
-
+ /* background: #181818; */
+  border: 1px solid #dbd8d8;
   border-radius: 0.75rem;
   padding: 0.875rem 1rem;
   transition: box-shadow 150ms ease-in-out;
@@ -23,7 +23,8 @@
 .icon {
   width: 1.25rem;
   height: 1.25rem;
-  color: hsl(var(--primary-foreground));
+  color: #272323;
+  /* color: hsl(var(--primary-foreground)); */
   opacity: 0.72;
   flex-shrink: 0;
 }
@@ -31,14 +32,16 @@
 .day {
   font-size: 0.875rem;
   font-weight: 700;
-  color: hsl(var(--primary-foreground));
+  /* color: hsl(var(--primary-foreground)); */
+  color: #726f6f;
+  
 }
 
 .timeBadge {
   font-size: 0.9rem;
   font-weight: 600;
   color: hsl(var(--primary-foreground));  
-  background-color: rgba(81, 77, 77, 0.14);
+  background-color: rgba(81, 77, 77, 0.9);
   border: 1px solid rgb(255 255 255 / 0.24);
   padding: 0.2rem 0.625rem;
   border-radius: 9999px;

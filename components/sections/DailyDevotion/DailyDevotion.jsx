@@ -9,9 +9,8 @@ import styles from "./DailyDevotion.module.css";
 import VideoDevotion from "./VideoDevotion";
 
 const DEFAULT_DEVOTION = {
-  // background: "/background_pan.png",
-  background: "",
-  imageSrc: "",
+  background: "/background_pan.png",
+  // imageSrc: " /images/daily-devotion/daily-devotion-1.png",
   imageAlt: "Daily Devotion",
   versiculo: "João 3:16",
   passagem: "Porque Deus amou o mundo de tal maneira que deu o seu Filho unigênito, para que todo aquele que nele crê não pereça, mas tenha a vida eterna.",

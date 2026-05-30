@@ -2,7 +2,8 @@
 
 .page {
   min-height: 100vh;
-  background-color: hsl(var(--background));
+  /* background-color: hsl(var(--background)); */
+  background-color: #F8FAFC;
   max-width: 100%;
   margin: 0 auto;
   position: relative;
