@@ -29,6 +29,27 @@ export default function Cadastro() {
         <form className={styles.form}>
           <input
             className={styles.input}
+            type="text"
+            name="nome"
+            placeholder="Nome"
+            autoComplete="given-name"
+          />
+          <input
+            className={styles.input}
+            type="text"
+            name="sobrenome"
+            placeholder="Sobrenome"
+            autoComplete="family-name"
+          />
+          <input
+            className={styles.input}
+            type="tel"
+            name="telefone"
+            placeholder="Telefone"
+            autoComplete="tel"
+          />
+          <input
+            className={styles.input}
             type="email"
             name="email"
             placeholder="Email"
@@ -49,24 +70,41 @@ export default function Cadastro() {
             autoComplete="new-password"
           />
 
+          <label className={styles.legalCheckbox}>
+            <input
+              type="checkbox"
+              name="acceptTerms"
+              required
+              className={styles.checkboxInput}
+            />
+            <span>
+              Li e concordo com os{" "}
+              <Link href="/termos" className={styles.legalLink}>
+                Termos de Uso
+              </Link>{" "}
+              e{" "}
+              <Link href="/privacidade" className={styles.legalLink}>
+                Política de Privacidade
+              </Link>
+            </span>
+          </label>
+
+          <p className={styles.legalText}>
+            Ao se cadastrar, você concorda com os nossos{" "}
+            <Link href="/termos" className={styles.legalLink}>
+              Termos de Uso
+            </Link>{" "}
+            e com a nossa{" "}
+            <Link href="/privacidade" className={styles.legalLink}>
+              Política de Privacidade
+            </Link>
+            .
+          </p>
+
           <button type="submit" className={styles.primaryButton}>
             Cadastrar
           </button>
         </form>
-
-        <p className={styles.socialTitle}>- Ou cadastre-se com -</p>
-
-        <div className={styles.socialGrid}>
-          <button type="button" className={styles.socialButton} aria-label="Google">
-            <FcGoogle size={24} aria-hidden="true" />
-          </button>
-          <button type="button" className={styles.socialButton} aria-label="Facebook">
-            <FaFacebookF size={22} aria-hidden="true" />
-          </button>
-          <button type="button" className={styles.socialButton} aria-label="Twitter">
-            <FaTwitter size={22} aria-hidden="true" />
-          </button>
-        </div>
       </div>
     </section>
   );

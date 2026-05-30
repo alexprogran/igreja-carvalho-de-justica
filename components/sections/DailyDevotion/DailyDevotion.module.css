@@ -145,7 +145,7 @@
   box-sizing: border-box;
   border-bottom-left-radius: clamp(1.5rem, 4vw, 2rem);
   border-bottom-right-radius: clamp(1.5rem, 4vw, 2rem);
-  min-height: clamp(21.5rem, 40vw, 40rem);
+  min-height: clamp(22rem, 40vw, 40rem);
   box-shadow:
     0 4px 6px -1px rgb(0 0 0 / 0.1),
     0 2px 4px -2px rgb(0 0 0 / 0.1);

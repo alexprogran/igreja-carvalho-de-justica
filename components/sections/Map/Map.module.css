@@ -24,7 +24,7 @@
 }
 
 .addressSide {
-  flex: 0 0 45%;
+  flex: 0 0 52%;
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -59,11 +59,11 @@
   font-size: 0.73rem;
   color: hsl(var(--foreground) / 0.9);  /* color: #181818; */
   line-height: 1.5;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .mapSide {
-  flex: 1 1 55%;
+  flex: 0 0 48%;
   min-height: 10rem;
   position: relative;
 }

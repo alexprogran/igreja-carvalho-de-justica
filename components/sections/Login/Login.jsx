@@ -17,9 +17,7 @@ export default function Login() {
             className={styles.logo}
             priority
           />
-        </div>
-
-        {/* <h1 className={styles.title}>Login</h1> */}
+        </div>        
 
         <p className={styles.accountInfo}>Entre ou crie uma conta</p>
 
@@ -36,6 +34,10 @@ export default function Login() {
             <FaTwitter size={20} aria-hidden="true" className={styles.twitterIcon} />
             <span className={styles.socialButtonLabel}>Continuar com o Twitter</span>
           </button>
+
+          <Link href="/cadastro" className={styles.socialButton} aria-label="Entrar com email">
+            <span className={styles.socialButtonLabel}>Continuar com email</span>
+          </Link>
         </div>
 
         <p className={styles.divider}>- Ou entre com -</p>
@@ -64,12 +66,37 @@ export default function Login() {
           </button> */}
         </form>
 
-        <p className={styles.signupText}>
-          NÃ£o tem uma conta?{" "}
-          <Link href="/cadastro" className={styles.signupLink}>
-            Cadastre-se
-          </Link>
-        </p>
+        <div className={styles.legalSection}>
+          <p className={styles.legalText}>
+            Ao entrar, você concorda com os nossos{" "}
+            <Link href="/termos" className={styles.legalLink}>
+              Termos de Uso
+            </Link>{" "}
+            e com a nossa{" "}
+            <Link href="/privacidade" className={styles.legalLink}>
+              Política de Privacidade
+            </Link>
+            .
+          </p>
+
+          <label className={styles.legalCheckbox}>
+            <input
+              type="checkbox"
+              name="acceptTerms"
+              className={styles.checkboxInput}
+            />
+            <span>
+              Li e concordo com os{" "}
+              <Link href="/termos" className={styles.legalLink}>
+                Termos de Uso
+              </Link>{" "}
+              e{" "}
+              <Link href="/privacidade" className={styles.legalLink}>
+                Política de Privacidade
+              </Link>
+            </span>
+          </label>
+        </div>
       </div>
     </section>
   );

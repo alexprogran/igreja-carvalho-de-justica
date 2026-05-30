@@ -41,7 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={nunito.variable}>
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+      <body className="min-h-full flex flex-col bg-background-fundo text-foreground">
         <PwaRegister />
         <Providers>{children}</Providers>
       </body>

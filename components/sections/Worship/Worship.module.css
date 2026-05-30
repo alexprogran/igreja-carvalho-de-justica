@@ -2,12 +2,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* background: linear-gradient(135deg, #6f7f4a 0%, #9bcc55 0%);  */
- /* background: #181818; */
+ 
+ background: hsl(var(--primary-foreground));;
   border: 1px solid #dbd8d8;
-  border-radius: 0.75rem;
-  padding: 0.875rem 1rem;
-  transition: box-shadow 150ms ease-in-out;
+  border-radius: 0.75rem;  
+  padding: 0.65rem 1rem; 
 }
 
 .card:hover {
@@ -41,7 +40,7 @@
   font-size: 0.9rem;
   font-weight: 600;
   color: hsl(var(--primary-foreground));  
-  background-color: rgba(81, 77, 77, 0.9);
+  background-color: rgba(36, 35, 35, 0.6);
   border: 1px solid rgb(255 255 255 / 0.24);
   padding: 0.2rem 0.625rem;
   border-radius: 9999px;

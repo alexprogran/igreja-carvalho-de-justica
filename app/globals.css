@@ -37,6 +37,7 @@
   --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
   --color-sidebar-border: hsl(var(--sidebar-border));
   --color-sidebar-ring: hsl(var(--sidebar-ring));
+  --color-background-fundo: var(--background-fundo);
 }
 
 @layer base {
@@ -69,6 +70,7 @@
     --input: 214 32% 91%;
     --ring: 217 91% 50%;
     --informe: #9aa1ad;
+    --background-fundo: #F8FAFC;
 
     --radius: 0.75rem;
 
@@ -101,6 +103,7 @@
 html, body {
   width: 100%;
   overflow-x: hidden;
+  background-color: var(--background-fundo);
 }
 
 * {
