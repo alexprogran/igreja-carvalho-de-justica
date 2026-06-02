@@ -1,20 +1,21 @@
 ﻿
 
   .wrapper {
-  min-height: 100dvh; 
+    min-height: 100vh;
+    min-height: 100dvh;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow-x: hidden;
-  /* padding: clamp(0.5rem, 2.5vw, 1rem); */
-  /* background: linear-gradient(180deg, #eef1f6 0%, #e6ebf2 100%); */
-  background: #F8FAFC; 
+  
+    background-color: #ffffff;
 }
 .card {
   /* width: min(80%, 340px); */
   min-height: 100dvh;
   width: 100%;
+    background-color: #ffffff;
   /* background: #ffffff; */
   /* border-radius: clamp(12px, 4vw, 18px); */
   /* padding: clamp(1rem, 4.5vw, 1.5rem); */
@@ -125,7 +126,8 @@
   width: 90%; 
   height: clamp(2.9rem, 6vw, 3.5rem);
   border-radius: clamp(5rem, 2.5vw, 5.1rem);
-  border: 1px solid #f0f2f7;
+  /* border: 1px solid #f0f2f7; */
+   border: 1px solid #171717;
   background: #ffffff;
   display: inline-flex;
   align-items: center;
@@ -138,7 +140,7 @@
 
 .socialButtonLabel {
   color: #000000;
-  font-size: clamp(1.1rem, 3.4vw, 1.05rem);
+  font-size: clamp(0.875rem, 3.4vw, 1.5rem);
   font-weight: 700;
 }
 

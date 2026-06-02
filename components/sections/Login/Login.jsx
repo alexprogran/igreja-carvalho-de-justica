@@ -42,7 +42,7 @@ export default function Login() {
 
         <p className={styles.divider}>- Ou entre com -</p>
 
-        <form className={styles.form}>
+        {/* <form className={styles.form}>
           <input
             className={styles.input}
             type="email"
@@ -61,10 +61,10 @@ export default function Login() {
             aria-label="Senha"
           />
 
-          {/* <button type="submit" className={styles.primaryButton}>
+          <button type="submit" className={styles.primaryButton}>
             Entrar
-          </button> */}
-        </form>
+          </button>
+        </form> */}
 
         <div className={styles.legalSection}>
           <p className={styles.legalText}>

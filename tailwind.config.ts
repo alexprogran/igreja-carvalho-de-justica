@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
   content: [
@@ -8,7 +9,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Nunito', 'sans-serif'],
+        sans: ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
       },
       colors: {
         church: {
@@ -91,5 +92,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindcssAnimate],
 } satisfies Config;

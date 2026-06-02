@@ -18,7 +18,7 @@ export async function GET() {
           fontSize: 200,
           fontWeight: 800,
           letterSpacing: -4,
-          fontFamily: "Nunito, Arial, sans-serif",
+          fontFamily: "Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif",
         }}
       >
         ICJ

@@ -1,14 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import { Nunito } from "next/font/google";
 import "./globals.css";
 import Providers from "@/components/layout/providers";
 import PwaRegister from "@/components/layout/PwaRegister";
-
-const nunito = Nunito({
-  variable: "--font-nunito",
-  subsets: ["latin"],
-  weight: ["400", "600", "700", "800"],
-});
 
 export const metadata: Metadata = {
   title: "Igreja Carvalho de Justiça",
@@ -40,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={nunito.variable}>
+    <html lang="pt-BR">
       <body className="min-h-full flex flex-col bg-background-fundo text-foreground">
         <PwaRegister />
         <Providers>{children}</Providers>
