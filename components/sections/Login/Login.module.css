@@ -114,6 +114,20 @@
   font-weight: 500;
 }
 
+.enterButton {
+  display: block;
+  width: fit-content;
+  margin: -0.45rem auto 0;
+  border: none;
+  background: transparent;
+  color: #000000;
+  font-size: clamp(0.95rem, 3.2vw, 1rem);
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+  text-decoration: none;
+}
+
 .socialRow {
   display: flex;
   flex-direction: column;
@@ -127,7 +141,7 @@
   height: clamp(2.9rem, 6vw, 3.5rem);
   border-radius: clamp(5rem, 2.5vw, 5.1rem);
   /* border: 1px solid #f0f2f7; */
-   border: 1px solid #171717;
+  border: 1px solid #171717;
   background: #ffffff;
   display: inline-flex;
   align-items: center;
@@ -140,12 +154,12 @@
 
 .socialButtonLabel {
   color: #000000;
-  font-size: clamp(0.875rem, 3.4vw, 1.5rem);
+  font-size: clamp(0.87rem, 3.4vw, 1.5rem);
   font-weight: 700;
 }
 
-.socialButton:not(.socialButtonGoogle) {
-  border: 1px solid #e0d9d9;
+.socialButton:not(.socialButtonGoogle) { 
+  border: 1px solid #292828;
 }
 
 .socialButtonGoogle {
@@ -162,7 +176,8 @@
 }
 
 .facebookIcon {
-  color: #4267b2;
+  /* color: #4267b2; */
+ color: #0866FF;
 }
 
 .twitterIcon {

@@ -2,15 +2,22 @@
   width: 100%;
   min-height: 100vh;
   min-height: 100dvh;
-  background: #fff !important;
+  background: #ffffff !important;
 }
-
 .card {
   width: 100%;
   min-height: 100vh;
   min-height: 100dvh;
-  background: #fff !important;
+  background: #ffffff !important;
   padding: 1.6rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-left: -0.7rem;
+  margin-bottom: clamp(1.8rem, 8vw, 2.2rem);
 }
 
 .backButton {
@@ -21,14 +28,12 @@
   height: 2.2rem;
   display: inline-grid;
   place-items: center;
-  margin-bottom: 0.8rem;
-  padding: 0;
   cursor: pointer;
   text-decoration: none;
 }
 
 .title {
-  margin: 0 0 clamp(1.8rem, 8vw, 2.2rem);
+  margin: 0;
   font-size: clamp(1.2rem, 4vw, 2rem);
   font-weight: 550;
   color: #111217;
@@ -38,6 +43,12 @@
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
+}
+
+.field {
+  margin-top: 1rem;
+  color: var(--informe);
+  font-size: clamp(0.95rem, 4vw, 1.15rem);
 }
 
 .input {
@@ -64,10 +75,6 @@
   position: relative;
 }
 
-.passwordWrap .input {
-  padding-right: 2.8rem;
-}
-
 .eyeButton {
   position: absolute;
   right: 0;
@@ -83,20 +90,26 @@
   cursor: pointer;
 }
 
-.primaryButton {
+.errorText {
+  margin: 0.35rem 0 0;
+  color: #d12f2f;
+  font-size: 0.9rem;
+}
+
+.submitButton {
   margin-top: 1.6rem;
   width: 100%;
   height: clamp(2.9rem, 6vw, 3.5rem);
   border: none;
   border-radius: 999px;
-  background: #d3d4d5;
+  background:  #d3d4d5;
   color: #777d81;
   font-size: clamp(1.05rem, 4vw, 1.1rem);
   font-weight: 700;
   cursor: pointer;
 }
 
-.primaryButton:disabled {
+.submitButton:disabled {
   opacity: 0.8;
   cursor: not-allowed;
 }
@@ -118,26 +131,10 @@
   text-decoration: underline;
 }
 
-.privacySection {
-  margin-top: 0.9rem;
-}
-
-.privacyTitle {
-  margin: 0;
-  text-align: center;
-  color: var(--informe);
-  font-size: clamp(0.98rem, 4vw, 1.15rem);
-}
-
-.legalText {
-  margin: 0.4rem 0 0;
-  text-align: center;
-  color: var(--informe);
-  font-size: clamp(0.82rem, 3.4vw, 0.98rem);
-  line-height: 1.5;
-}
-
-.legalLink {
-  color: inherit;
-  text-decoration: underline;
-}
+/* @media (min-width: 768px) {
+  .card {
+    max-width: 30rem;
+    margin-inline: auto;
+    padding-top: 2.1rem;
+  }
+} */

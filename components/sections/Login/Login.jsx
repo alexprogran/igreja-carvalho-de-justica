@@ -1,7 +1,7 @@
 ﻿import Image from "next/image";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
-import { FaFacebookF, FaTwitter } from "react-icons/fa";
+import { FaFacebookF } from "react-icons/fa";
 import styles from "./Login.module.css";
 
 export default function Login() {
@@ -30,41 +30,20 @@ export default function Login() {
             <FaFacebookF size={20} aria-hidden="true" className={styles.facebookIcon} />
             <span className={styles.socialButtonLabel}>Continuar com o Facebook</span>
           </button>
-          <button type="button" className={styles.socialButton} aria-label="Entrar com Twitter">
+          {/* <button type="button" className={styles.socialButton} aria-label="Entrar com Twitter">
             <FaTwitter size={20} aria-hidden="true" className={styles.twitterIcon} />
             <span className={styles.socialButtonLabel}>Continuar com o Twitter</span>
-          </button>
+          </button> */}
 
           <Link href="/cadastro" className={styles.socialButton} aria-label="Entrar com email">
             <span className={styles.socialButtonLabel}>Continuar com email</span>
           </Link>
         </div>
 
-        <p className={styles.divider}>- Ou entre com -</p>
-
-        {/* <form className={styles.form}>
-          <input
-            className={styles.input}
-            type="email"
-            name="email"
-            autoComplete="email"
-            placeholder="Email"
-            aria-label="Email"
-          />
-
-          <input
-            className={styles.input}
-            type="password"
-            name="password"
-            autoComplete="current-password"
-            placeholder="Senha"
-            aria-label="Senha"
-          />
-
-          <button type="submit" className={styles.primaryButton}>
-            Entrar
-          </button>
-        </form> */}
+        <p className={styles.divider}>Tem um conta?</p>
+        <Link href="/entra/" className={styles.enterButton} aria-label="Entra">
+          Entra
+        </Link>
 
         <div className={styles.legalSection}>
           <p className={styles.legalText}>
