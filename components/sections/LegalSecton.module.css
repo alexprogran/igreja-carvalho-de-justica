@@ -1,0 +1,25 @@
+.legalSection {
+  margin: clamp(1.3rem, 6vw, 1.9rem) 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.75rem, 3vw, 1rem);
+}
+
+.legalText {
+  margin: 0;
+  text-align: center;
+  color: var(--informe);
+  font-size: clamp(0.78rem, 2.8vw, 0.92rem);
+  line-height: 1.5;
+}
+
+.legalLink {
+  color: inherit;
+    /* font-weight: ''; */
+  font-size: clamp(0.8rem, 2.8vw, 0.92rem);
+  text-decoration: underline;
+}
+
+.legalLink:hover {
+  text-decoration: underline;
+}

@@ -2,7 +2,9 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { IoArrowBack, IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
+import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
+import Button from "@/components/layout/Button";
+import Retroced from "@/components/layout/Retroced";
 import styles from "./Entra.module.css";
 
 const INITIAL_FORM = {
@@ -15,6 +17,7 @@ export default function Entra({ onSubmitLogin }) {
   const [showPassword, setShowPassword] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const isFormComplete = Object.values(formData).every((value) => value.trim() !== "");
 
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -56,12 +59,7 @@ export default function Entra({ onSubmitLogin }) {
   return (
     <section className={styles.wrapper}>
       <div className={styles.card}>
-        <header className={styles.header}>
-          <Link href="/cadastro" className={styles.backButton} aria-label="Voltar">
-            <IoArrowBack size={21} aria-hidden="true" />
-          </Link>
-          <h1 className={styles.title}>Entrar</h1>
-        </header>
+        <Retroced title="Entrar" href="/login" />
 
         <form className={styles.form} onSubmit={handleSubmit} noValidate>
           <input
@@ -103,13 +101,39 @@ export default function Entra({ onSubmitLogin }) {
 
           {errorMessage ? <p className={styles.errorText}>{errorMessage}</p> : null}
 
-          <button type="submit" className={styles.submitButton} disabled={isSubmitting}>
-            {isSubmitting ? "Entrando..." : "Entrar"}
-          </button>
+          {isFormComplete ? (
+            <Button
+              type="submit"
+              className={styles.submitButton}
+              nome="Cria Conta"
+              backend="#000000"
+              textColor="#ffffff"
+              borderColor="#000000"
+              width="100%"
+              height="clamp(2.9rem, 6vw, 3.5rem)"
+              fontSize="clamp(1.05rem, 4vw, 1.1rem)"
+              fontWeight={700}
+              disabled={isSubmitting}
+            />
+          ) : (
+            <Button
+              type="submit"
+              className={styles.submitButton}
+              nome="Criar Conta"
+              backend="#d3d4d5"
+              textColor="#777d81"
+              borderColor="#d3d4d5"
+              width="100%"
+              height="clamp(2.9rem, 6vw, 3.5rem)"
+              fontSize="clamp(1.05rem, 4vw, 1.1rem)"
+              fontWeight={700}
+              disabled
+            />
+          )}
 
           <p className={styles.accountText}>
-            Nao tem uma conta?{" "}
-            <Link href="/cadastro" className={styles.accountLink}>
+            Não tem uma conta?{" "}
+            <Link href="/login" className={styles.accountLink}>
               Criar conta
             </Link>
           </p>

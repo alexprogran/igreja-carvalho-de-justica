@@ -1,0 +1,27 @@
+.topRow {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: clamp(1.8rem, 8vw, 2.2rem);
+}
+
+.backButton {
+  border: none;
+  background: transparent;
+  color: #0c0d10;
+  width: 2.2rem;
+  height: 2.2rem;
+  display: inline-grid;
+  place-items: center;
+  margin-bottom: 0;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  font-weight: 550;
+  color: #111217;
+}

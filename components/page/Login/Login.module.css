@@ -1,0 +1,265 @@
+
+
+  .wrapper {
+    min-height: 100vh;
+    min-height: 100dvh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  
+    background-color: #ffffff;
+}
+.card {
+  /* width: min(80%, 340px); */
+  min-height: 100dvh;
+  width: 100%;
+    background-color: #ffffff;
+  /* background: #ffffff; */
+  /* border-radius: clamp(12px, 4vw, 18px); */
+  /* padding: clamp(1rem, 4.5vw, 1.5rem); */
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(25, 35, 56, 0.12);
+}
+
+/* 
+ .card {
+    border-radius: 0;
+    min-height: 100dvh;
+    width: 100%;
+    padding: 1rem;
+  } */
+
+.logoWrap {
+  width: calc(100% + 3rem);
+  margin-top:0;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+  display: flex;
+  justify-content: center;
+  margin-bottom: clamp(3rem, 3vw, 5.5rem);
+  border-bottom-left-radius: clamp(1.5rem, 4vw, 2rem);
+  border-bottom-right-radius: clamp(1.5rem, 4vw, 2rem);
+}
+
+.logo {
+  width: clamp(8rem, 13vw, 20rem);
+  height: clamp(8rem, 13vw, 20rem);
+  object-fit: contain;
+}
+
+.title {  
+  margin: 0 0 clamp(0.9rem, 3.2vw, 1.25rem); 
+  font-size: clamp(1rem, 5.6vw, 1.1rem);
+  font-weight: 700;
+  text-align: left;
+  line-height: 1.2;
+}
+
+.form {
+  display: grid;
+  gap: clamp(0.65rem, 2.6vw, 0.9rem);
+}
+
+.input {
+  height: clamp(42px, 12vw, 48px);
+  border: 1px solid #eceff5;
+  border-radius: clamp(8px, 2.5vw, 10px);
+  padding: 0 clamp(0.75rem, 3.2vw, 1rem);
+  background:#ffffff;
+  color: #2f3442;
+  font-size: clamp(0.88rem, 3.2vw, 0.95rem);
+  outline: none;
+}
+
+.input::placeholder {
+  color: #9ba2af;
+}
+
+.input:focus {
+  /* border-color: #7fb336; */
+  box-shadow: 0 0 0 2px rgba(127, 179, 54, 0.12);
+  background: #ffffff;
+}
+
+.primaryButton {
+  margin-top: clamp(0.2rem, 1.3vw, 0.35rem);
+  height: clamp(44px, 12.5vw, 50px);
+  width: 100%;
+  border: none;
+  border-radius: clamp(8px, 2.5vw, 10px);  
+  background: linear-gradient(135deg, #41633a 0%, #7fb336 100%);
+
+  color: #ffffff;
+  font-size: clamp(0.94rem, 3.4vw, 1.05rem);
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(127, 179, 54, 0.22);
+}
+
+.accountInfo {
+  margin: 0 0 clamp(0.85rem, 3vw, 1rem);
+  text-align: center;
+  color: var(--informe);
+  font-size: clamp(0.9rem, 3vw, 1rem);
+  font-weight: 500;
+}
+
+.divider {
+  margin: clamp(1.15rem, 5.5vw, 1.7rem) 0 clamp(0.85rem, 3vw, 1rem);
+  text-align: center;
+  color: var(--informe);
+  font-size: clamp(0.86rem, 3vw, 1rem);
+  font-weight: 500;
+}
+
+.enterButton {
+  display: block;
+  width: fit-content;
+  margin: -0.45rem auto 0;
+  border: none;
+  background: transparent;
+  color: #000000;
+  font-size: clamp(0.95rem, 3.2vw, 1rem);
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+  text-decoration: none;
+}
+
+.socialRow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(0.65rem, 2.6vw, 0.9rem);
+  width: 100%;
+}
+
+.socialButton {
+  width: 90%; 
+  height: clamp(2.9rem, 6vw, 3.5rem);
+  border-radius: clamp(5rem, 2.5vw, 5.1rem);
+  /* border: 1px solid #f0f2f7; */
+  border: 1px solid #171717;
+  background: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.5rem, 2vw, 0.75rem);
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(26, 35, 50, 0.05);
+  text-decoration: none;
+}
+
+.socialButtonLabel {
+  color: #000000;
+  font-size: clamp(0.87rem, 3.4vw, 1.5rem);
+  font-weight: 700;
+}
+
+.socialButton:not(.socialButtonGoogle) { 
+  border: 1px solid #292828;
+}
+
+.socialButtonGoogle {
+  background: #000000;
+  border-color: #000000;
+}
+
+.socialButtonGoogle .socialButtonLabel {
+  color: #ffffff;
+}
+
+.googleIcon {
+  flex-shrink: 0;
+}
+
+.facebookIcon {
+  /* color: #4267b2; */
+ color: #0866FF;
+}
+
+.twitterIcon {
+  color: #1da1f2;
+}
+
+.legalSection {
+  margin: clamp(1.3rem, 6vw, 1.9rem) 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.75rem, 3vw, 1rem);
+}
+
+.legalText {
+  margin: 0;
+  text-align: center;
+  color: var(--informe);
+  font-size: clamp(0.78rem, 2.8vw, 0.92rem);
+  line-height: 1.5;
+}
+
+.legalLink {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.legalLink:hover {
+  text-decoration: underline;
+}
+
+.legalCheckbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  color: var(--informe);
+  font-size: clamp(0.78rem, 2.8vw, 0.92rem);
+  line-height: 1.45;
+  cursor: pointer;
+}
+
+.checkboxInput {
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+  accent-color: #000000;
+  cursor: pointer;
+}
+
+/* @media (max-width: 450px) {
+  .card {
+    border-radius: 0;
+    min-height: 100dvh;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .wrapper {
+    padding: 0;
+  }
+
+  .title {
+    font-size: clamp(1.25rem, 6vw, 1.55rem);
+  }
+}
+
+@media (max-width: 360px) {
+  .wrapper {
+    padding: 0;
+  }
+
+  .card {
+    padding: 0.85rem;
+  }
+
+  .form {
+    gap: 0.55rem;
+  }
+
+  .divider {
+    margin-top: 0.95rem;
+  }
+} */
+ 

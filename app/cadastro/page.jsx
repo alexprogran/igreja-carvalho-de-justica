@@ -1,4 +1,4 @@
-import Cadastro from "@/components/sections/Cadastro/Cadastro";
+import Cadastro from "@/components/page/Cadastro/Cadastro";
 
 export default function CadastroPage() {
   return <Cadastro />;
