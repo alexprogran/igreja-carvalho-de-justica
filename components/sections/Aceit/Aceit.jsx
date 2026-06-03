@@ -19,16 +19,19 @@ export default function Aceit({ onAccept, onReject, introText = "Ao continuar" }
             textColor="#ffffff"
             borderColor="#000000"
             width="100%"
+            fontSize="clamp(1.05rem, 4vw, 1.1rem)"
+
             onClick={onAccept}
           />
           <Button
             className={styles.button}
             type="button"
-            nome="Regitar e Voltar"
+            nome="Regeitar e Voltar"
             backend="transparent"
             textColor="#000000"
             borderColor="#c0c0c0"
             width="100%"
+            fontSize="clamp(1.05rem, 4vw, 1.1rem)"
             onClick={onReject}
           />
         </div>

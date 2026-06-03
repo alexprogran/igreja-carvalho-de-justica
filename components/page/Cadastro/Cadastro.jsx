@@ -102,11 +102,11 @@ export default function Cadastro() {
             </button>
           )}
 
-          <p className={styles.accountText}>
+          {/* <p className={styles.accountText}>
             <Link href="/entra/" className={styles.accountLink}>
               Esqueceu a Senha?
             </Link>
-          </p>         
+          </p>          */}
         </form>
         <LegalSection introText="Ao criar uma conta" />
 

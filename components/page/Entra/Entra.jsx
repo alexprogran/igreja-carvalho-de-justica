@@ -105,7 +105,7 @@ export default function Entra({ onSubmitLogin }) {
             <Button
               type="submit"
               className={styles.submitButton}
-              nome="Cria Conta"
+              nome="Entrar"
               backend="#000000"
               textColor="#ffffff"
               borderColor="#000000"
@@ -119,7 +119,7 @@ export default function Entra({ onSubmitLogin }) {
             <Button
               type="submit"
               className={styles.submitButton}
-              nome="Criar Conta"
+              nome="Entrar"
               backend="#d3d4d5"
               textColor="#777d81"
               borderColor="#d3d4d5"
@@ -132,9 +132,9 @@ export default function Entra({ onSubmitLogin }) {
           )}
 
           <p className={styles.accountText}>
-            Não tem uma conta?{" "}
+            Esqueceu{" "}
             <Link href="/login" className={styles.accountLink}>
-              Criar conta
+              Esqueci minha senha
             </Link>
           </p>
         </form>
