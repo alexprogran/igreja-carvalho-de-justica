@@ -5,11 +5,13 @@ import { useState } from "react";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import Button from "@/components/layout/Button";
 import Retroced from "@/components/layout/Retroced";
+import Aceit from "@/components/sections/Aceit";
 import styles from "./Cadastro.module.css";
 import LegalSection from "@/components/sections/LegalSection";
 
 export default function Cadastro() {
   const [showPassword, setShowPassword] = useState(false);
+  const [showAceit, setShowAceit] = useState(false);
   const [formData, setFormData] = useState({
     nome: "",
     sobrenome: "",
@@ -83,7 +85,7 @@ export default function Cadastro() {
 
           {isFormComplete ? (
             <Button
-              type="submit"
+              type="button"
               className={styles.primaryButton}
               nome="Criar Conta"
               backend="#000000"
@@ -92,9 +94,10 @@ export default function Cadastro() {
               height="clamp(2.9rem, 6vw, 3.5rem)"
               fontSize="clamp(1.05rem, 4vw, 1.1rem)"
               fontWeight={700}
+              onClick={() => setShowAceit(true)}
             />
           ) : (
-            <button type="submit" className={styles.primaryButton} disabled>
+            <button type="button" className={styles.primaryButton} disabled>
               Criar Conta
             </button>
           )}
@@ -106,6 +109,14 @@ export default function Cadastro() {
           </p>         
         </form>
         <LegalSection introText="Ao criar uma conta" />
+
+        {showAceit ? (
+          <Aceit
+            introText="Ao criar uma conta"
+            onAccept={() => setShowAceit(false)}
+            onReject={() => setShowAceit(false)}
+          />
+        ) : null}
       </div>
     </section>
   );
