@@ -51,6 +51,7 @@ const VideoDevotion = ({
               className={styles.image}
               width={800}
               height={512}
+              sizes="(max-width: 480px) 34vw, 30vw"
             />
           </div>
         </div>

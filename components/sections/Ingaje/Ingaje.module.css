@@ -6,14 +6,20 @@
   bottom: var(--actions-bottom);
   display: flex;
   flex-direction: column;
-  gap: clamp(0.5rem, 2vw, 1rem);
+  gap: clamp(0.5rem, 2vw, 0.9rem);
+  width: max-content;
+  max-width: min(100%, 20rem);
+  min-width: 0;
+  box-sizing: border-box;
+  container-type: inline-size;
+  container-name: ingaje-actions;
   z-index: 3;
   pointer-events: auto;
 }
 
 
 .horizontal {
-  --actions-top: clamp(11.5rem, 14vh, 7.2rem);
+  --actions-top: clamp(7.2rem, 14vh, 11.5rem);
   right: auto;
   left: 50%;
   top: var(--actions-top);
@@ -22,15 +28,28 @@
   flex-direction: row;
   justify-content: center;
   align-items: flex-end;
-  gap: clamp(1rem, 2.8vw, 1.15rem);
+  gap: clamp(0.75rem, 2.8vw, 1.1rem);
+  width: min(100%, 26rem);
+  max-width: calc(100% - 1rem);
+  padding-inline: 0.25rem;
   flex-wrap: nowrap;
   overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.horizontal::-webkit-scrollbar {
+  display: none;
 }
 
 .inline {
   position: static;
   right: auto;
   bottom: auto;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   margin-top: clamp(0.6rem, 2vw, 0.9rem);
 }
 
@@ -40,33 +59,41 @@
   transform: none;
   justify-content: flex-start;
   align-items: center;
+  width: 100%;
+  max-width: 100%;
+  padding-inline: 0;
   overflow-x: visible;
 }
 
 .actionButton {
-  --action-icon-size: clamp(2.3rem, 6vw, 3rem);
-  --action-svg-size: clamp(1.5rem, 3vw, 1.75rem);
-  --action-label-size: clamp(0.8rem, 2vw, 0.8rem);
+  --action-icon-size: clamp(2.35rem, 7vw, 2.9rem);
+  --action-svg-size: clamp(1.25rem, 4.3vw, 1.55rem);
+  --action-label-size: clamp(0.72rem, 3.4cqw, 0.86rem);
   --action-label-weight: 600;
   border: 0;
   background: transparent;
-   color: hsl(var(--primary-foreground));
+  color: hsl(var(--primary-foreground));
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 0.2rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding: 0.125rem 0.25rem;
+  flex: 0 0 auto;
   cursor: pointer;
   transition: transform 0.16s ease;
 }
 
 .horizontalActionButton {
-  --action-icon-size: clamp(1.8rem, 3.8vw, 2.1rem);
-  --action-svg-size: clamp(1.35rem, 2.2vw, 1.4rem);
-  --action-label-size: clamp(0.72rem, 1.4vw, 0.78rem);
-  min-width: clamp(3.4rem, 8.8vw, 4.8rem);
+  --action-icon-size: clamp(1.9rem, 6.2vw, 2.2rem);
+  --action-svg-size: clamp(1.2rem, 3.8vw, 1.4rem);
+  --action-label-size: clamp(0.72rem, 2.8cqw, 0.8rem);
+  min-width: clamp(2.9rem, 9.6vw, 4.4rem);
   flex: 0 0 auto;
   justify-content: center;
-  gap: 0.3rem;
+  gap: 0.25rem;
 }
 
 .actionIcon {
@@ -92,8 +119,8 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  width: clamp(0.72rem, 1.8vw, 0.92rem);
-  height: clamp(0.72rem, 1.8vw, 0.92rem);
+  width: clamp(0.72rem, 2.2vw, 0.92rem);
+  height: clamp(0.72rem, 2.2vw, 0.92rem);
   color: #fff;
   opacity: 0;
   transform: translate(-50%, -50%) scale(0.35);
@@ -123,7 +150,9 @@
 
 .actionIcon svg {
   width: var(--action-svg-size);
-  height: var(--action-svg-size);
+  height: auto;
+  aspect-ratio: 1 / 1;
+  max-width: 100%;
 }
 
 .actionIcon svg [stroke] {
@@ -134,18 +163,22 @@
   font-size: var(--action-label-size);
   font-weight: var(--action-label-weight);
   letter-spacing: 0.01em;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+  line-height: 1.2;
+  text-shadow: 0 0.0625rem 0.25rem rgba(0, 0, 0, 0.7);
+  text-align: center;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .viewHeading {
   min-height: var(--action-icon-size);
   display: grid;
   place-items: center;
-  font-size: clamp(1rem, 1.6vw, 1.1rem);
+  font-size: clamp(0.9rem, 4.6cqw, 1.1rem);
   font-weight: 700;
   line-height: 1.05;
   text-align: center;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+  text-shadow: 0 0.0625rem 0.25rem rgba(0, 0, 0, 0.7);
 }
 
 .likeButtonActive {
@@ -167,7 +200,7 @@
   }
 
   45% {
-    transform: translateY(-3px);
+    transform: translateY(-0.1875rem);
   }
 
   100% {
@@ -181,7 +214,7 @@
   }
 
   45% {
-    transform: translateY(-3px);
+    transform: translateY(-0.1875rem);
   }
 
   100% {
@@ -210,5 +243,15 @@
   .horizontalActionButton {
     --action-label-weight: 600;
     --action-icon-stroke-width: 2;
+  }
+}
+
+@container ingaje-actions (max-width: 16rem) {
+  .actionLabel {
+    font-size: clamp(0.7rem, 3.4cqw, 0.78rem);
+  }
+
+  .viewHeading {
+    font-size: clamp(0.85rem, 4.4cqw, 1rem);
   }
 }

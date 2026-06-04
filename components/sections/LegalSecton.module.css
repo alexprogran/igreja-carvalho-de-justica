@@ -1,25 +1,44 @@
 .legalSection {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   margin: clamp(1.3rem, 6vw, 1.9rem) 0 0;
   display: flex;
   flex-direction: column;
   gap: clamp(0.75rem, 3vw, 1rem);
+  container-type: inline-size;
+  container-name: legal-section;
 }
 
 .legalText {
   margin: 0;
   text-align: center;
   color: var(--informe);
-  font-size: clamp(0.78rem, 2.8vw, 0.92rem);
+  font-size: clamp(0.78rem, 3.2cqw, 0.94rem);
   line-height: 1.5;
+  overflow-wrap: anywhere;
+  text-wrap: pretty;
 }
 
 .legalLink {
   color: inherit;
-    /* font-weight: ''; */
-  font-size: clamp(0.8rem, 2.8vw, 0.92rem);
+  font-size: clamp(0.8rem, 3.2cqw, 0.94rem);
+  font-weight: 500;
   text-decoration: underline;
+  text-decoration-thickness: from-font;
+  text-underline-offset: 0.12em;
 }
 
 .legalLink:hover {
   text-decoration: underline;
+}
+
+@container legal-section (max-width: 18rem) {
+  .legalText {
+    font-size: clamp(0.75rem, 3.6cqw, 0.88rem);
+  }
+
+  .legalLink {
+    font-size: clamp(0.76rem, 3.6cqw, 0.77rem);
+  }
 }

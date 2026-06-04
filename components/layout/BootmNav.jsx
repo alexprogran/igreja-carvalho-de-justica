@@ -36,8 +36,11 @@ const BootmNav = () => {
         {navItems.map((item, i) => (
           <button
             key={item.label}
+            type="button"
             onClick={() => handleNavClick(i)}
             className={`${styles.navButton} ${active === i ? styles.active : ""}`.trim()}
+            aria-current={active === i ? "page" : undefined}
+            aria-label={item.label}
           > 
             <item.icon className={styles.icon} />
             <span className={styles.label}>{item.label}</span>

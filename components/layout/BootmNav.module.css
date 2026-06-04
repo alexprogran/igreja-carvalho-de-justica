@@ -4,30 +4,46 @@
   bottom: 0;
   left: 0;
   z-index: 50;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   margin-inline: auto;
-  max-width: 28rem;
   border-top: 1px solid hsl(var(--border));
   background: hsl(var(--card));
+  box-sizing: border-box;
+  padding-bottom: env(safe-area-inset-bottom, 0);
 }
  
 .inner {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  padding: 0.5rem 0.25rem;
+  justify-content: space-between;
+  width: 100%;
+  max-width: min(100%, 30rem);
+  min-width: 0;
+  margin-inline: auto;
+  padding: 0.35rem 0.25rem;
+  gap: 0.125rem;
+  container-type: inline-size;
+  container-name: bottom-nav;
+  box-sizing: border-box;
 }
 
 .navButton {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 2.75rem;
   gap: 0.125rem;
   appearance: none;
   -webkit-appearance: none;
   border: none;
   border-radius: 0.5rem;
   background: transparent;
-  padding: 0.25rem 0.75rem;
+  padding: 0.25rem 0.35rem;
   color: hsl(var(--muted-foreground));
   transition: color 150ms ease-in-out;
   cursor: pointer;
@@ -38,7 +54,6 @@
 
 .navButton:hover {
   color: #434141;
-   font-weight: 900;
 }
 
 .navButton:focus,
@@ -47,15 +62,41 @@
   box-shadow: none;
 }
 
-/* .active {
-  font-weight: 900;
-} */
+.navButton:focus-visible {
+  outline: 2px solid hsl(var(--primary) / 0.45);
+  outline-offset: 2px;
+}
+
+.active {
+  color: hsl(var(--foreground));
+}
 
 .icon {
-  width: 1.4rem;
-  height: 1.4rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
 }
 
 .label {
-  font-size: 0.8rem;
+  font-size: 0.72rem;
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+@container bottom-nav (min-width: 22rem) {
+  .navButton {
+    padding-inline: 0.45rem;
+  }
+
+  .icon {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+
+  .label {
+    font-size: 0.76rem;
+  }
 }

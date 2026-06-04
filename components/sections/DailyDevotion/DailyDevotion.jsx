@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { useVideoOverlay } from "@/components/layout/VideoOverlayContext";
 import Image from "next/image";
-// import { Heart, MessageCircle, Share2 } from "lucide-react";
 import Ingaje from "@/components/sections/Ingaje/Ingaje";
 import styles from "./DailyDevotion.module.css";
 import VideoDevotion from "./VideoDevotion";
@@ -111,6 +110,7 @@ const DailyDevotion = ({
             className={styles.image}
             width={800}
             height={512}
+            sizes="100vw"
           />
         ) : (
           <div className={styles.imagePlaceholder} aria-hidden="true" />

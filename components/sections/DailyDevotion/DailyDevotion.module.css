@@ -1,22 +1,22 @@
 .videoDevotionSpacing {
-  margin-top: 2.2rem;
-  margin-bottom: 1.2rem;
+  margin-top: clamp(0.75rem, 2.2cqw, 1rem);
+  margin-bottom: clamp(0.4rem, 1.4cqw, 0.7rem);
   transition: margin 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .cardExpanded .videoDevotionSpacing {
-  margin-top: 3.5rem;
-  margin-bottom: 2.2rem;
+  margin-top: clamp(1.2rem, 3.2cqw, 1.8rem);
+  margin-bottom: clamp(0.8rem, 2.2cqw, 1.2rem);
 }
 
 .ingajeSpacing {
-  margin-top: 1.2rem;
-  margin-bottom: 0.5rem;
+  margin-top: clamp(0.35rem, 1.2cqw, 0.6rem);
+  margin-bottom: 0.25rem;
   transition: margin 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .cardExpanded .ingajeSpacing {
-  margin-top: 2.5rem;
+  margin-top: clamp(0.8rem, 2.6cqw, 1.3rem);
   /* margin-bottom: 1rem; */
 }
 
@@ -26,6 +26,7 @@
 
 .passageClamp {
   display: -webkit-box;
+  line-clamp: 2;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow-y: auto;
@@ -50,7 +51,7 @@
 ========================= */
 
 .wordOfDay {
-  font-size: clamp(0.8rem, 2vw, 0.88rem);
+  font-size: clamp(0.78rem, 2.8cqw, 0.92rem);
   font-weight: 500;
   color: hsl(var(--primary-foreground) / 0.7);
   margin: 0.2rem 0 0;
@@ -61,35 +62,35 @@
 .devotionTitle {  
   color: hsl(var(--primary-foreground));
   font-weight: 700;
-  font-size: clamp(0.89rem, 5vw, 1rem);
+  font-size: clamp(0.95rem, 4.8cqw, 1.2rem);
   line-height: 1.25;
   margin: 0;
-  padding-top: clamp(0.2rem, 1.2vw, 0.45rem);
-  padding-bottom: clamp(0.3rem, 6vw, 0.45rem);
+  padding-top: clamp(0.2rem, 1.2cqw, 0.45rem);
+  padding-bottom: clamp(0.25rem, 1.8cqw, 0.5rem);
 }
 
 .cardExpanded .devotionTitle {
-  font-size: clamp(1.2rem, 6vw, 2.1rem);
+  font-size: clamp(1.1rem, 6.2cqw, 1.8rem);
 }
 
 
 .devotionText {
   color: hsl(var(--primary-foreground));
-  font-size: clamp(0.89rem, 6vw, 1.2rem);
-  margin-top: clamp(0.2rem, 1vw, 0.35rem);
-  margin-bottom: clamp(2rem, 3vw, 2.5rem);
+  font-size: clamp(0.92rem, 4.2cqw, 1.15rem);
+  margin-top: clamp(0.2rem, 1cqw, 0.35rem);
+  margin-bottom: clamp(0.8rem, 2cqw, 1.2rem);
   line-height: 1.375;
 }
 
 .cardExpanded .devotionText {
-  font-size: clamp(1.1rem, 7vw, 1.45rem);
+  font-size: clamp(1rem, 5cqw, 1.32rem);
 }
 
 
 .devotionDate {
   color: hsl(var(--primary-foreground) / 0.5);
-  font-size: clamp(0.62rem, 1.7vw, 0.7rem);
-  margin-top: clamp(0.2rem, 1vw, 0.35rem);
+  font-size: clamp(0.68rem, 2.2cqw, 0.82rem);
+  margin-top: clamp(0.2rem, 1cqw, 0.35rem);
   font-weight: 600;
 }
 
@@ -98,26 +99,30 @@
 ========================= */
 
 .viewMore {
-  font-size: clamp(0.68rem, 1.8vw, 0.75rem);
+  font-size: 0.75rem;
   font-weight: 600;
   color: hsl(var(--primary));
   background: none;
   border: none;
   cursor: pointer;
+  min-height: 2.75rem;
+  min-width: 2.75rem;
 }
 
 .closeButton {
   position: absolute;
-  top: clamp(1.2rem, 3.5vw, 1.2rem);
-  right: clamp(1.5rem, 3.5vw, 1.53rem);
+  top: 1rem;
+  right: 1rem;
   z-index: 8;
-  width: clamp(2.5rem, 7vw, 2.6rem);
-  height: clamp(2.5rem, 7vw, 2.6rem);
+  width: 2.75rem;
+  height: 2.75rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
   border: 0;
   border-radius: 999px;
   background: rgb(0 0 0 / 0.25);
   color: hsl(var(--primary-foreground));
-  font-size: clamp(1.5rem, 4vw, 1.6rem);
+  font-size: 1.4rem;
   font-weight: 700;
   cursor: pointer;
   transition:
@@ -136,16 +141,21 @@
 
 .card {
   position: relative;
+  display: grid;
+  grid-template-areas: "stack";
+  container-type: inline-size;
+  container-name: devotion-card;
   overflow: hidden;
-  background: #181818;
   width: 100%;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   max-width: 100%;
+  min-width: 0;
   box-sizing: border-box;
   border-bottom-left-radius: clamp(1.5rem, 4vw, 2rem);
   border-bottom-right-radius: clamp(1.5rem, 4vw, 2rem);
-  min-height: clamp(22rem, 40vw, 40rem);
+  height: auto;
+
   box-shadow:
     0 4px 6px -1px rgb(0 0 0 / 0.1),
     0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -156,12 +166,8 @@
     min-height 0.7s cubic-bezier(0.4, 0, 0.2, 1),
     transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
   top: 0;
+    
 }
-
-
-
-
-
 
 .cardExpanded {
   width: 100%;
@@ -180,11 +186,13 @@
   position: relative;
   width: 100%;
   overflow: hidden;
+  overflow-x: clip;
   max-width: 100%;
+  min-width: 0;
   margin-top: 0;
   margin-bottom: clamp(1rem, 3vw, 1.5rem);
-  transition:
-    margin 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: margin 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 
 .sectionExpanded {
@@ -211,6 +219,7 @@
 .image {
   position: absolute;
   inset: 0;
+  z-index: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -227,6 +236,7 @@
 .imagePlaceholder {
   position: absolute;
   inset: 0;
+  z-index: 0;
   width: 100%;
   height: 100%;
   display: block;
@@ -248,6 +258,8 @@
 .overlay {
   position: absolute;
   inset: 0;
+  z-index: 1;
+  pointer-events: none;
 
   background: linear-gradient(
     to bottom,
@@ -258,15 +270,20 @@
 }
 
 .content {
-  position: absolute;
-  inset: 0 0 auto 0;
+  grid-area: stack;
+  position: relative;
+  z-index: 2;
+  align-self: start;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 
   padding:
-    clamp(0.75rem, 3vw, 1rem)
-    clamp(0.75rem, 3vw, 1rem)
-    clamp(0.75rem, 3vw, 1rem);
+    clamp(0.65rem, 2.2cqw, 0.95rem)
+    clamp(0.65rem, 2.2cqw, 0.95rem)
+    clamp(0.65rem, 2.2cqw, 0.95rem);
 
-  margin-bottom: clamp(1rem, 6vw, 1.5rem);
+  margin-bottom: clamp(0.45rem, 1.5cqw, 0.8rem);
 
   transition:
     padding 0.7s cubic-bezier(0.4, 0, 0.2, 1);
@@ -275,9 +292,9 @@
 .cardExpanded .content {
   max-height: 100dvh;
   overflow-y: auto;
-  padding-top: clamp(3rem, 10vw, 4rem);
-  padding: 2rem ;
-  padding-bottom: clamp(5rem, 10vw, 4rem);
+  padding: 1rem;
+  padding-top: clamp(3rem, 9vw, 4rem);
+  padding-bottom: clamp(4rem, 12vw, 5rem);
 }
 
 /* =========================
@@ -290,7 +307,7 @@
 }
 
 .cardExpanded .message {
-  font-size: clamp(1.05rem, 7vw, 1.35rem);
+  font-size: clamp(1rem, 5.2cqw, 1.3rem);
 }
 
 
@@ -299,13 +316,14 @@
 }
 
 .messageExpanded {
-  margin-bottom: clamp(1rem, 2.4vw, 1.25rem);
+  margin-bottom: clamp(0.8rem, 2.2cqw, 1.2rem);
 }
 
 .ingajePosition {
   display: flex;
   justify-content: flex-start;
-  margin-top: clamp(-0.79rem, -1.8vw, -0.85rem);
+  min-width: 0;
+  margin-top: -0.75rem;
 }
 
 /* =========================
@@ -349,6 +367,7 @@
   gap: clamp(0.08rem, 0.5vw, 0.16rem);
 
   min-width: 0;
+  min-height: 2.75rem;
   cursor: pointer;
 }
 
@@ -364,10 +383,24 @@
   text-align: center;
   line-height: 1;
 
-  font-size: clamp(0.68rem, 1.9vw, 0.75rem);
+  font-size: clamp(0.68rem, 1.9vw, 0.8rem);
   font-weight: 600;
   letter-spacing: 0.01em;
   white-space: nowrap;
 
   color: hsl(var(--primary-foreground) / 0.95);
+}
+
+@container devotion-card (max-width: 22rem) {
+  .content {
+    padding-inline: 0.75rem;
+  }
+
+  .devotionTitle {
+    line-height: 1.22;
+  }
+
+  .devotionText {
+    line-height: 1.35;
+  }
 }
