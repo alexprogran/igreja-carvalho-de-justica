@@ -16,8 +16,8 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  background-color: #ffffff;
-  padding: 1.5rem;
+  background-color: #ffffff;  ;
+  padding: 3rem 1.5rem  1.5rem;
   box-shadow: 0 10px 30px rgba(25, 35, 56, 0.12);
 }
 
@@ -158,7 +158,7 @@
 .socialButtonGoogle {
   background: #000000;
   border-color: #000000;
-}
+} 
 
 .socialButtonGoogle .socialButtonLabel {
   color: #ffffff;

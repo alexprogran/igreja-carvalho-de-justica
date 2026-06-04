@@ -31,7 +31,7 @@ export default function Login() {
 
         <div className={styles.socialRow}>
           <Button
-            icon={<FcGoogle size={24} className={styles.googleIcon} />}
+            icon={<FcGoogle size={22} className={styles.googleIcon} />}
             nome="Continuar com o Google"
             aria-label="Entrar com Google"
             onClick={() => setShowAceit(true)}

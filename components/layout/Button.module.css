@@ -1,0 +1,22 @@
+.iconWrapper {
+  position: absolute;
+  left: 2.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+@media (max-width: 320px) {
+  .iconWrapper {
+    left: 0.75rem;
+  }
+}
+
+@media (min-width: 390px) {
+  .iconWrapper {
+    left: 2.75rem;
+  }
+}

@@ -1,3 +1,5 @@
+import styles from "./Button.module.css";
+
 export default function Button({
   backend,
   nome = "Botão",
@@ -47,19 +49,7 @@ export default function Button({
       {...props}
     >
       {icon ? (
-        <span
-          aria-hidden="true"
-          style={{
-            position: "absolute",
-            left: "clamp(0.9rem, 3vw, 1.25rem)",
-            top: "50%",
-            transform: "translateY(-50%)",
-            display: "inline-flex",
-            alignItems: "center",
-            justifyContent: "center",
-            lineHeight: 0,
-          }}
-        >
+        <span aria-hidden="true" className={styles.iconWrapper}>
           {icon}
         </span>
       ) : null}
