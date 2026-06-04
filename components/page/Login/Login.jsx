@@ -64,13 +64,13 @@ export default function Login() {
           <LegalSection introText="Ao criar um conta" />
         </div>
 
-        {showAceit ? (
+        {/* {showAceit ? (
           <Aceit
             introText="Ao criar um conta"
             onAccept={() => setShowAceit(false)}
             onReject={() => setShowAceit(false)}
           />
-        ) : null}
+        ) : null} */}
       </div>
     </section>
   );

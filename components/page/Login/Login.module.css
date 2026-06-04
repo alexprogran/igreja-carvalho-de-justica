@@ -3,41 +3,27 @@
   .wrapper {
     min-height: 100vh;
     min-height: 100dvh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow-x: hidden;
-  
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;  
     background-color: #ffffff;
 }
-.card {
-  /* width: min(80%, 340px); */
+.card { 
   min-height: 100dvh;
   width: 100%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-    background-color: #ffffff;
-  /* background: #ffffff; */
-  /* border-radius: clamp(12px, 4vw, 18px); */
-  /* padding: clamp(1rem, 4.5vw, 1.5rem); */
+  background-color: #ffffff;
   padding: 1.5rem;
   box-shadow: 0 10px 30px rgba(25, 35, 56, 0.12);
 }
 
-.legalSectionWrap {
-  margin-top: auto;
-  padding-top: clamp(1.5rem, 6vw, 2.5rem);
+.legalSectionWrap {  
+  margin-top: auto; 
 }
-
-/* 
- .card {
-    border-radius: 0;
-    min-height: 100dvh;
-    width: 100%;
-    padding: 1rem;
-  } */
 
 .logoWrap {
   width: calc(100% + 3rem);
@@ -85,8 +71,7 @@
   color: #9ba2af;
 }
 
-.input:focus {
-  /* border-color: #7fb336; */
+.input:focus { 
   box-shadow: 0 0 0 2px rgba(127, 179, 54, 0.12);
   background: #ffffff;
 }
@@ -184,7 +169,6 @@
 }
 
 .facebookIcon {
-  /* color: #4267b2; */
  color: #0866FF;
 }
 
@@ -236,38 +220,5 @@
   cursor: pointer;
 }
 
-/* @media (max-width: 450px) {
-  .card {
-    border-radius: 0;
-    min-height: 100dvh;
-    width: 100%;
-    padding: 1rem;
-  }
 
-  .wrapper {
-    padding: 0;
-  }
-
-  .title {
-    font-size: clamp(1.25rem, 6vw, 1.55rem);
-  }
-}
-
-@media (max-width: 360px) {
-  .wrapper {
-    padding: 0;
-  }
-
-  .card {
-    padding: 0.85rem;
-  }
-
-  .form {
-    gap: 0.55rem;
-  }
-
-  .divider {
-    margin-top: 0.95rem;
-  }
-} */
  
