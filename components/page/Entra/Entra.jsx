@@ -2,39 +2,21 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
-import Button from "@/components/layout/Button";
 import Retroced from "@/components/layout/Retroced";
+import Form from "@/components/form/Form";
 import styles from "./Entra.module.css";
 
-const INITIAL_FORM = {
-  email: "",
-  password: "",
-};
-
 export default function Entra({ onSubmitLogin }) {
-  const [formData, setFormData] = useState(INITIAL_FORM);
-  const [showPassword, setShowPassword] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const isFormComplete = Object.values(formData).every((value) => value.trim() !== "");
 
-  function handleInputChange(event) {
-    const { name, value } = event.target;
-
-    setFormData((current) => ({
-      ...current,
-      [name]: value,
-    }));
-  }
-
-  async function handleSubmit(event) {
-    event.preventDefault();
+  async function handleSubmitForm(values) {
+    if (isSubmitting) return;
     setErrorMessage("");
 
     const payload = {
-      email: formData.email.trim(),
-      password: formData.password,
+      email: String(values?.email ?? "").trim(),
+      password: String(values?.password ?? ""),
     };
 
     if (!payload.email || !payload.password) {
@@ -61,83 +43,33 @@ export default function Entra({ onSubmitLogin }) {
       <div className={styles.card}>
         <Retroced title="Entrar" href="/login" />
 
-        <form className={styles.form} onSubmit={handleSubmit} noValidate>
-          <input
-            id="entra-email"
-            className={styles.input}
-            type="email"
-            name="email"
-            autoComplete="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            placeholder="E-mail"
-            aria-label="E-mail"
-            required
-          />
+        <Form
+          campo={[
+            {
+              name: "email",
+              placeholder: "E-mail",
+              type: "email",
+              autoComplete: "email",
+            },
+            {
+              name: "password",
+              placeholder: "Senha",
+              type: "password",
+              autoComplete: "current-password",
+            },
+          ]}
+          buttonText={isSubmitting ? "Entrando..." : "Entrar"}
+          onPrimaryAction={handleSubmitForm}
+        />
 
-          
-          <div className={styles.passwordWrap}>
-            <input
-              id="entra-password"
-              className={styles.input}
-              type={showPassword ? "text" : "password"}
-              name="password"
-              autoComplete="current-password"
-              value={formData.password}
-              onChange={handleInputChange}
-              placeholder="Senha"
-              aria-label="Senha"
-              required
-            />
-            <button
-              type="button"
-              className={styles.eyeButton}
-              onClick={() => setShowPassword((current) => !current)}
-              aria-label={showPassword ? "Ocultar senha" : "Mostrar senha"}
-            >
-              {showPassword ? <IoEyeOffOutline size={22} /> : <IoEyeOutline size={18} />}
-            </button>
-          </div>
+        {errorMessage ? <p className={styles.errorText}>{errorMessage}</p> : null}
 
-          {errorMessage ? <p className={styles.errorText}>{errorMessage}</p> : null}
-
-          {isFormComplete ? (
-            <Button
-              type="submit"
-              className={styles.submitButton}
-              nome="Entrar"
-              backend="#000000"
-              textColor="#ffffff"
-              borderColor="#000000"
-              width="100%"
-              height="clamp(2.9rem, 6vw, 3.5rem)"
-              fontSize="clamp(1.05rem, 4vw, 1.1rem)"
-              fontWeight={700}
-              disabled={isSubmitting}
-            />
-          ) : (
-            <Button
-              type="submit"
-              className={styles.submitButton}
-              nome="Entrar"
-              backend="#d3d4d5"
-              textColor="#777d81"
-              borderColor="#d3d4d5"
-              width="100%"
-              height="clamp(2.9rem, 6vw, 3.5rem)"
-              fontSize="clamp(1.05rem, 4vw, 1.1rem)"
-              fontWeight={700}
-              disabled
-            />
-          )}
-
-          <p className={styles.accountText}>
-            Esqueceu{" "}
-            <Link href="/login" className={styles.accountLink}>
-              Esqueci minha senha
-            </Link>
-          </p>
-        </form>
+        <p className={styles.accountText}>
+          Esqueceu{" "}
+          <Link href="/login" className={styles.accountLink}>
+            Esqueci minha senha
+          </Link>
+        </p>
       </div>
     </section>
   );
