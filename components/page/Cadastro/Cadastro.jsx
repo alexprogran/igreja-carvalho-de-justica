@@ -46,7 +46,9 @@ export default function Cadastro() {
           buttonText="Criar Conta"
           onPrimaryAction={() => setShowAceit(true)}
         />
-        <LegalSection introText="Ao criar uma conta" />
+        <div className={styles.legalSectionWrap}>
+          <LegalSection introText="Ao criar uma conta" />
+        </div>
 
         {showAceit ? (
           <Aceit

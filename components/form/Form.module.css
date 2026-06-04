@@ -46,7 +46,7 @@
 }
 
 .floatingLabelActive {
-  transform: translateY(-1.15rem);
+  transform: translateY(-1.45rem);
   color: #5e636f;
 
   font-size: clamp(0.9rem, 2.8vw, 0.91rem);

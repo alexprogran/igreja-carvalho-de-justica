@@ -55,12 +55,14 @@ export default function Login() {
           </Link>
         </div>
 
-        <p className={styles.divider}>Tem um conta?</p>
+        <p className={styles.divider}>Já tem uma conta?</p>
         <Link href="/entra/" className={styles.enterButton} aria-label="Entra">
           Entra
         </Link>
 
-        <LegalSection introText="Ao criar um conta" />
+        <div className={styles.legalSectionWrap}>
+          <LegalSection introText="Ao criar um conta" />
+        </div>
 
         {showAceit ? (
           <Aceit

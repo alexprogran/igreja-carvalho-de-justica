@@ -10,7 +10,14 @@
   min-height: 100vh;
   min-height: 100dvh;
   background: #fff !important;
+  display: flex;
+  flex-direction: column;
   padding: 1.6rem;
+}
+
+.legalSectionWrap {
+  margin-top: auto;
+  padding-top: clamp(1.5rem, 6vw, 2.5rem);
 }
 
 .topRow {
