@@ -1,8 +1,9 @@
 "use client";
 
-import { Home, Calendar, MessageCircle, BookOpen, Settings } from "lucide-react";
+import { Home, Calendar, MessageCircle, BookOpen } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import UserButton from "./UserButton";
 import styles from "./BootmNav.module.css";
 
 const navItems = [
@@ -10,7 +11,6 @@ const navItems = [
   { icon: Calendar, label: "Eventos" },
   { icon: MessageCircle, label: "Mensagens" },
   { icon: BookOpen, label: "Panfleto" },
-  { icon: Settings, label: "Config." },
 ];
 
 const BootmNav = () => {
@@ -30,6 +30,10 @@ const BootmNav = () => {
     }
   };
 
+  const handleUserClick = () => {
+    router.push("/profileEdit");
+  };
+
   return (
     <nav className={styles.nav}>
       <div className={styles.inner}>
@@ -46,6 +50,7 @@ const BootmNav = () => {
             <span className={styles.label}>{item.label}</span>
           </button>
         ))}
+        <UserButton userName={undefined} onClick={handleUserClick} ariaLabel="Abrir edição de perfil" />
       </div>
     </nav>
   );

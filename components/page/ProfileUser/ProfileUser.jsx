@@ -1,25 +1,37 @@
 import styles from './ProfileUser.module.css';
-import { FaBell, FaGift, FaHistory, FaUserEdit, FaMapMarkerAlt, FaQuestionCircle, FaCog, FaSignOutAlt } from 'react-icons/fa';
+import Image from 'next/image';
+import { FaUserEdit, FaCog } from 'react-icons/fa';
 import { IoChevronForward } from 'react-icons/io5';
 
-export default function ProfileUser() {
+/**
+ * @param {Object}  props
+ * @param {string}  [props.userName]   - Nome completo do usuário (virá da API)
+ * @param {string}  [props.userEmail]  - E-mail do usuário (virá da API)
+ * @param {string}  [props.userImage]  - URL da foto de perfil (virá da API; opcional)
+ */
+export default function ProfileUser({
+  userName = "",
+  userEmail = "",
+  userImage = "",
+}) {
+  const initial = userName.trim().charAt(0).toUpperCase() || null;
+
   return (
     <div className={styles.container}>
       {/* Top Section */}
-      <div className={styles.topSection}>
-        <button className={styles.iconButton} aria-label="Back">
-          <span className={styles.arrowLeft} />
-        </button>
-        <span className={styles.profileTitle}>Profile</span>
-        <button className={styles.iconButton} aria-label="Settings">
-          <FaCog size={22} />
-        </button>
+      <div className={styles.topSection}>        
         <div className={styles.avatarWrapper}>
-          <img className={styles.avatar} src="/assets/avatar-placeholder.png" alt="Profile" />
+          {userImage ? (
+            <Image className={styles.avatar} src={userImage} alt={userName || "Foto de perfil"} fill sizes="clamp(4.2rem, 18vw, 6.2rem)" />
+          ) : (
+            <span className={styles.avatarInitial} aria-hidden="true">
+              {initial}
+            </span>
+          )}
         </div>
-        <div className={styles.profileName}>Jane Cooper</div>
-        <div className={styles.profileEmail}>Janeper01@gmail.com</div>
-        <div className={styles.quickActions}>
+        <div className={styles.profileName}>{userName || "—"}</div>
+        <div className={styles.profileEmail}>{userEmail || "—"}</div>
+        {/* <div className={styles.quickActions}>
           <div className={styles.quickAction}>
             <FaBell size={20} />
             <span>Notification</span>
@@ -32,42 +44,25 @@ export default function ProfileUser() {
             <FaHistory size={20} />
             <span>History</span>
           </div>
-        </div>
+        </div> */}
       </div>
       {/* Options List */}
       <div className={styles.optionsList}>
         <div className={styles.optionItem}>
           <FaUserEdit className={styles.optionIcon} />
-          <span>Edit Profile</span>
+          <span>Editar Perfil</span>
           <IoChevronForward className={styles.chevron} />
-        </div>
-        <div className={styles.optionItem}>
-          <FaMapMarkerAlt className={styles.optionIcon} />
-          <span>Address Management</span>
-          <IoChevronForward className={styles.chevron} />
-        </div>
-        <div className={styles.optionItem}>
-          <FaQuestionCircle className={styles.optionIcon} />
-          <span>Help & Support</span>
-          <IoChevronForward className={styles.chevron} />
-        </div>
+        </div>        
         <div className={styles.optionItem}>
           <FaCog className={styles.optionIcon} />
-          <span>Setting</span>
+          <span>Configurações</span>
           <IoChevronForward className={styles.chevron} />
         </div>
         <div className={styles.optionItemLogout}>
-          <FaSignOutAlt className={styles.optionIcon} />
-          <span>Log out</span>
+          
+          <span>Sair</span>
         </div>
-      </div>
-      {/* Bottom Navigation */}
-      <div className={styles.bottomNav}>
-        <span className={styles.navIcon} />
-        <span className={styles.navIcon} />
-        <span className={styles.navIcon} />
-        <span className={styles.navIconActive} />
-      </div>
+      </div>    
     </div>
   );
 }

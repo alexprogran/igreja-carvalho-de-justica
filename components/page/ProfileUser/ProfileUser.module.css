@@ -76,6 +76,22 @@
   object-fit: cover;
 }
 
+.avatarInitial {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: #181818;
+  color: #fff;
+  font-size: clamp(1.4rem, 7vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  border-radius: 50%;
+  user-select: none;
+}
+
 .profileName {
   color: #fff;
   font-size: clamp(1.2rem, 5vw, 1.5rem);
