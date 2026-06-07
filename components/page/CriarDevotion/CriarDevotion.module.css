@@ -1,0 +1,97 @@
+.wrapper {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: #ffffff;
+}
+
+.card {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  box-sizing: border-box;
+  padding: 1.6rem;
+  background: #ffffff;
+}
+
+.hero {
+  padding-top: 0.4rem;
+}
+
+.kicker {
+  margin: 0 0 0.55rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6a7078;
+}
+
+.heading {
+  margin: 0;
+  font-size: clamp(1.3rem, 4.2vw, 2rem);
+  line-height: 1.15;
+  color: #111217;
+}
+
+.description {
+  margin: 0.8rem 0 0;
+  max-width: 34rem;
+  color: #525861;
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.formPreview {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.label {
+  color: #6a7078;
+  font-size: 0.94rem;
+  font-weight: 600;
+}
+
+.inputLike,
+.textAreaLike {
+  border-bottom: 1px solid #d7dbe0;
+  color: #232632;
+  font-size: 1rem;
+  line-height: 1.6;
+  padding: 0.8rem 0;
+}
+
+.textAreaLike {
+  min-height: 7.5rem;
+  padding-bottom: 1rem;
+}
+
+.actions {
+  margin-top: 1.8rem;
+}
+
+.primaryButton {
+  width: 100%;
+  height: 3.2rem;
+  border: none;
+  border-radius: 999px;
+  background: #1f2937;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.helperText {
+  margin: 0.9rem 0 0;
+  color: #6a7078;
+  font-size: 0.88rem;
+  text-align: center;
+}

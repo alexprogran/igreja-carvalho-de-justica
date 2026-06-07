@@ -25,6 +25,11 @@ const BootmNav = () => {
       return;
     }
 
+    if (index === 2) {
+      router.push("/criarDevotion");
+      return;
+    }
+
     if (index === 3) {
       router.push("/panfleto");
     }

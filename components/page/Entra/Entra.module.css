@@ -119,11 +119,11 @@
   margin: 1.6rem 0 0;
   text-align: center;
   color: var(--informe);
-  font-size: clamp(0.87rem, 4vw, 1rem);
+  font-size: clamp(0.8rem, 4vw, 0.85rem);
 }
 
 .accountLink {
-  color: #5f90c3;
+  color: #2983e3;
   font-weight: 600;
   text-decoration: none;
 }
