@@ -34,7 +34,7 @@
 .title {
   margin: 0;
   text-align: center;
-  font-size: clamp(1.2rem, 4vw, 2rem);
+  font-size: clamp(1.3rem, 4vw, 2rem);
   font-weight: 550;
   color: #111217;
 }

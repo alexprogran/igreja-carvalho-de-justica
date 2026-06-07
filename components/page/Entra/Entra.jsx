@@ -65,7 +65,7 @@ export default function Entra({ onSubmitLogin }) {
         {errorMessage ? <p className={styles.errorText}>{errorMessage}</p> : null}
 
         <p className={styles.accountText}>
-          Esqueceu{" "}
+          {/* Esqueceu{" "} */}
           <Link href="/login" className={styles.accountLink}>
             Esqueci minha senha
           </Link>
