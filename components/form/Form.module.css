@@ -37,11 +37,9 @@
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  transform-origin: left top;
-  color: #7a7d85;
-  /* font-size: clamp(0.97rem, 4vw, 1.05rem); */
-    font-size: clamp(1.2rem, 4vw, 1.22rem);
-
+  transform-origin: left top;  
+  color: #6a6e6e;
+  font-size: clamp(1.01rem, 4vw, 1.1rem);
   line-height: 1;
   pointer-events: none;
   transition: transform 0.18s ease, color 0.18s ease, font-size 0.18s ease;
