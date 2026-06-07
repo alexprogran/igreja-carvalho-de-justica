@@ -1,11 +1,23 @@
 .topRow {
+  width: calc(100% + 3.2rem);
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 0.55rem;
-  margin-bottom: clamp(1.8rem, 8vw, 2.2rem);
+  justify-content: center;
+  margin: -1.6rem -1.6rem clamp(1.8rem, 8vw, 2.2rem);
+  padding: 1.6rem 3.2rem 1rem;
+  border-bottom: 1px solid #e5e5e5;
+  box-shadow: 0 8px 14px -12px rgba(0, 0, 0, 0.45);
+
+
 }
 
+
 .backButton {
+  position: absolute;
+  left: 1rem;
+  top: 55%;
+  transform: translateY(-50%);
   border: none;
   background: transparent;
   color: #0c0d10;
@@ -21,6 +33,7 @@
 
 .title {
   margin: 0;
+  text-align: center;
   font-size: clamp(1.2rem, 4vw, 2rem);
   font-weight: 550;
   color: #111217;
