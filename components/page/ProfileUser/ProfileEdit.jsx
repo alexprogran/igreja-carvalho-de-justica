@@ -2,18 +2,21 @@
 
 import styles from './ProfileEdit.module.css';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { FaPen } from 'react-icons/fa';
-import FormEdit from '@/components/form/FormEdit';
+import FormUpdate from '@/components/form/FormUpdate';
+import Retroced from '@/components/layout/Retroced';
+import Toast from '@/components/Toast/Toast';
 
 export default function ProfileEdit({ userData }) {
-  const router = useRouter();
   const [isImageOptionsOpen, setIsImageOptionsOpen] = useState(false);
   const [avatarSrc, setAvatarSrc] = useState('/assets/avatar.jpg');
+  const [toastVisivel, setToastVisivel] = useState(false);
+  const [toastMensagem, setToastMensagem] = useState('');
   const galleryInputRef = useRef(null);
   const cameraInputRef = useRef(null);
   const objectUrlRef = useRef(null);
+  const toastTimeoutRef = useRef(null);
 
   // Simulacao de payload vindo da API. Quando integrar, basta passar userData por props.
   const apiUserData = userData ?? {
@@ -38,8 +41,29 @@ export default function ProfileEdit({ userData }) {
       if (objectUrlRef.current) {
         URL.revokeObjectURL(objectUrlRef.current);
       }
+
+      if (toastTimeoutRef.current) {
+        clearTimeout(toastTimeoutRef.current);
+      }
     };
   }, []);
+
+  const handleSalvarPerfil = async () => {
+    setToastMensagem('Perfil salvo com sucesso');
+    setToastVisivel(false);
+
+    requestAnimationFrame(() => {
+      setToastVisivel(true);
+    });
+
+    if (toastTimeoutRef.current) {
+      clearTimeout(toastTimeoutRef.current);
+    }
+
+    toastTimeoutRef.current = setTimeout(() => {
+      setToastVisivel(false);
+    }, 2800);
+  };
 
   const handleFileSelected = (event) => {
     const file = event.target.files?.[0];
@@ -74,11 +98,13 @@ export default function ProfileEdit({ userData }) {
 
   return (
     <div className={styles.container}> 
-      {/* Top Bar */}
-      <button type="button" className={styles.backButton} aria-label="Back" onClick={() => router.back()}>
-        <span className={styles.arrowLeft} />
-      </button>
-      <div className={styles.title}>Editar Perfil</div>
+      <div className={styles.toastTop}>
+        <Toast sucesso={true} mensagem={toastMensagem} visivel={toastVisivel} />
+      </div>
+
+      {/* Top Bar */}      
+      <Retroced title="Editar Perfil" />     
+      
       {/* Avatar */}
       <div className={styles.avatarSection}>
         <div className={styles.avatarWrapper}>
@@ -131,10 +157,11 @@ export default function ProfileEdit({ userData }) {
         />
       </div>
       {/* Form */}
-      <FormEdit
+      <FormUpdate
         key={formKey}
         campo={campos}
         buttonText="Salvar"
+        onPrimaryAction={handleSalvarPerfil}
       />
     </div>
   );

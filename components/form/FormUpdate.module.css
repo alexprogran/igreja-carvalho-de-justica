@@ -1,4 +1,5 @@
 .form {
+  width: 90%;
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
@@ -176,9 +177,10 @@
 .discardButton:disabled:hover,
 .primaryButton:disabled,
 .primaryButton:disabled:hover {
-  border-color: #b7bcc5;
+  /* border-color: #b7bcc5; */
+  border-color: #919395;
   background: transparent;
-  color: #b7bcc5;
+  color: #919395;
   cursor: not-allowed;
 }
 

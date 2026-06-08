@@ -3,7 +3,7 @@
 import { useMemo, useRef, useState } from "react";
 import { FaPen } from "react-icons/fa";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
-import styles from "./FormEdit.module.css";
+import styles from "./FormUpdate.module.css";
 
 const DEFAULT_FIELD_CONFIG = {
   type: "text",
