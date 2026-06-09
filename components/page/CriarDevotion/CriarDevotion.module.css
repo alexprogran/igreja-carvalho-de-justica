@@ -16,6 +16,7 @@
 
 .hero {
   padding-top: 0.4rem;
+  margin-bottom: 5rem;
 }
 
 .kicker {
@@ -87,6 +88,8 @@
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
+  margin-bottom: 3rem;
+
 }
 
 .helperText {

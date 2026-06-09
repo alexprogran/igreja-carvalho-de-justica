@@ -26,7 +26,7 @@ const BootmNav = () => {
     }
 
     if (index === 2) {
-      router.push("/criarDevotion");
+      router.push("/criardevotion");
       return;
     }
 
