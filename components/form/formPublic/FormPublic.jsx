@@ -2,7 +2,6 @@
 
 import { useMemo, useRef, useState } from "react";
 import { IoCloudUploadOutline, IoContractOutline, IoEyeOffOutline, IoEyeOutline, IoExpandOutline } from "react-icons/io5";
-import Button from "@/components/layout/Button";
 import styles from "./FormPublic.module.css";
 
 const DEFAULT_FIELD_CONFIG = {
