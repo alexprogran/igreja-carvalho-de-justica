@@ -280,6 +280,7 @@ export default function Form({ campo, buttonText = "Criar Conta", onPrimaryActio
         if (isTextareaField) {
           const hasFullscreen = Boolean(field.fullscreen);
           const isFullscreen = hasFullscreen && fullscreenField === field.name;
+          const floatingLabelClass = isFullscreen ? styles.floatingLabelExpanded : styles.floatingLabelActive;
 
           return (
             <div key={field.name} className={styles.fieldWrap}>
@@ -305,7 +306,7 @@ export default function Form({ campo, buttonText = "Criar Conta", onPrimaryActio
                   rows={field.rows ?? 5}
                 />
                 <span
-                  className={`${styles.floatingLabel} ${styles.floatingLabelActive}`}
+                  className={`${styles.floatingLabel} ${floatingLabelClass}`}
                   aria-hidden="true"
                 >
                   {field.label}

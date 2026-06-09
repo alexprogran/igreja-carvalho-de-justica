@@ -108,9 +108,12 @@
   border-bottom: 1px solid #b9bcc4;
   background: transparent;
   height: 3.2rem;
-  padding: 1.05rem 0 0.2rem;
+  padding: 1.05rem 0 0.2rem; 
   color: #232632;
-  font-size: clamp(1.5rem, 4vw, 1.15rem);
+  /* font-size: clamp(1.5rem, 4vw, 1.15rem); */
+  font-size: clamp(1.3rem, 4vw, 1.15rem);
+
+  
   outline: none;
   margin-bottom: 5rem;
   
@@ -175,8 +178,16 @@
   transform: translateY(-1.45rem);
   color: #5e636f;
   font-weight: 600;
-  font-size: clamp(1.2rem, 2.8vw, 0.91rem);
+  font-size: clamp(1.2rem, 2.8vw, 1.25rem);
+}
 
+.floatingLabelExpanded {
+  padding: 1rem 0 0 1rem;
+  left: 1rem;
+  transform: none;
+  color: #5e636f;
+  font-size: clamp(1.2rem, 2.8vw, 1.25rem);
+  font-weight: 700;
 }
 
 .inputError,
