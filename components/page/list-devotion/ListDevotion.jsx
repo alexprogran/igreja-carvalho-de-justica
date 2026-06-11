@@ -33,7 +33,7 @@ export default function ListDevotion() {
         <Retroced title="Devocionais publicadas" href="/criar-devotion" />
 
         <div className={styles.hero}>
-          <p className={styles.kicker}>Painel</p>
+          <p className={styles.kicker}>Lista de devocional</p>
           <h2 className={styles.heading}>Devocionais já criadas</h2>
           <p className={styles.description}>
             Veja, edite ou remova as devocionais publicadas em um único painel organizado.
