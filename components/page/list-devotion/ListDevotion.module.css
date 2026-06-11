@@ -1,0 +1,130 @@
+.wrapper {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: #ffffff;
+}
+
+.card {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  box-sizing: border-box;
+  padding: 1.6rem 3.2rem 1rem;
+  background: #ffffff;
+}
+
+.hero {
+  padding-top: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.kicker {
+  margin: 0 0 0.55rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6a7078;
+}
+
+.heading {
+  margin: 0;
+  font-size: clamp(1.3rem, 4.2vw, 2rem);
+  line-height: 1.15;
+  color: #111217;
+}
+
+.description {
+  margin: 0.8rem 0 0;
+  max-width: 34rem;
+  color: #525861;
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.list {
+  display: grid;
+  gap: 1rem;
+}
+
+.itemCard {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid #edf0f3;
+}
+
+.imageWrap {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #f4f6f8;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  justify-self: end;
+  margin-left: auto;
+}
+
+.iconButton {
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  border-radius: 999px;
+  display: inline-grid;
+  place-items: center;
+  
+  color: #111217;
+  cursor: pointer;
+}
+
+.iconButton:hover {
+  background: #111217;
+  color: #ffffff;
+}
+
+.textBlock {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.itemTitle {
+  margin: 0;
+  font-size: clamp(1rem, 4vw, 1.08rem);
+  color: #111217;
+  line-height: 1.3;
+}
+
+.itemDate {
+  margin: 0;
+  color: #6a7078;
+  font-size: 0.92rem;
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: 1.6rem 1rem 1rem;
+  }
+
+  .itemCard {
+    grid-template-columns: 56px 1fr auto;
+    gap: 0.75rem;
+  }
+
+  .imageWrap {
+    width: 56px;
+    height: 56px;
+  }
+}

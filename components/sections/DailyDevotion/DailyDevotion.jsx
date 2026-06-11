@@ -44,6 +44,7 @@ const normalizeDevotionFromApi = (apiData = {}) => {
 const DailyDevotion = ({
   devotion = DEFAULT_DEVOTION,
   apiData,
+  background = false,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const { setVideoOverlay } = useVideoOverlay();
@@ -63,7 +64,7 @@ const DailyDevotion = ({
     : mergedDevotion;
 
   const {
-    background,
+    background: backgroundImageSource,
     imageSrc,
     imageAlt,
     versiculo,
@@ -73,8 +74,8 @@ const DailyDevotion = ({
     // engagement,
   } = finalDevotion;
 
-  const backgroundSrc = (background || imageSrc || "").trim();
-  const hasBackground = backgroundSrc.length > 0;
+  const backgroundSrc = (backgroundImageSource || imageSrc || "").trim();
+  const hasBackground = background === true && backgroundSrc.length > 0;
   const hasMensagem = Boolean(mensagem && mensagem.trim());
 
   useEffect(() => {

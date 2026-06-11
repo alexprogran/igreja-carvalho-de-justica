@@ -1,3 +1,15 @@
+
+  .content {
+    padding-inline: 0.75rem;
+  }
+
+  .devotionTitle {
+    line-height: 1.22;
+  }
+
+  .devotionText {
+    line-height: 1.35;
+  }
 .videoDevotionSpacing {
   margin-top: clamp(0.75rem, 2.2cqw, 1rem);
   margin-bottom: clamp(0.4rem, 1.4cqw, 0.7rem);

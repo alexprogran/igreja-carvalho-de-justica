@@ -158,6 +158,13 @@
 .input[type="date"].inputError,
 .input[type="date"].inputError:focus {
   border-bottom: none;
+  -webkit-appearance: menulist-button;
+  appearance: auto;
+}
+
+.input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 1;
+  cursor: pointer;
 }
 
 .floatingLabel {
@@ -229,6 +236,20 @@
   font-size: clamp(1.05rem, 4vw, 1.1rem);
   font-weight: 700;
   cursor: pointer;
+  transition: background-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
+}
+
+.primaryButtonActive {
+  border: none;
+  background: #000000;
+  color: #ffffff;
+}
+
+.primaryButtonActive:not(:disabled):hover,
+.primaryButtonActive:not(:disabled):focus-visible {
+  background: #111111;
+  color: #ffffff;
+  transform: translateY(-1px);
 }
 
 .primaryButton:disabled {

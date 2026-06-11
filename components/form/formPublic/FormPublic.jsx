@@ -142,6 +142,7 @@ export default function Form({ campo, buttonText = "Criar Conta", onPrimaryActio
   }, [fields, formData]);
 
   const isFormValid = isFormComplete && Object.keys(validationErrors).length === 0;
+  const isReadyToPublish = isFormValid;
 
   const handleInputChange = ({ target }) => {
     const { name, value, files } = target;
@@ -170,9 +171,36 @@ export default function Form({ campo, buttonText = "Criar Conta", onPrimaryActio
     setFocusedField(name);
   };
 
+  const resetForm = () => {
+    setFormData(
+      fields.reduce(
+        (acc, field) => ({
+          ...acc,
+          [field.name]: field.type === "file" || field.type === "video" ? null : "",
+        }),
+        {}
+      )
+    );
+    setTouchedFields({});
+    setFocusedField(null);
+    setFullscreenField(null);
+    setShowPassword(false);
+  };
+
   const handlePrimaryClick = () => {
     if (!isFormValid || !onPrimaryAction) return;
-    onPrimaryAction(formData);
+
+    const maybePromise = onPrimaryAction(formData);
+    const isPromiseLike = Boolean(maybePromise && typeof maybePromise.then === "function");
+
+    if (isPromiseLike) {
+      Promise.resolve(maybePromise).finally(() => {
+        resetForm();
+      });
+      return;
+    }
+
+    resetForm();
   };
 
   return (
@@ -345,8 +373,8 @@ export default function Form({ campo, buttonText = "Criar Conta", onPrimaryActio
 
       <button
         type="button"
-        className={styles.primaryButton}
-        disabled={!isFormValid}
+        className={`${styles.primaryButton} ${isReadyToPublish ? styles.primaryButtonActive : ""}`.trim()}
+        disabled={!isReadyToPublish}
         onClick={handlePrimaryClick}
       >
         {buttonText}

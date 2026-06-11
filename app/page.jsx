@@ -10,7 +10,7 @@ export default function Home() {
   const { videoOverlay } = useVideoOverlay();
   return (
     <div className={styles.page}>
-      <DailyDevotion />
+      <DailyDevotion background={true} />
       <div className={styles.content}>
         {/* <HeaderSection /> */}
         <QuickLinks />

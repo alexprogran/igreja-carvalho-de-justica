@@ -131,13 +131,32 @@ export default function Form({ campo, buttonText = "Criar Conta", onPrimaryActio
     setFocusedField(name);
   };
 
-  const handlePrimaryClick = () => {
+  const resetForm = () => {
+    setFormData(fields.reduce((acc, field) => ({ ...acc, [field.name]: "" }), {}));
+    setTouchedFields({});
+    setFocusedField(null);
+    setShowPassword(false);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
     if (!isFormValid || !onPrimaryAction) return;
-    onPrimaryAction(formData);
+
+    const maybePromise = onPrimaryAction(formData);
+    const isPromiseLike = Boolean(maybePromise && typeof maybePromise.then === "function");
+
+    if (isPromiseLike) {
+      Promise.resolve(maybePromise).finally(() => {
+        resetForm();
+      });
+      return;
+    }
+
+    resetForm();
   };
 
   return (
-    <form className={styles.form}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       {fields.map((field) => {
         const isPasswordField = field.type === "password";
         const isConfirmField = isPasswordField && isConfirmPasswordField(field);
@@ -217,7 +236,7 @@ export default function Form({ campo, buttonText = "Criar Conta", onPrimaryActio
 
       {isFormValid ? (
         <Button
-          type="button"
+          type="submit"
           className={styles.primaryButton}
           nome={buttonText}
           backend="#000000"
@@ -226,7 +245,6 @@ export default function Form({ campo, buttonText = "Criar Conta", onPrimaryActio
           height="clamp(2.9rem, 6vw, 3.5rem)"
           fontSize="clamp(1.05rem, 4vw, 1.1rem)"
           fontWeight={700}
-          onClick={handlePrimaryClick}
         />
       ) : (
         <button type="button" className={styles.primaryButton} disabled>

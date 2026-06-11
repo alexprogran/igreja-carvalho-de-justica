@@ -125,7 +125,8 @@ export default function Form({ campo, buttonText = "Criar Conta", onPrimaryActio
 
   const isFormValid = isFormComplete && Object.keys(validationErrors).length === 0;
   const canDiscard = hasAnyCharacterChange;
-  const canSave = hasAnyCharacterChange && isFormValid;
+  const canSave = isFormValid;
+  const isReadyToSave = canSave;
 
   const handleInputChange = ({ target: { name, value } }) => {
     setFormData((current) => {
@@ -330,10 +331,12 @@ export default function Form({ campo, buttonText = "Criar Conta", onPrimaryActio
 
         <button
           type="submit"
-          className={`${styles.primaryButton} ${canSave ? styles.primaryButtonActive : ""}`.trim()}
-          disabled={!canSave}
+          className={`${styles.primaryButton} ${isReadyToSave ? styles.primaryButtonActive : ""}`.trim()}
+          disabled={!isReadyToSave}
+          aria-live="polite"
+          aria-label={isReadyToSave ? "Salvar perfil ativo" : "Salvar perfil desativado"}
         >
-          {buttonText}
+          {isReadyToSave ? `${buttonText} — pronto` : buttonText}
         </button>
       </div>
     </form>

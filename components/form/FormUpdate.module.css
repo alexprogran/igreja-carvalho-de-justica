@@ -167,6 +167,14 @@
   color: #ffffff;
 }
 
+.primaryButtonActive:not(:disabled):hover,
+.primaryButtonActive:not(:disabled):focus-visible {
+  border: none;
+  background: #000000;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
 .primaryButton:disabled {
   cursor: not-allowed;
 }
